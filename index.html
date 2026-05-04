@@ -327,11 +327,13 @@ footer { background: var(--dark); padding: 60px 60px 40px; display: grid; grid-t
   .hero-content { padding: 0 24px 60px; }
   .scroll-indicator { display: none; }
   .about { grid-template-columns: 1fr; }
-  .about-image { height: 60vw; }
+  .about-image { height: auto; aspect-ratio: 4/5; }
   .about-text { padding: 56px 24px; }
   .event-categories { padding: 70px 24px; }
   .cat-panel.active { grid-template-columns: 1fr; }
-  .cat-panel-image { display: none; }
+    .cat-panel-image img {
+    aspect-ratio: 16/9;
+  }
   .services { padding: 80px 24px; }
   .services-header { flex-direction: column; align-items: flex-start; gap: 20px; }
   .services-grid { grid-template-columns: 1fr 1fr; }
