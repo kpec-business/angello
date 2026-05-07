@@ -6,513 +6,273 @@
 <title>Angello Studio Dekoracji — Florystyka Śląsk</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400;1,500&family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=Lato:wght@300;400&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400&family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=Playfair+Display:ital,wght@0,300;0,400;1,300;1,400&display=swap" rel="stylesheet">
 <style>
 *,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
 :root{
-  --slate:#2c3a3a;
-  --slate-mid:#3d4f4f;
-  --blush:#f5ede6;
-  --blush-mid:#ede3da;
-  --off-white:#faf7f4;
-  --gold:#b8966a;
-  --gold-pale:#d4b98a;
-  --text-dark:#1e2a2a;
-  --text-mid:#4a5a5a;
-  --text-light:#7a8a8a;
-  --border-gold:rgba(184,150,106,0.3);
-  --ease-out-expo:cubic-bezier(0.16,1,0.3,1);
-  --ease-in-out:cubic-bezier(0.65,0,0.35,1);
+  --p1:#F3EEE7;--p2:#D8C7B5;--p3:#A98F7A;--p4:#8A7461;--p5:#3A312C;
+  --off-white:#F3EEE7;--blush:#EDE5DA;--blush-mid:#D8C7B5;
+  --slate:#3A312C;--slate-mid:#4a3f38;
+  --gold:#A98F7A;--gold-pale:#D8C7B5;
+  --text-dark:#3A312C;--text-mid:#8A7461;--text-light:#A98F7A;
+  --border-gold:rgba(169,143,122,0.35);
+  --ease:cubic-bezier(0.16,1,0.3,1);
 }
 html{scroll-behavior:smooth}
 body{font-family:'Lato',sans-serif;background:var(--off-white);color:var(--text-dark);overflow-x:hidden}
 .wrap{max-width:1280px;margin:0 auto;width:100%}
-
-nav{
-  position:fixed;top:0;left:0;right:0;z-index:1000;
-  background:var(--slate);display:flex;justify-content:center;align-items:center;
-  height:68px;transition:box-shadow .4s,transform .5s var(--ease-out-expo);
-}
+nav{position:fixed;top:0;left:0;right:0;z-index:1000;background:var(--slate);display:flex;justify-content:center;align-items:center;height:68px;transition:box-shadow .4s,transform .5s var(--ease)}
 nav.hide{transform:translateY(-100%)}
-nav.scrolled{box-shadow:0 2px 32px rgba(0,0,0,.22)}
-.nav-inner{
-  width:100%;max-width:1280px;
-  display:flex;justify-content:space-between;align-items:center;
-  padding:0 48px;position:relative;
-}
-.nav-enquire{
-  font-size:.65rem;letter-spacing:.22em;text-transform:uppercase;font-weight:400;
-  color:rgba(255,255,255,.75);text-decoration:none;transition:color .3s;white-space:nowrap;
-  position:relative;
-}
-.nav-enquire::after{
-  content:'';position:absolute;bottom:-2px;left:0;right:0;height:1px;
-  background:var(--gold-pale);transform:scaleX(0);transform-origin:left;
-  transition:transform .4s var(--ease-out-expo);
-}
-.nav-enquire:hover{color:var(--gold-pale)}
-.nav-enquire:hover::after{transform:scaleX(1)}
-.nav-logo{
-  position:absolute;left:50%;transform:translateX(-50%);
-  font-family:'Libre Baskerville',serif;font-size:.95rem;font-weight:400;
-  letter-spacing:.3em;text-transform:uppercase;color:#fff;text-decoration:none;
-  text-align:center;line-height:1.3;white-space:nowrap;
-  transition:opacity .3s;
-}
-.nav-logo span{display:block;font-size:.58rem;letter-spacing:.4em;color:rgba(255,255,255,.45);font-weight:400;margin-top:2px}
+nav.scrolled{box-shadow:0 2px 32px rgba(58,49,44,.28)}
+.nav-inner{width:100%;max-width:1280px;display:flex;justify-content:space-between;align-items:center;padding:0 48px;position:relative}
+.nav-logo{position:absolute;left:50%;transform:translateX(-50%);font-family:'Libre Baskerville',serif;font-size:.95rem;font-weight:400;letter-spacing:.3em;text-transform:uppercase;color:#F3EEE7;text-decoration:none;text-align:center;line-height:1.3;white-space:nowrap}
+.nav-logo span{display:block;font-size:.58rem;letter-spacing:.4em;color:rgba(243,238,231,.4);font-weight:400;margin-top:2px}
 .nav-right{display:flex;align-items:center;gap:32px}
 .nav-links{display:flex;gap:28px;list-style:none}
-.nav-links a{
-  font-size:.62rem;letter-spacing:.2em;text-transform:uppercase;font-weight:400;
-  color:rgba(255,255,255,.6);text-decoration:none;transition:color .3s;position:relative;
-}
-.nav-links a::after{
-  content:'';position:absolute;bottom:-2px;left:0;right:0;height:1px;
-  background:rgba(255,255,255,.6);transform:scaleX(0);transform-origin:right;
-  transition:transform .35s var(--ease-out-expo);
-}
-.nav-links a:hover{color:rgba(255,255,255,.95)}
+.nav-links a{font-size:.62rem;letter-spacing:.2em;text-transform:uppercase;font-weight:400;color:rgba(243,238,231,.55);text-decoration:none;transition:color .3s;position:relative}
+.nav-links a::after{content:'';position:absolute;bottom:-2px;left:0;right:0;height:1px;background:var(--p2);transform:scaleX(0);transform-origin:right;transition:transform .35s var(--ease)}
+.nav-links a:hover{color:rgba(243,238,231,.95)}
 .nav-links a:hover::after{transform:scaleX(1);transform-origin:left}
-.ham{
-  display:none;flex-direction:column;gap:5px;width:28px;
-  background:none;border:none;cursor:pointer;padding:2px;
-}
-.ham span{display:block;height:1px;background:rgba(255,255,255,.8);transition:all .4s var(--ease-out-expo)}
+.nav-cta{font-size:.62rem;letter-spacing:.2em;text-transform:uppercase;font-weight:400;color:var(--p1);text-decoration:none;padding:9px 22px;border:1px solid rgba(243,238,231,.3);transition:background .3s,border-color .3s}
+.nav-cta:hover{background:rgba(243,238,231,.1);border-color:rgba(243,238,231,.6)}
+.ham{display:none;flex-direction:column;gap:5px;width:28px;background:none;border:none;cursor:pointer;padding:2px}
+.ham span{display:block;height:1px;background:rgba(243,238,231,.8);transition:all .4s var(--ease)}
 .ham.open span:nth-child(1){transform:translateY(6px) rotate(45deg)}
 .ham.open span:nth-child(2){opacity:0;transform:scaleX(0)}
 .ham.open span:nth-child(3){transform:translateY(-6px) rotate(-45deg)}
-
-.mob-menu{
-  display:none;position:fixed;inset:0;background:var(--slate);z-index:999;
-  flex-direction:column;justify-content:center;align-items:center;
-  clip-path:inset(0 0 100% 0);transition:clip-path .6s var(--ease-out-expo);
-}
+.mob-menu{display:none;position:fixed;inset:0;background:var(--slate);z-index:999;flex-direction:column;justify-content:center;align-items:center;clip-path:inset(0 0 100% 0);transition:clip-path .6s var(--ease)}
 .mob-menu.open{clip-path:inset(0 0 0% 0)}
 .mob-menu ul{list-style:none;text-align:center}
 .mob-menu ul li{overflow:hidden}
-.mob-menu ul li a{
-  display:block;font-family:'Cormorant Garamond',serif;font-style:italic;
-  font-size:clamp(2.2rem,6vw,3.4rem);font-weight:300;color:rgba(255,255,255,.85);
-  text-decoration:none;padding:8px 0;
-  transform:translateY(110%);transition:transform .55s var(--ease-out-expo),color .3s;
-}
+.mob-menu ul li a{display:block;font-family:'Playfair Display',serif;font-style:italic;font-size:clamp(2.2rem,6vw,3.4rem);font-weight:300;color:rgba(243,238,231,.85);text-decoration:none;padding:8px 0;transform:translateY(110%);transition:transform .55s var(--ease),color .3s}
 .mob-menu.open ul li:nth-child(1) a{transform:translateY(0);transition-delay:.15s}
 .mob-menu.open ul li:nth-child(2) a{transform:translateY(0);transition-delay:.22s}
 .mob-menu.open ul li:nth-child(3) a{transform:translateY(0);transition-delay:.29s}
 .mob-menu.open ul li:nth-child(4) a{transform:translateY(0);transition-delay:.36s}
-.mob-menu ul li a:hover{color:var(--gold-pale)}
-.mob-footer{
-  position:absolute;bottom:44px;font-size:.62rem;letter-spacing:.24em;
-  text-transform:uppercase;color:rgba(255,255,255,.3);
-  opacity:0;transform:translateY(12px);
-  transition:opacity .5s .5s ease,transform .5s .5s ease;
-}
+.mob-menu.open ul li:nth-child(5) a{transform:translateY(0);transition-delay:.43s}
+.mob-menu ul li a:hover{color:var(--p2)}
+.mob-footer{position:absolute;bottom:44px;font-size:.62rem;letter-spacing:.24em;text-transform:uppercase;color:rgba(243,238,231,.28);opacity:0;transform:translateY(12px);transition:opacity .5s .5s ease,transform .5s .5s ease}
 .mob-menu.open .mob-footer{opacity:1;transform:translateY(0)}
-
-.hero{
-  position:relative;height:100vh;min-height:580px;
-  display:flex;align-items:center;justify-content:center;overflow:hidden;
-}
-.hero-bg{
-  position:absolute;inset:0;
-  background:url('zdj2.JPG') center/cover no-repeat;
-  will-change:transform;
-}
-.hero-overlay{
-  position:absolute;inset:0;
-  background:linear-gradient(to bottom,rgba(28,38,38,.55) 0%,rgba(28,38,38,.35) 50%,rgba(28,38,38,.62) 100%);
-}
-.hero-content{
-  position:relative;z-index:2;text-align:center;padding:0 32px;max-width:880px;
-}
-.hero-script{
-  font-family:'Cormorant Garamond',serif;font-style:italic;font-weight:300;
-  font-size:clamp(2rem,4.5vw,3.4rem);color:rgba(255,255,255,.9);
-  line-height:1.2;overflow:hidden;
-}
-.hero-script-inner{
-  display:block;
-  transform:translateY(100%);
-  transition:transform 1.1s var(--ease-out-expo);
-}
-.hero-rule{
-  width:0;height:1px;background:rgba(255,255,255,.35);margin:22px auto;
-  transition:width .9s .8s var(--ease-out-expo);
-}
-.hero-sub{
-  font-family:'Libre Baskerville',serif;font-size:.68rem;
-  letter-spacing:.38em;text-transform:uppercase;font-weight:400;
-  color:rgba(255,255,255,.6);margin-bottom:52px;
-  opacity:0;transform:translateY(16px);
-  transition:opacity .8s 1s ease,transform .8s 1s var(--ease-out-expo);
-}
-.hero-btns{
-  display:flex;justify-content:center;gap:16px;flex-wrap:wrap;
-  opacity:0;transform:translateY(16px);
-  transition:opacity .8s 1.2s ease,transform .8s 1.2s var(--ease-out-expo);
-}
+.hero{position:relative;height:100vh;min-height:580px;display:flex;align-items:center;justify-content:center;overflow:hidden}
+.hero-bg{position:absolute;inset:0;background:url('zdj2.JPG') center/cover no-repeat;will-change:transform}
+.hero-overlay{position:absolute;inset:0;background:linear-gradient(to bottom,rgba(58,49,44,.52) 0%,rgba(58,49,44,.30) 50%,rgba(58,49,44,.62) 100%)}
+.hero-content{position:relative;z-index:2;text-align:center;padding:0 32px;max-width:900px}
+.hero-script{font-family:'Playfair Display',serif;font-style:italic;font-weight:300;font-size:clamp(2.2rem,5vw,4rem);color:rgba(243,238,231,.94);line-height:1.18;overflow:hidden}
+.hero-script-inner{display:block;transform:translateY(100%);transition:transform 1.1s var(--ease)}
+.hero-rule{width:0;height:1px;background:rgba(243,238,231,.35);margin:24px auto;transition:width .9s .8s var(--ease)}
+.hero-sub{font-family:'Libre Baskerville',serif;font-size:.68rem;letter-spacing:.38em;text-transform:uppercase;font-weight:400;color:rgba(243,238,231,.58);margin-bottom:56px;opacity:0;transform:translateY(16px);transition:opacity .8s 1s ease,transform .8s 1s var(--ease)}
+.hero-btns{display:flex;justify-content:center;gap:16px;flex-wrap:wrap;opacity:0;transform:translateY(16px);transition:opacity .8s 1.2s ease,transform .8s 1.2s var(--ease)}
 .hero-loaded .hero-script-inner{transform:translateY(0)}
-.hero-loaded .hero-rule{width:60px}
+.hero-loaded .hero-rule{width:64px}
 .hero-loaded .hero-sub{opacity:1;transform:translateY(0)}
 .hero-loaded .hero-btns{opacity:1;transform:translateY(0)}
-
-.btn-white{
-  display:inline-flex;align-items:center;gap:10px;
-  padding:14px 38px;background:#fff;border:1px solid #fff;
-  font-size:.64rem;letter-spacing:.26em;text-transform:uppercase;font-weight:400;
-  color:var(--slate);text-decoration:none;
-  transition:background .4s,border-color .4s,transform .3s;
-}
-.btn-white:hover{background:var(--blush);border-color:var(--blush);transform:translateY(-2px)}
-.btn-ghost{
-  display:inline-flex;align-items:center;gap:10px;
-  padding:14px 38px;background:transparent;border:1px solid rgba(255,255,255,.5);
-  font-size:.64rem;letter-spacing:.26em;text-transform:uppercase;font-weight:400;
-  color:#fff;text-decoration:none;
-  transition:border-color .4s,background .4s,transform .3s;
-}
-.btn-ghost:hover{border-color:#fff;background:rgba(255,255,255,.08);transform:translateY(-2px)}
-.btn-slate{
-  display:inline-flex;align-items:center;gap:12px;
-  padding:14px 40px;background:var(--slate);border:1px solid var(--slate);
-  font-size:.64rem;letter-spacing:.26em;text-transform:uppercase;font-weight:400;
-  color:#fff;text-decoration:none;
-  transition:background .4s,transform .3s;position:relative;overflow:hidden;
-}
-.btn-slate::before{
-  content:'';position:absolute;inset:0;background:var(--slate-mid);
-  transform:translateX(-101%);transition:transform .45s var(--ease-out-expo);
-}
-.btn-slate:hover::before{transform:translateX(0)}
-.btn-slate:hover{transform:translateY(-2px)}
-.btn-slate span{position:relative;z-index:1}
-.btn-enquire{
-  display:inline-flex;align-items:center;gap:12px;align-self:flex-start;
-  padding:14px 38px;background:var(--slate);border:1px solid var(--slate);
-  font-size:.64rem;letter-spacing:.26em;text-transform:uppercase;font-weight:400;
-  color:#fff;text-decoration:none;
-  position:relative;overflow:hidden;transition:transform .3s;
-}
-.btn-enquire::before{
-  content:'';position:absolute;inset:0;background:var(--slate-mid);
-  transform:translateX(-101%);transition:transform .45s var(--ease-out-expo);
-}
-.btn-enquire:hover::before{transform:translateX(0)}
-.btn-enquire:hover{transform:translateY(-2px)}
-.btn-enquire span{position:relative;z-index:1}
-
-.hero-scroll{
-  position:absolute;bottom:36px;left:50%;transform:translateX(-50%);
-  display:flex;flex-direction:column;align-items:center;gap:10px;
-  opacity:0;transition:opacity .8s 1.6s ease;
-}
+.btn-primary{display:inline-flex;align-items:center;gap:12px;padding:16px 42px;background:var(--p1);border:1px solid var(--p1);font-size:.64rem;letter-spacing:.28em;text-transform:uppercase;font-weight:400;color:var(--slate);text-decoration:none;transition:background .4s,border-color .4s,transform .3s}
+.btn-primary:hover{background:var(--p2);border-color:var(--p2);transform:translateY(-2px)}
+.btn-ghost{display:inline-flex;align-items:center;gap:10px;padding:16px 42px;background:transparent;border:1px solid rgba(243,238,231,.45);font-size:.64rem;letter-spacing:.28em;text-transform:uppercase;font-weight:400;color:var(--p1);text-decoration:none;transition:border-color .4s,background .4s,transform .3s}
+.btn-ghost:hover{border-color:var(--p1);background:rgba(243,238,231,.1);transform:translateY(-2px)}
+.btn-dark{display:inline-flex;align-items:center;gap:12px;padding:15px 40px;background:var(--slate);border:1px solid var(--slate);font-size:.64rem;letter-spacing:.28em;text-transform:uppercase;font-weight:400;color:var(--p1);text-decoration:none;position:relative;overflow:hidden;transition:transform .3s}
+.btn-dark::before{content:'';position:absolute;inset:0;background:var(--slate-mid);transform:translateX(-101%);transition:transform .45s var(--ease)}
+.btn-dark:hover::before{transform:translateX(0)}
+.btn-dark:hover{transform:translateY(-2px)}
+.btn-dark span{position:relative;z-index:1}
+.btn-warm{display:inline-flex;align-items:center;gap:12px;padding:16px 42px;background:var(--p3);border:1px solid var(--p3);font-size:.64rem;letter-spacing:.28em;text-transform:uppercase;font-weight:400;color:var(--p1);text-decoration:none;position:relative;overflow:hidden;transition:transform .3s}
+.btn-warm::before{content:'';position:absolute;inset:0;background:var(--p4);transform:translateX(-101%);transition:transform .45s var(--ease)}
+.btn-warm:hover::before{transform:translateX(0)}
+.btn-warm:hover{transform:translateY(-2px)}
+.btn-warm span{position:relative;z-index:1}
+.hero-scroll{position:absolute;bottom:36px;left:50%;transform:translateX(-50%);display:flex;flex-direction:column;align-items:center;gap:10px;opacity:0;transition:opacity .8s 1.6s ease}
 .hero-loaded .hero-scroll{opacity:1}
-.scroll-line{
-  width:1px;height:48px;
-  background:linear-gradient(to bottom,transparent,rgba(255,255,255,.5));
-  animation:scrollDrop 2s 2s infinite;
-}
-@keyframes scrollDrop{
-  0%{transform:scaleY(0);transform-origin:top;opacity:1}
-  50%{transform:scaleY(1);transform-origin:top;opacity:1}
-  51%{transform:scaleY(1);transform-origin:bottom}
-  100%{transform:scaleY(0);transform-origin:bottom;opacity:0}
-}
-.scroll-txt{font-size:.54rem;letter-spacing:.3em;text-transform:uppercase;color:rgba(255,255,255,.38);writing-mode:vertical-rl}
-
-.ticker{background:var(--slate);overflow:hidden;white-space:nowrap;padding:12px 0;border-top:1px solid rgba(255,255,255,.04)}
-.ticker-track{display:inline-flex;animation:ticker 32s linear infinite}
+.scroll-line{width:1px;height:48px;background:linear-gradient(to bottom,transparent,rgba(243,238,231,.5));animation:scrollDrop 2s 2s infinite}
+@keyframes scrollDrop{0%{transform:scaleY(0);transform-origin:top;opacity:1}50%{transform:scaleY(1);transform-origin:top;opacity:1}51%{transform:scaleY(1);transform-origin:bottom}100%{transform:scaleY(0);transform-origin:bottom;opacity:0}}
+.scroll-txt{font-size:.54rem;letter-spacing:.3em;text-transform:uppercase;color:rgba(243,238,231,.35);writing-mode:vertical-rl}
+.ticker{background:var(--slate);overflow:hidden;white-space:nowrap;padding:13px 0;border-top:1px solid rgba(243,238,231,.05)}
+.ticker-track{display:inline-flex;animation:ticker 34s linear infinite}
 .ticker-track:hover{animation-play-state:paused}
-.ticker-track span{font-family:'Cormorant Garamond',serif;font-style:italic;font-size:.85rem;color:rgba(255,255,255,.4);letter-spacing:.1em;padding:0 36px;transition:color .3s}
-.ticker-track span:not(.sep):hover{color:var(--gold-pale)}
-.ticker-track .sep{color:rgba(255,255,255,.16);font-style:normal;padding:0}
+.ticker-track span{font-family:'Playfair Display',serif;font-style:italic;font-size:.9rem;color:rgba(243,238,231,.36);letter-spacing:.08em;padding:0 36px;transition:color .3s}
+.ticker-track span:not(.sep):hover{color:var(--p2)}
+.ticker-track .sep{color:rgba(243,238,231,.14);font-style:normal;padding:0}
 @keyframes ticker{to{transform:translateX(-50%)}}
-
-.eyebrow{
-  display:block;font-size:.6rem;letter-spacing:.38em;text-transform:uppercase;
-  font-weight:400;color:var(--text-light);margin-bottom:14px;
-  overflow:hidden;
-}
-.eyebrow-inner{
-  display:block;transform:translateY(110%);
-  transition:transform .7s var(--ease-out-expo);
-}
+.eyebrow{display:block;font-size:.6rem;letter-spacing:.38em;text-transform:uppercase;font-weight:400;color:var(--text-light);margin-bottom:14px;overflow:hidden}
+.eyebrow-inner{display:block;transform:translateY(110%);transition:transform .7s var(--ease)}
 .in-view .eyebrow-inner{transform:translateY(0)}
-
 .split-line{overflow:hidden;display:block}
-.split-line-inner{
-  display:block;transform:translateY(108%);
-  transition:transform .85s var(--ease-out-expo);
-}
+.split-line-inner{display:block;transform:translateY(108%);transition:transform .85s var(--ease)}
 .in-view .split-line-inner{transform:translateY(0)}
-
-.fade-up{
-  opacity:0;transform:translateY(28px);
-  transition:opacity .85s ease,transform .85s var(--ease-out-expo);
-}
+.fade-up{opacity:0;transform:translateY(28px);transition:opacity .85s ease,transform .85s var(--ease)}
 .in-view .fade-up{opacity:1;transform:translateY(0)}
-.fade-up.d1{transition-delay:.12s}
-.fade-up.d2{transition-delay:.24s}
-.fade-up.d3{transition-delay:.36s}
-.fade-up.d4{transition-delay:.48s}
-.fade-up.d5{transition-delay:.60s}
-
-.line-draw{
-  display:block;transform-origin:left;transform:scaleX(0);
-  transition:transform .9s var(--ease-out-expo);
-}
+.fade-up.d1{transition-delay:.12s}.fade-up.d2{transition-delay:.24s}.fade-up.d3{transition-delay:.36s}.fade-up.d4{transition-delay:.48s}.fade-up.d5{transition-delay:.60s}
+.line-draw{display:block;transform-origin:left;transform:scaleX(0);transition:transform .9s var(--ease)}
 .in-view .line-draw{transform:scaleX(1)}
-
-.img-reveal{
-  clip-path:inset(100% 0 0 0);
-  transition:clip-path 1.1s var(--ease-out-expo);
-}
+.img-reveal{clip-path:inset(100% 0 0 0);transition:clip-path 1.1s var(--ease)}
 .in-view .img-reveal{clip-path:inset(0% 0 0 0)}
-.img-reveal img{
-  transform:scale(1.12);
-  transition:transform 1.4s var(--ease-out-expo);
-}
+.img-reveal img{transform:scale(1.12);transition:transform 1.4s var(--ease)}
 .in-view .img-reveal img{transform:scale(1)}
-
-.about-section{display:grid;grid-template-columns:1fr 1fr;min-height:84vh}
+.about-section{display:grid;grid-template-columns:1fr 1fr;min-height:86vh}
 .about-img{position:relative;overflow:hidden}
 .about-img .img-reveal{width:100%;height:100%}
 .about-img .img-reveal img{width:100%;height:100%;object-fit:cover;display:block}
-.about-text{
-  background:var(--blush);display:flex;flex-direction:column;
-  justify-content:center;padding:80px 72px 80px 64px;
-}
-.about-text h2{
-  font-family:'Cormorant Garamond',serif;font-style:italic;font-weight:300;
-  font-size:clamp(2.8rem,4vw,4.2rem);color:var(--text-dark);line-height:1.12;margin-bottom:28px;
-}
-.about-text h2 .split-line-inner{transition-delay:.1s}
-.about-text h2 .split-line:nth-child(2) .split-line-inner{transition-delay:.2s}
-.about-text h2 .split-line:nth-child(3) .split-line-inner{transition-delay:.3s}
-.about-text p{font-size:.88rem;line-height:2;color:var(--text-mid);font-weight:300;margin-bottom:16px}
+.about-text{background:var(--blush);display:flex;flex-direction:column;justify-content:center;padding:80px 72px 80px 64px}
+.about-text h2{font-family:'Playfair Display',serif;font-style:italic;font-weight:300;font-size:clamp(2.8rem,4vw,4.4rem);color:var(--text-dark);line-height:1.1;margin-bottom:28px}
+.about-text p{font-size:.88rem;line-height:2.05;color:var(--text-mid);font-weight:300;margin-bottom:16px}
 .about-tags{display:flex;gap:10px;flex-wrap:wrap;margin-top:32px}
-.tag{
-  padding:7px 16px;border:1px solid var(--border-gold);font-size:.6rem;
-  letter-spacing:.2em;text-transform:uppercase;color:var(--text-mid);
-  transition:background .35s,color .35s,border-color .35s;
-}
-.tag:hover{background:var(--gold);border-color:var(--gold);color:#fff}
-
-.find-section{background:var(--blush-mid);padding:100px 24px;text-align:center;overflow:hidden}
+.tag{padding:7px 18px;border:1px solid var(--border-gold);font-size:.6rem;letter-spacing:.2em;text-transform:uppercase;color:var(--text-mid);transition:background .35s,color .35s,border-color .35s}
+.tag:hover{background:var(--gold);border-color:var(--gold);color:var(--p1)}
+.find-section{background:var(--blush-mid);padding:110px 24px;text-align:center;overflow:hidden}
 .find-section .wrap{max-width:860px}
-.find-script{
-  font-family:'Cormorant Garamond',serif;font-style:italic;font-weight:300;
-  font-size:clamp(2.4rem,4.5vw,3.8rem);color:var(--text-dark);line-height:1.15;margin-bottom:18px;
-}
-.find-rule{width:52px;height:1px;background:var(--slate);margin:0 auto 18px}
+.find-script{font-family:'Playfair Display',serif;font-style:italic;font-weight:300;font-size:clamp(2.4rem,4.5vw,4rem);color:var(--text-dark);line-height:1.15;margin-bottom:18px}
+.find-rule{width:52px;height:1px;background:var(--p4);margin:0 auto 18px}
 .find-subtitle{font-family:'Libre Baskerville',serif;font-size:.66rem;letter-spacing:.38em;text-transform:uppercase;color:var(--text-light);margin-bottom:22px}
-.find-body{font-size:.88rem;line-height:2;color:var(--text-mid);font-weight:300;max-width:600px;margin:0 auto 40px}
-
-.cards-section{background:var(--slate);padding:100px 24px;text-align:center;overflow:hidden}
-.cards-script{font-family:'Cormorant Garamond',serif;font-style:italic;font-weight:300;font-size:clamp(2.4rem,4.5vw,3.8rem);color:#fff;line-height:1.15;margin-bottom:16px}
-.cards-rule{width:52px;height:1px;background:rgba(255,255,255,.25);margin:0 auto 18px}
-.cards-subtitle{font-family:'Libre Baskerville',serif;font-size:.66rem;letter-spacing:.38em;text-transform:uppercase;color:rgba(255,255,255,.4);margin-bottom:18px}
-.cards-body{font-size:.88rem;line-height:2;color:rgba(255,255,255,.55);font-weight:300;max-width:640px;margin:0 auto 56px}
-.cards-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;text-align:left}
-.card{
-  background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.07);overflow:hidden;
-  transform:translateY(40px);opacity:0;
-  transition:transform .85s var(--ease-out-expo),opacity .85s ease,border-color .35s,box-shadow .35s;
-}
+.find-body{font-size:.88rem;line-height:2.05;color:var(--text-mid);font-weight:300;max-width:600px;margin:0 auto 44px}
+.cta-banner{background:var(--slate);padding:90px 24px;text-align:center;overflow:hidden}
+.cta-banner .wrap{max-width:860px}
+.cta-eyebrow{display:block;font-size:.6rem;letter-spacing:.38em;text-transform:uppercase;font-weight:400;color:rgba(243,238,231,.3);margin-bottom:14px;overflow:hidden}
+.cta-eyebrow-inner{display:block;transform:translateY(110%);transition:transform .7s var(--ease)}
+.in-view .cta-eyebrow-inner{transform:translateY(0)}
+.cta-title{font-family:'Playfair Display',serif;font-style:italic;font-weight:300;font-size:clamp(2rem,3.8vw,3.4rem);color:var(--p1);line-height:1.2;margin-bottom:20px}
+.cta-body{font-size:.86rem;line-height:2;color:rgba(243,238,231,.5);font-weight:300;max-width:540px;margin:0 auto 44px}
+.cta-btns{display:flex;justify-content:center;gap:14px;flex-wrap:wrap}
+.cards-section{background:var(--off-white);padding:110px 24px;overflow:hidden}
+.cards-head{text-align:center;margin-bottom:64px}
+.cards-script{font-family:'Playfair Display',serif;font-style:italic;font-weight:300;font-size:clamp(2.4rem,4.5vw,4rem);color:var(--text-dark);line-height:1.15;margin-bottom:16px}
+.cards-rule{width:52px;height:1px;background:var(--p4);margin:0 auto 18px}
+.cards-subtitle{font-family:'Libre Baskerville',serif;font-size:.66rem;letter-spacing:.38em;text-transform:uppercase;color:var(--text-light);margin-bottom:18px}
+.cards-body{font-size:.88rem;line-height:2;color:var(--text-mid);font-weight:300;max-width:560px;margin:0 auto}
+.cards-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px}
+.card{background:var(--blush);border:1px solid transparent;overflow:hidden;transform:translateY(40px);opacity:0;transition:transform .85s var(--ease),opacity .85s ease,border-color .35s,box-shadow .35s}
 .card.in-view-card{transform:translateY(0);opacity:1}
-.card:hover{border-color:rgba(255,255,255,.18);box-shadow:0 12px 48px rgba(0,0,0,.25)}
+.card:hover{border-color:var(--border-gold);box-shadow:0 12px 48px rgba(58,49,44,.12)}
 .card-img{overflow:hidden;aspect-ratio:4/3}
-.card-img img{width:100%;height:100%;object-fit:cover;display:block;transition:transform .8s var(--ease-out-expo)}
+.card-img img{width:100%;height:100%;object-fit:cover;display:block;transition:transform .8s var(--ease)}
 .card:hover .card-img img{transform:scale(1.07)}
-.card-body{padding:22px 26px 28px}
-.card-body h3{font-family:'Libre Baskerville',serif;font-size:1rem;font-weight:400;color:#fff;margin-bottom:10px;line-height:1.3}
-.card-body p{font-size:.78rem;color:rgba(255,255,255,.48);font-weight:300;line-height:1.85}
-.card-link{
-  display:inline-flex;align-items:center;gap:8px;margin-top:14px;
-  font-size:.6rem;letter-spacing:.2em;text-transform:uppercase;
-  color:var(--gold-pale);text-decoration:none;
-  transition:gap .35s var(--ease-out-expo),color .3s;
-}
-.card-link .arr{display:inline-block;transition:transform .35s var(--ease-out-expo)}
-.card:hover .card-link{gap:14px;color:var(--gold-pale)}
+.card-body{padding:24px 28px 30px}
+.card-body h3{font-family:'Libre Baskerville',serif;font-size:1rem;font-weight:400;color:var(--text-dark);margin-bottom:10px;line-height:1.35}
+.card-body p{font-size:.78rem;color:var(--text-mid);font-weight:300;line-height:1.9}
+.card-link{display:inline-flex;align-items:center;gap:8px;margin-top:16px;font-size:.6rem;letter-spacing:.2em;text-transform:uppercase;color:var(--p4);text-decoration:none;transition:gap .35s var(--ease)}
+.card-link .arr{display:inline-block;transition:transform .35s var(--ease)}
+.card:hover .card-link{gap:14px}
 .card:hover .card-link .arr{transform:translateX(4px)}
-
-.tabs-section{padding:100px 24px;background:var(--off-white);overflow:hidden}
-.tabs-header{text-align:center;margin-bottom:60px}
-.tabs-header h2{font-family:'Cormorant Garamond',serif;font-style:italic;font-weight:300;font-size:clamp(2.4rem,4vw,3.8rem);color:var(--text-dark);line-height:1.15}
+.tabs-section{padding:110px 24px;background:var(--blush);overflow:hidden}
+.tabs-header{text-align:center;margin-bottom:64px}
+.tabs-header h2{font-family:'Playfair Display',serif;font-style:italic;font-weight:300;font-size:clamp(2.4rem,4vw,4rem);color:var(--text-dark);line-height:1.15}
 .tabs-header p{font-size:.86rem;color:var(--text-light);font-weight:300;margin-top:14px;line-height:1.9}
-.tabs-nav{display:flex;justify-content:center;flex-wrap:wrap;border-bottom:1px solid rgba(44,58,58,.1);margin-bottom:52px;position:relative}
-.tab-btn{
-  padding:14px 26px;font-size:.62rem;letter-spacing:.22em;text-transform:uppercase;
-  font-weight:400;color:var(--text-mid);background:none;border:none;cursor:pointer;
-  position:relative;transition:color .3s;white-space:nowrap;
-}
-.tab-indicator{
-  position:absolute;bottom:-1px;height:1px;background:var(--slate);
-  transition:left .4s var(--ease-out-expo),width .4s var(--ease-out-expo);
-  pointer-events:none;
-}
+.tabs-nav{display:flex;justify-content:center;flex-wrap:wrap;border-bottom:1px solid rgba(138,116,97,.18);margin-bottom:56px;position:relative}
+.tab-btn{padding:15px 26px;font-size:.62rem;letter-spacing:.22em;text-transform:uppercase;font-weight:400;color:var(--text-mid);background:none;border:none;cursor:pointer;position:relative;transition:color .3s;white-space:nowrap}
+.tab-indicator{position:absolute;bottom:-1px;height:1px;background:var(--slate);transition:left .4s var(--ease),width .4s var(--ease);pointer-events:none}
 .tab-btn.active{color:var(--text-dark)}
 .tab-btn:hover{color:var(--slate)}
-.tab-panel{display:none;animation:tabIn .55s var(--ease-out-expo) both}
+.tab-panel{display:none;animation:tabIn .55s var(--ease) both}
 @keyframes tabIn{from{opacity:0;transform:translateY(18px)}to{opacity:1;transform:translateY(0)}}
 .tab-panel.active{display:grid;grid-template-columns:1fr 1fr;gap:72px;align-items:start}
-.tp-text h3{font-family:'Cormorant Garamond',serif;font-style:italic;font-weight:300;font-size:2.1rem;color:var(--text-dark);margin-bottom:18px;line-height:1.2}
-.tp-text p{font-size:.86rem;line-height:2;color:var(--text-mid);font-weight:300;margin-bottom:14px}
+.tp-text h3{font-family:'Playfair Display',serif;font-style:italic;font-weight:300;font-size:2.2rem;color:var(--text-dark);margin-bottom:18px;line-height:1.2}
+.tp-text p{font-size:.86rem;line-height:2.05;color:var(--text-mid);font-weight:300;margin-bottom:14px}
 .svc-list{margin-top:22px}
 .svc-list h4{font-size:.58rem;letter-spacing:.3em;text-transform:uppercase;color:var(--text-light);margin-bottom:12px}
 .svc-list ul{list-style:none;display:grid;grid-template-columns:1fr 1fr;gap:6px 20px}
-.svc-list ul li{
-  font-size:.82rem;color:var(--text-mid);font-weight:300;padding-left:12px;
-  position:relative;line-height:1.6;
-  opacity:0;transform:translateX(-8px);
-  transition:opacity .5s ease,transform .5s var(--ease-out-expo);
-}
+.svc-list ul li{font-size:.82rem;color:var(--text-mid);font-weight:300;padding-left:12px;position:relative;line-height:1.65;opacity:0;transform:translateX(-8px);transition:opacity .5s ease,transform .5s var(--ease)}
 .svc-list ul li.li-visible{opacity:1;transform:translateX(0)}
-.svc-list ul li::before{content:'—';position:absolute;left:0;color:var(--text-light);font-size:.6rem;top:4px}
+.svc-list ul li::before{content:'—';position:absolute;left:0;color:var(--p3);font-size:.6rem;top:4px}
 .tp-img{overflow:hidden;position:relative}
-.tp-img img{width:100%;aspect-ratio:3/4;object-fit:cover;display:block;transition:transform .8s var(--ease-out-expo)}
+.tp-img img{width:100%;aspect-ratio:3/4;object-fit:cover;display:block;transition:transform .8s var(--ease)}
 .tp-img:hover img{transform:scale(1.04)}
-.tp-img::after{
-  content:'';position:absolute;inset:0;background:var(--off-white);
-  transform-origin:top;transform:scaleY(0);
-  transition:transform .7s var(--ease-out-expo);
-  pointer-events:none;
-}
-.tp-img.entering::after{transform:scaleY(1);transform-origin:top}
-.tp-img.entering-done::after{transform:scaleY(0);transform-origin:bottom}
-
-.gallery-section{padding:0 0 100px;background:var(--off-white)}
-.gallery-head{padding:100px 24px 64px;text-align:center}
+.gallery-section{padding:0 0 110px;background:var(--off-white)}
+.gallery-head{padding:110px 24px 68px;text-align:center}
 .mosaic{display:grid;grid-template-columns:repeat(12,1fr);gap:4px;padding:0 4px}
 .mi{overflow:hidden;position:relative}
-.mi .mi-img{
-  width:100%;height:100%;display:block;
-  clip-path:inset(0 0 100% 0);
-  transition:clip-path 1s var(--ease-out-expo);
-}
+.mi .mi-img{width:100%;height:100%;display:block;clip-path:inset(0 0 100% 0);transition:clip-path 1s var(--ease)}
 .mi.mi-visible .mi-img{clip-path:inset(0 0 0% 0)}
-.mi .mi-img img{
-  width:100%;height:100%;object-fit:cover;display:block;
-  transform:scale(1.1);
-  transition:transform 1.3s var(--ease-out-expo);
-}
+.mi .mi-img img{width:100%;height:100%;object-fit:cover;display:block;transform:scale(1.1);transition:transform 1.3s var(--ease)}
 .mi.mi-visible .mi-img img{transform:scale(1)}
 .mi:hover .mi-img img{transform:scale(1.06)!important}
-.mi-lbl{
-  position:absolute;bottom:0;left:0;right:0;padding:18px 20px;
-  background:linear-gradient(transparent,rgba(28,38,38,.68));
-  font-size:.56rem;letter-spacing:.2em;text-transform:uppercase;
-  color:rgba(255,255,255,.75);
-  opacity:0;transform:translateY(8px);
-  transition:opacity .4s,transform .4s;
-}
+.mi-lbl{position:absolute;bottom:0;left:0;right:0;padding:20px;background:linear-gradient(transparent,rgba(58,49,44,.68));font-size:.56rem;letter-spacing:.2em;text-transform:uppercase;color:rgba(243,238,231,.82);opacity:0;transform:translateY(8px);transition:opacity .4s,transform .4s}
 .mi:hover .mi-lbl{opacity:1;transform:translateY(0)}
-.mi1{grid-column:1/6;grid-row:1;aspect-ratio:4/5}
-.mi2{grid-column:6/9;grid-row:1;aspect-ratio:3/5}
-.mi3{grid-column:9/13;grid-row:1;aspect-ratio:4/5}
-.mi4{grid-column:1/5;grid-row:2;aspect-ratio:4/3}
-.mi5{grid-column:5/9;grid-row:2;aspect-ratio:4/3}
-.mi6{grid-column:9/13;grid-row:2;aspect-ratio:4/3}
-
-.quote-section{
-  padding:100px 24px;background:var(--blush-mid);
-  display:flex;flex-direction:column;align-items:center;text-align:center;
-  overflow:hidden;
-}
-.quote-vert{
-  width:1px;height:0;background:linear-gradient(to bottom,transparent,var(--slate));
-  margin:0 auto 44px;
-  transition:height 1s .2s var(--ease-out-expo);
-}
-.in-view .quote-vert{height:64px}
-.quote-section blockquote{
-  font-family:'Cormorant Garamond',serif;font-style:italic;font-weight:300;
-  font-size:clamp(1.5rem,2.4vw,2.4rem);color:var(--text-dark);max-width:720px;
-  line-height:1.65;margin-bottom:32px;
-}
-.quote-section blockquote::before{content:'\201C';font-size:3.5rem;color:var(--text-light);line-height:0;vertical-align:-.38em;margin-right:4px}
-.quote-section blockquote::after{content:'\201D';font-size:3.5rem;color:var(--text-light);line-height:0;vertical-align:-.38em;margin-left:4px}
+.mi1{grid-column:1/6;grid-row:1;aspect-ratio:4/5}.mi2{grid-column:6/9;grid-row:1;aspect-ratio:3/5}.mi3{grid-column:9/13;grid-row:1;aspect-ratio:4/5}.mi4{grid-column:1/5;grid-row:2;aspect-ratio:4/3}.mi5{grid-column:5/9;grid-row:2;aspect-ratio:4/3}.mi6{grid-column:9/13;grid-row:2;aspect-ratio:4/3}
+.quote-section{padding:110px 24px;background:var(--blush-mid);display:flex;flex-direction:column;align-items:center;text-align:center;overflow:hidden}
+.quote-vert{width:1px;height:0;background:linear-gradient(to bottom,transparent,var(--p4));margin:0 auto 48px;transition:height 1s .2s var(--ease)}
+.in-view .quote-vert{height:72px}
+.quote-section blockquote{font-family:'Playfair Display',serif;font-style:italic;font-weight:300;font-size:clamp(1.5rem,2.4vw,2.5rem);color:var(--text-dark);max-width:740px;line-height:1.65;margin-bottom:32px}
+.quote-section blockquote::before{content:'\201C';font-size:3.5rem;color:var(--p3);line-height:0;vertical-align:-.38em;margin-right:4px}
+.quote-section blockquote::after{content:'\201D';font-size:3.5rem;color:var(--p3);line-height:0;vertical-align:-.38em;margin-left:4px}
 .quote-author{font-size:.62rem;letter-spacing:.26em;text-transform:uppercase;color:var(--text-light);font-weight:400}
-
-.contact-section{display:grid;grid-template-columns:1fr 1fr;min-height:76vh}
+.booking-section{background:var(--off-white);padding:110px 24px;overflow:hidden}
+.booking-inner{max-width:1100px;margin:0 auto;display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:start}
+.booking-text h2{font-family:'Playfair Display',serif;font-style:italic;font-weight:300;font-size:clamp(2.2rem,3.5vw,3.4rem);color:var(--text-dark);line-height:1.15;margin-bottom:20px}
+.booking-text>p{font-size:.88rem;line-height:2.05;color:var(--text-mid);font-weight:300;margin-bottom:32px}
+.booking-benefits{list-style:none;display:flex;flex-direction:column;gap:16px;margin-bottom:40px}
+.booking-benefits li{display:flex;align-items:flex-start;gap:16px;font-size:.84rem;color:var(--text-mid);font-weight:300;line-height:1.7}
+.booking-benefits li::before{content:'';display:block;width:5px;height:5px;border-radius:50%;background:var(--p3);margin-top:8px;flex-shrink:0}
+.booking-note{padding:22px 24px;border-left:2px solid var(--p3);background:var(--blush)}
+.booking-note p{font-size:.8rem;color:var(--text-mid);font-weight:300;line-height:1.85}
+.booking-note strong{color:var(--text-dark);font-weight:400}
+.booking-form-wrap{background:var(--blush);padding:44px 40px}
+.form-title{font-family:'Playfair Display',serif;font-style:italic;font-weight:300;font-size:1.7rem;color:var(--text-dark);margin-bottom:6px;line-height:1.2}
+.form-subtitle{font-size:.72rem;letter-spacing:.24em;text-transform:uppercase;color:var(--text-light);margin-bottom:32px}
+.form-row{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-bottom:0}
+.form-group{display:flex;flex-direction:column;gap:7px;margin-bottom:16px}
+.form-group label{font-size:.6rem;letter-spacing:.24em;text-transform:uppercase;color:var(--text-light);font-weight:400}
+.form-group input,.form-group select,.form-group textarea{background:var(--off-white);border:1px solid var(--border-gold);padding:13px 16px;font-size:.84rem;color:var(--text-dark);font-family:'Lato',sans-serif;font-weight:300;outline:none;transition:border-color .3s,box-shadow .3s;appearance:none;-webkit-appearance:none;border-radius:0}
+.form-group input:focus,.form-group select:focus,.form-group textarea:focus{border-color:var(--p4);box-shadow:0 0 0 3px rgba(138,116,97,.1)}
+.form-group input::placeholder,.form-group textarea::placeholder{color:rgba(138,116,97,.5)}
+.form-group textarea{resize:vertical;min-height:110px;line-height:1.75}
+.form-group select{background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%238A7461' stroke-width='1.5' fill='none' stroke-linecap='round'/%3E%3C/svg%3E");background-repeat:no-repeat;background-position:right 14px center;padding-right:36px;cursor:pointer}
+.form-group select option{background:var(--off-white);color:var(--text-dark)}
+.form-check{display:flex;align-items:flex-start;gap:12px;margin-bottom:28px}
+.form-check input[type="checkbox"]{width:16px;height:16px;border:1px solid var(--border-gold);background:var(--off-white);appearance:none;-webkit-appearance:none;cursor:pointer;flex-shrink:0;margin-top:2px;transition:background .2s,border-color .2s}
+.form-check input[type="checkbox"]:checked{background:var(--p4);border-color:var(--p4)}
+.form-check label{font-size:.78rem;color:var(--text-mid);font-weight:300;line-height:1.7;cursor:pointer}
+.form-submit{width:100%;padding:16px;background:var(--slate);border:1px solid var(--slate);font-family:'Lato',sans-serif;font-size:.64rem;letter-spacing:.28em;text-transform:uppercase;font-weight:400;color:var(--p1);cursor:pointer;position:relative;overflow:hidden;transition:transform .3s}
+.form-submit::before{content:'';position:absolute;inset:0;background:var(--slate-mid);transform:translateX(-101%);transition:transform .45s var(--ease)}
+.form-submit:hover::before{transform:translateX(0)}
+.form-submit:hover{transform:translateY(-2px)}
+.form-submit span{position:relative;z-index:1}
+.form-success{display:none;text-align:center;padding:40px 0}
+.form-success .check-icon{width:56px;height:56px;border:1px solid var(--border-gold);border-radius:50%;display:flex;align-items:center;justify-content:center;margin:0 auto 20px;font-size:1.4rem;color:var(--p3)}
+.form-success h4{font-family:'Playfair Display',serif;font-style:italic;font-weight:300;font-size:1.5rem;color:var(--text-dark);margin-bottom:10px}
+.form-success p{font-size:.84rem;color:var(--text-mid);font-weight:300;line-height:1.85}
+.contact-section{display:grid;grid-template-columns:1fr 1fr;min-height:72vh}
 .contact-img{overflow:hidden;position:relative}
 .contact-img .img-reveal{width:100%;height:100%}
 .contact-img .img-reveal img{width:100%;height:100%;object-fit:cover;display:block}
-.contact-body{
-  background:var(--off-white);display:flex;flex-direction:column;
-  justify-content:center;padding:72px 80px 72px 68px;
-}
-.contact-body h2{font-family:'Cormorant Garamond',serif;font-style:italic;font-weight:300;font-size:clamp(2rem,3vw,3rem);color:var(--text-dark);line-height:1.2;margin-bottom:10px}
+.contact-body{background:var(--blush);display:flex;flex-direction:column;justify-content:center;padding:72px 80px 72px 68px}
+.contact-body h2{font-family:'Playfair Display',serif;font-style:italic;font-weight:300;font-size:clamp(2rem,3vw,3.2rem);color:var(--text-dark);line-height:1.2;margin-bottom:10px}
 .contact-body>p{font-size:.84rem;color:var(--text-mid);font-weight:300;line-height:2;margin-bottom:40px}
 .cinfo{display:flex;flex-direction:column;gap:20px;margin-bottom:40px}
-.cinfo-row{
-  display:flex;gap:16px;align-items:flex-start;
-  opacity:0;transform:translateX(-16px);
-  transition:opacity .7s ease,transform .7s var(--ease-out-expo);
-}
+.cinfo-row{display:flex;gap:16px;align-items:flex-start;opacity:0;transform:translateX(-16px);transition:opacity .7s ease,transform .7s var(--ease)}
 .cinfo-row.ci-visible{opacity:1;transform:translateX(0)}
-.cinfo-icon{
-  width:36px;height:36px;border:1px solid var(--border-gold);
-  display:flex;align-items:center;justify-content:center;
-  flex-shrink:0;font-size:.85rem;color:var(--gold);
-  transition:background .35s,border-color .35s,color .35s;
-}
-.cinfo-row:hover .cinfo-icon{background:var(--gold);border-color:var(--gold);color:#fff}
+.cinfo-icon{width:38px;height:38px;border:1px solid var(--border-gold);display:flex;align-items:center;justify-content:center;flex-shrink:0;font-size:.85rem;color:var(--gold);transition:background .35s,border-color .35s,color .35s}
+.cinfo-row:hover .cinfo-icon{background:var(--gold);border-color:var(--gold);color:var(--p1)}
 .cinfo-lbl{display:block;font-size:.56rem;letter-spacing:.26em;text-transform:uppercase;color:var(--text-light);margin-bottom:4px}
 .cinfo-val{font-size:.84rem;color:var(--text-dark);font-weight:300;line-height:1.7}
 .cinfo-val a{color:var(--text-dark);text-decoration:none;transition:color .3s}
 .cinfo-val a:hover{color:var(--gold)}
-
-footer{background:var(--slate);padding:56px 24px 36px;display:flex;justify-content:center}
+footer{background:var(--slate);padding:60px 24px 36px;display:flex;justify-content:center}
 .footer-inner{width:100%;max-width:1280px;display:grid;grid-template-columns:1.4fr 1fr 1fr;gap:40px}
-.footer-logo{font-family:'Libre Baskerville',serif;font-size:.88rem;font-weight:400;letter-spacing:.3em;text-transform:uppercase;color:rgba(255,255,255,.82);text-decoration:none;display:block;margin-bottom:18px;line-height:1.4}
-.footer-logo small{display:block;font-size:.52rem;letter-spacing:.4em;color:rgba(255,255,255,.3);margin-top:2px}
-.footer-brand p{font-size:.78rem;color:rgba(255,255,255,.28);line-height:1.95;font-weight:300;max-width:240px}
-.footer-col h4{font-size:.56rem;letter-spacing:.32em;text-transform:uppercase;color:rgba(255,255,255,.3);margin-bottom:20px;font-weight:400}
+.footer-logo{font-family:'Libre Baskerville',serif;font-size:.88rem;font-weight:400;letter-spacing:.3em;text-transform:uppercase;color:rgba(243,238,231,.82);text-decoration:none;display:block;margin-bottom:18px;line-height:1.4}
+.footer-logo small{display:block;font-size:.52rem;letter-spacing:.4em;color:rgba(243,238,231,.28);margin-top:2px}
+.footer-brand p{font-size:.78rem;color:rgba(243,238,231,.26);line-height:1.95;font-weight:300;max-width:240px}
+.footer-col h4{font-size:.56rem;letter-spacing:.32em;text-transform:uppercase;color:rgba(243,238,231,.28);margin-bottom:20px;font-weight:400}
 .footer-col ul{list-style:none}
 .footer-col ul li{margin-bottom:10px}
-.footer-col ul li a{font-size:.78rem;color:rgba(255,255,255,.36);text-decoration:none;font-weight:300;transition:color .3s,padding-left .3s}
-.footer-col ul li a:hover{color:rgba(255,255,255,.78);padding-left:6px}
-.footer-bottom{grid-column:1/-1;border-top:1px solid rgba(255,255,255,.07);padding-top:24px;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:12px;margin-top:8px}
-.footer-bottom p{font-size:.62rem;color:rgba(255,255,255,.18);font-weight:300}
+.footer-col ul li a{font-size:.78rem;color:rgba(243,238,231,.34);text-decoration:none;font-weight:300;transition:color .3s,padding-left .3s}
+.footer-col ul li a:hover{color:rgba(243,238,231,.8);padding-left:6px}
+.footer-bottom{grid-column:1/-1;border-top:1px solid rgba(243,238,231,.07);padding-top:24px;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:12px;margin-top:8px}
+.footer-bottom p{font-size:.62rem;color:rgba(243,238,231,.18);font-weight:300}
 .awards{display:flex;gap:10px;flex-wrap:wrap}
-.award{padding:4px 12px;border:1px solid rgba(255,255,255,.1);font-size:.55rem;letter-spacing:.14em;text-transform:uppercase;color:rgba(255,255,255,.28)}
-
-@media(prefers-reduced-motion:reduce){
-  *,*::before,*::after{transition-duration:.01ms!important;animation-duration:.01ms!important}
-}
-
-@media(max-width:900px){
-  nav{height:60px}
-  .nav-inner{padding:0 20px}
-  .nav-links{display:none}
-  .ham{display:flex}
-  .mob-menu{display:flex}
-  .about-section{grid-template-columns:1fr}
-  .about-img{aspect-ratio:4/3}
-  .about-text{padding:52px 24px}
-  .find-section,.tabs-section,.gallery-section,.quote-section{padding:72px 24px}
-  .cards-section{padding:72px 24px}
-  .gallery-head{padding:72px 24px 48px}
-  .cards-grid{grid-template-columns:1fr}
-  .tab-panel.active{grid-template-columns:1fr;gap:32px}
-  .contact-section{grid-template-columns:1fr}
-  .contact-img{aspect-ratio:3/2}
-  .contact-body{padding:52px 24px}
-  footer{padding:44px 24px 28px}
-  .footer-inner{grid-template-columns:1fr}
-  .footer-bottom{flex-direction:column;text-align:center}
+.award{padding:4px 12px;border:1px solid rgba(243,238,231,.12);font-size:.55rem;letter-spacing:.14em;text-transform:uppercase;color:rgba(243,238,231,.3)}
+@media(prefers-reduced-motion:reduce){*,*::before,*::after{transition-duration:.01ms!important;animation-duration:.01ms!important}}
+@media(max-width:960px){
+  nav{height:60px}.nav-inner{padding:0 20px}.nav-links,.nav-cta{display:none}.ham{display:flex}.mob-menu{display:flex}
+  .about-section,.contact-section{grid-template-columns:1fr}.about-img,.contact-img{aspect-ratio:4/3}.about-text{padding:52px 24px}
+  .find-section,.tabs-section,.gallery-section,.quote-section,.booking-section,.cta-banner{padding:72px 24px}
+  .cards-section{padding:72px 24px}.gallery-head{padding:72px 24px 48px}.cards-grid{grid-template-columns:1fr}
+  .tab-panel.active{grid-template-columns:1fr;gap:32px}.contact-body{padding:52px 24px}
+  .booking-inner{grid-template-columns:1fr;gap:48px}.form-row{grid-template-columns:1fr}.booking-form-wrap{padding:32px 24px}
+  footer{padding:44px 24px 28px}.footer-inner{grid-template-columns:1fr}.footer-bottom{flex-direction:column;text-align:center}
   .mosaic{grid-template-columns:repeat(6,1fr)}
-  .mi1{grid-column:1/4;grid-row:1}.mi2{grid-column:4/7;grid-row:1}
-  .mi3{grid-column:1/4;grid-row:2}.mi4{grid-column:4/7;grid-row:2}
-  .mi5{grid-column:1/4;grid-row:3}.mi6{grid-column:4/7;grid-row:3}
+  .mi1{grid-column:1/4;grid-row:1}.mi2{grid-column:4/7;grid-row:1}.mi3{grid-column:1/4;grid-row:2}.mi4{grid-column:4/7;grid-row:2}.mi5{grid-column:1/4;grid-row:3}.mi6{grid-column:4/7;grid-row:3}
 }
 @media(max-width:600px){
-  .svc-list ul{grid-template-columns:1fr}
-  .hero-btns{flex-direction:column;align-items:center}
-  .tabs-nav{justify-content:flex-start;overflow-x:auto;-webkit-overflow-scrolling:touch;padding-bottom:1px}
-  .tab-btn{flex-shrink:0;padding:12px 16px;font-size:.6rem;letter-spacing:.16em}
+  .svc-list ul{grid-template-columns:1fr}.hero-btns,.cta-btns{flex-direction:column;align-items:center}
+  .tabs-nav{justify-content:flex-start;overflow-x:auto;padding-bottom:1px}.tab-btn{flex-shrink:0;padding:12px 14px;font-size:.6rem;letter-spacing:.14em}
 }
 </style>
 </head>
@@ -526,8 +286,10 @@ footer{background:var(--slate);padding:56px 24px 36px;display:flex;justify-conte
         <li><a href="#o-nas">O nas</a></li>
         <li><a href="#uslugi">Usługi</a></li>
         <li><a href="#galeria">Galeria</a></li>
+        <li><a href="#rezerwacja">Rezerwacja</a></li>
         <li><a href="#kontakt">Kontakt</a></li>
       </ul>
+      <a href="#rezerwacja" class="nav-cta">Zarezerwuj termin</a>
       <button class="ham" id="ham" aria-label="Menu"><span></span><span></span><span></span></button>
     </div>
   </div>
@@ -538,6 +300,7 @@ footer{background:var(--slate);padding:56px 24px 36px;display:flex;justify-conte
     <li><a href="#o-nas" class="ml">O nas</a></li>
     <li><a href="#uslugi" class="ml">Usługi</a></li>
     <li><a href="#galeria" class="ml">Galeria</a></li>
+    <li><a href="#rezerwacja" class="ml">Rezerwacja</a></li>
     <li><a href="#kontakt" class="ml">Kontakt</a></li>
   </ul>
   <div class="mob-footer">+48 793 032 332 · Zabrze</div>
@@ -551,43 +314,21 @@ footer{background:var(--slate);padding:56px 24px 36px;display:flex;justify-conte
     <div class="hero-rule"></div>
     <p class="hero-sub">Studio Dekoracji Kwiatowych · Zabrze · Śląsk</p>
     <div class="hero-btns">
-      <a href="#kontakt" class="btn-white">Umów konsultację</a>
+      <a href="#rezerwacja" class="btn-primary">Zarezerwuj termin</a>
       <a href="#uslugi" class="btn-ghost">Nasze usługi</a>
     </div>
   </div>
-  <div class="hero-scroll">
-    <div class="scroll-line"></div>
-    <span class="scroll-txt">Scroll</span>
-  </div>
+  <div class="hero-scroll"><div class="scroll-line"></div><span class="scroll-txt">Scroll</span></div>
 </section>
 
 <div class="ticker">
   <div class="ticker-track">
-    <span>Florystyka Ślubna</span><span class="sep">◆</span>
-    <span>Dekoracje Eventowe</span><span class="sep">◆</span>
-    <span>I Komunia Święta</span><span class="sep">◆</span>
-    <span>Bukiety Okolicznościowe</span><span class="sep">◆</span>
-    <span>Mistrz Ślubno-Weselny</span><span class="sep">◆</span>
-    <span>Kwiaciarnia Roku</span><span class="sep">◆</span>
-    <span>Dla Firm</span><span class="sep">◆</span>
-    <span>Architektura Krajobrazu</span><span class="sep">◆</span>
-    <span>Florystyka Ślubna</span><span class="sep">◆</span>
-    <span>Dekoracje Eventowe</span><span class="sep">◆</span>
-    <span>I Komunia Święta</span><span class="sep">◆</span>
-    <span>Bukiety Okolicznościowe</span><span class="sep">◆</span>
-    <span>Mistrz Ślubno-Weselny</span><span class="sep">◆</span>
-    <span>Kwiaciarnia Roku</span><span class="sep">◆</span>
-    <span>Dla Firm</span><span class="sep">◆</span>
-    <span>Architektura Krajobrazu</span><span class="sep">◆</span>
+    <span>Florystyka Ślubna</span><span class="sep">◆</span><span>Dekoracje Eventowe</span><span class="sep">◆</span><span>I Komunia Święta</span><span class="sep">◆</span><span>Bukiety Okolicznościowe</span><span class="sep">◆</span><span>Mistrz Ślubno-Weselny</span><span class="sep">◆</span><span>Kwiaciarnia Roku</span><span class="sep">◆</span><span>Dla Firm</span><span class="sep">◆</span><span>Architektura Krajobrazu</span><span class="sep">◆</span><span>Florystyka Ślubna</span><span class="sep">◆</span><span>Dekoracje Eventowe</span><span class="sep">◆</span><span>I Komunia Święta</span><span class="sep">◆</span><span>Bukiety Okolicznościowe</span><span class="sep">◆</span><span>Mistrz Ślubno-Weselny</span><span class="sep">◆</span><span>Kwiaciarnia Roku</span><span class="sep">◆</span><span>Dla Firm</span><span class="sep">◆</span><span>Architektura Krajobrazu</span><span class="sep">◆</span>
   </div>
 </div>
 
 <section class="about-section" id="o-nas">
-  <div class="about-img observe-me">
-    <div class="img-reveal">
-      <img src="zdj1.JPG" alt="Angello Studio">
-    </div>
-  </div>
+  <div class="about-img observe-me"><div class="img-reveal"><img src="zdj1.JPG" alt="Angello Studio"></div></div>
   <div class="about-text observe-me">
     <span class="eyebrow"><span class="eyebrow-inner">O nas</span></span>
     <h2>
@@ -599,10 +340,7 @@ footer{background:var(--slate);padding:56px 24px 36px;display:flex;justify-conte
     <p class="fade-up d3">Nasz zespół tworzą doświadczeni floryści i plastycy — ludzie z wielkim zaangażowaniem i pasją. Dysponujemy 14 podstawowymi rodzajami dekoracji i nieograniczoną ilością konfiguracji. Nigdy nie wykonujemy dwóch takich samych dekoracji.</p>
     <p class="fade-up d4">Priorytetem jest wysoki standard usług, dlatego kompleksowo obsługujemy tylko kilka Par Młodych w tygodniu, by każdemu zleceniu poświęcić pełne zaangażowanie.</p>
     <div class="about-tags fade-up d5">
-      <div class="tag">Florystyka ślubna</div>
-      <div class="tag">Komunia</div>
-      <div class="tag">Dla Firm</div>
-      <div class="tag">Ogrody</div>
+      <div class="tag">Florystyka ślubna</div><div class="tag">Komunia</div><div class="tag">Dla Firm</div><div class="tag">Ogrody</div>
     </div>
   </div>
 </section>
@@ -610,23 +348,34 @@ footer{background:var(--slate);padding:56px 24px 36px;display:flex;justify-conte
 <section class="find-section">
   <div class="wrap observe-me">
     <span class="eyebrow"><span class="eyebrow-inner">Nasze Studio</span></span>
-    <p class="find-script">
-      <span class="split-line"><span class="split-line-inner" style="transition-delay:.1s">Znajdź swoją wizję</span></span>
-    </p>
+    <p class="find-script"><span class="split-line"><span class="split-line-inner" style="transition-delay:.1s">Znajdź swoją wizję</span></span></p>
     <div class="find-rule line-draw" style="transition-delay:.4s"></div>
     <p class="find-subtitle fade-up d3">Piękne dekoracje w całej Polsce</p>
-    <p class="find-body fade-up d3">W Angello Studio tworzymy wyjątkowe dekoracje kwiatowe szyte na miarę dla każdego wydarzenia. Niezależnie czy szukasz kameralnej ceremonii czy wielkiego wesela — mamy idealne rozwiązanie. Skontaktuj się z nami by dowiedzieć się więcej.</p>
-    <div class="fade-up d4"><a href="#kontakt" class="btn-slate"><span>Skontaktuj się →</span></a></div>
+    <p class="find-body fade-up d3">W Angello Studio tworzymy wyjątkowe dekoracje kwiatowe szyte na miarę dla każdego wydarzenia. Niezależnie czy szukasz kameralnej ceremonii czy wielkiego wesela — mamy idealne rozwiązanie.</p>
+    <div class="fade-up d4"><a href="#rezerwacja" class="btn-dark"><span>Zarezerwuj bezpłatną konsultację →</span></a></div>
+  </div>
+</section>
+
+<section class="cta-banner">
+  <div class="wrap observe-me">
+    <span class="cta-eyebrow"><span class="cta-eyebrow-inner">Terminy na 2025 i 2026</span></span>
+    <p class="cta-title">
+      <span class="split-line" style="color:var(--p1)"><span class="split-line-inner" style="transition-delay:.08s">Twój wyjątkowy dzień</span></span>
+      <span class="split-line" style="color:var(--p1)"><span class="split-line-inner" style="transition-delay:.18s"><em>zasługuje na najlepsze dekoracje</em></span></span>
+    </p>
+    <p class="cta-body fade-up d3">Wolnych terminów ubywa. Zarezerwuj bezpłatną konsultację już dziś — razem stworzymy dekoracje, które zachwycą Twoich gości.</p>
+    <div class="cta-btns fade-up d4">
+      <a href="#rezerwacja" class="btn-warm"><span>Zarezerwuj termin →</span></a>
+      <a href="tel:+48793032332" class="btn-ghost">Zadzwoń teraz</a>
+    </div>
   </div>
 </section>
 
 <section class="cards-section" id="realizacje">
   <div class="wrap">
-    <div class="observe-me">
-      <span class="eyebrow" style="color:rgba(255,255,255,.3)"><span class="eyebrow-inner">Realizacje</span></span>
-      <p class="cards-script">
-        <span class="split-line" style="color:#fff"><span class="split-line-inner" style="transition-delay:.1s">Nasze dekoracje</span></span>
-      </p>
+    <div class="cards-head observe-me">
+      <span class="eyebrow"><span class="eyebrow-inner">Realizacje</span></span>
+      <p class="cards-script"><span class="split-line"><span class="split-line-inner" style="transition-delay:.1s">Nasze dekoracje</span></span></p>
       <div class="cards-rule line-draw" style="transition-delay:.4s"></div>
       <p class="cards-subtitle fade-up d3">Wybrane projekty Angello Studio</p>
       <p class="cards-body fade-up d3">Pracujemy niemal w każdym zakątku Polski — od morza po góry, a nawet głęboko pod ziemią w kopalni Guido w Zabrzu.</p>
@@ -634,27 +383,15 @@ footer{background:var(--slate);padding:56px 24px 36px;display:flex;justify-conte
     <div class="cards-grid">
       <div class="card" style="transition-delay:.05s">
         <div class="card-img"><img src="zdj4.JPG" alt="Wesela i śluby"></div>
-        <div class="card-body">
-          <h3>Wesela & Śluby</h3>
-          <p>Kompleksowe dekoracje sal weselnych, stołu Pary Młodej, ceremonii i plenerów.</p>
-          <a href="#uslugi" class="card-link">Dowiedz się więcej <span class="arr">→</span></a>
-        </div>
+        <div class="card-body"><h3>Wesela & Śluby</h3><p>Kompleksowe dekoracje sal weselnych, stołu Pary Młodej, ceremonii i plenerów.</p><a href="#uslugi" class="card-link">Dowiedz się więcej <span class="arr">→</span></a></div>
       </div>
       <div class="card" style="transition-delay:.18s">
         <div class="card-img"><img src="zdj5.JPG" alt="Ceremonie plenerowe"></div>
-        <div class="card-body">
-          <h3>Ceremonie Plenerowe</h3>
-          <p>Magiczne altanki, łuki kwiatowe i dekoracje przestrzeni zewnętrznych tworzące niezapomnianą atmosferę.</p>
-          <a href="#uslugi" class="card-link">Dowiedz się więcej <span class="arr">→</span></a>
-        </div>
+        <div class="card-body"><h3>Ceremonie Plenerowe</h3><p>Magiczne altanki, łuki kwiatowe i dekoracje przestrzeni zewnętrznych tworzące niezapomnianą atmosferę.</p><a href="#uslugi" class="card-link">Dowiedz się więcej <span class="arr">→</span></a></div>
       </div>
       <div class="card" style="transition-delay:.31s">
         <div class="card-img"><img src="zdj6.jpg" alt="Dekoracje kościołów"></div>
-        <div class="card-body">
-          <h3>Dekoracje Kościołów</h3>
-          <p>Wyjątkowa oprawa liturgiczna z dbałością o sakralny charakter miejsca.</p>
-          <a href="#uslugi" class="card-link">Dowiedz się więcej <span class="arr">→</span></a>
-        </div>
+        <div class="card-body"><h3>Dekoracje Kościołów</h3><p>Wyjątkowa oprawa liturgiczna z dbałością o sakralny charakter miejsca.</p><a href="#uslugi" class="card-link">Dowiedz się więcej <span class="arr">→</span></a></div>
       </div>
     </div>
   </div>
@@ -678,24 +415,12 @@ footer{background:var(--slate);padding:56px 24px 36px;display:flex;justify-conte
       <button class="tab-btn" data-tab="firmy">Dla Firm</button>
       <button class="tab-btn" data-tab="ogrod">Architektura Krajobrazu</button>
     </div>
-
     <div class="tab-panel active" id="tab-wesela">
       <div class="tp-text">
         <h3>Florystyka <em>Ślubna</em></h3>
         <p>Florystyka ślubna to główny profil naszej działalności. Wykonujemy autorskie wiązanki uwzględniając preferowaną kolorystykę Panny Młodej jak również suknię. Dekoracje zawsze z motywem przewodnim, dopasowane do charakteru i miejsca uroczystości.</p>
         <p>Pracujemy niemal w każdym zakątku Polski. Współpracujemy z najlepszymi restauratorami, fotografikami, salonami ślubnymi i stylistkami.</p>
-        <div class="svc-list">
-          <h4>Wykonujemy między innymi</h4>
-          <ul>
-            <li>Wiązanki ślubne</li><li>Przypinki dla Pana Młodego</li>
-            <li>Dekoracje sal weselnych</li><li>Dekoracje kościołów</li>
-            <li>Dekoracje sal USC</li><li>Dekoracje samochodów</li>
-            <li>Dekoracje plenerowe</li><li>Biżuteria floralna</li>
-            <li>Poduszki na obrączki</li><li>Kosze z płatkami</li>
-            <li>Wianki kwiatowe</li><li>Kwiatowe dekoracje tortów</li>
-            <li>Podziękowania dla Rodziców</li><li>Konsultacje ślubne</li>
-          </ul>
-        </div>
+        <div class="svc-list"><h4>Wykonujemy między innymi</h4><ul><li>Wiązanki ślubne</li><li>Przypinki dla Pana Młodego</li><li>Dekoracje sal weselnych</li><li>Dekoracje kościołów</li><li>Dekoracje sal USC</li><li>Dekoracje samochodów</li><li>Dekoracje plenerowe</li><li>Biżuteria floralna</li><li>Poduszki na obrączki</li><li>Kosze z płatkami</li><li>Wianki kwiatowe</li><li>Kwiatowe dekoracje tortów</li><li>Podziękowania dla Rodziców</li><li>Konsultacje ślubne</li></ul></div>
       </div>
       <div class="tp-img"><img src="zdj4.JPG" alt="Florystyka ślubna"></div>
     </div>
@@ -703,16 +428,7 @@ footer{background:var(--slate);padding:56px 24px 36px;display:flex;justify-conte
       <div class="tp-text">
         <h3>I Komunia <em>Święta</em></h3>
         <p>Piękna oprawa kwiatowa I Komunii Świętej to wyjątkowa pamiątka dla dziecka i całej rodziny. Tworzymy delikatne, eleganckie dekoracje doskonale wpisujące się w powagę i radość tego dnia.</p>
-        <div class="svc-list">
-          <h4>Wykonujemy między innymi</h4>
-          <ul>
-            <li>Wianki komunijne</li><li>Dekoracje świecy</li>
-            <li>Bukieciki i przypinki</li><li>Dekoracje kościołów</li>
-            <li>Dekoracje restauracji</li><li>Dekoracje domów</li>
-            <li>Podziękowania dla rodziców</li><li>Podziękowania dla duchownych</li>
-            <li>Podziękowania dla katechetów</li>
-          </ul>
-        </div>
+        <div class="svc-list"><h4>Wykonujemy między innymi</h4><ul><li>Wianki komunijne</li><li>Dekoracje świecy</li><li>Bukieciki i przypinki</li><li>Dekoracje kościołów</li><li>Dekoracje restauracji</li><li>Dekoracje domów</li><li>Podziękowania dla rodziców</li><li>Podziękowania dla duchownych</li><li>Podziękowania dla katechetów</li></ul></div>
       </div>
       <div class="tp-img"><img src="zdj9.jpg" alt="I Komunia Święta"></div>
     </div>
@@ -720,16 +436,7 @@ footer{background:var(--slate);padding:56px 24px 36px;display:flex;justify-conte
       <div class="tp-text">
         <h3>Kwiaty na <em>każdą okazję</em></h3>
         <p>Kocham, dziękuję, przepraszam, wyjdziesz za mnie? Kwiaty wyrażają to, czego słowa nie potrafią powiedzieć. Tworzymy wyjątkowe kompozycje przez cały rok.</p>
-        <div class="svc-list">
-          <h4>Wykonujemy między innymi</h4>
-          <ul>
-            <li>Bukiety zaręczynowe</li><li>Kompozycje w naczyniu</li>
-            <li>Nasadzenia</li><li>Kompozycje adwentowe</li>
-            <li>Kompozycje bożonarodzeniowe</li><li>Kompozycje wielkanocne</li>
-            <li>Dekoracje nagrobne</li><li>Dekoracje pogrzebowe</li>
-            <li>Artystyczne pakowanie prezentów</li>
-          </ul>
-        </div>
+        <div class="svc-list"><h4>Wykonujemy między innymi</h4><ul><li>Bukiety zaręczynowe</li><li>Kompozycje w naczyniu</li><li>Nasadzenia</li><li>Kompozycje adwentowe</li><li>Kompozycje bożonarodzeniowe</li><li>Kompozycje wielkanocne</li><li>Dekoracje nagrobne</li><li>Dekoracje pogrzebowe</li><li>Artystyczne pakowanie prezentów</li></ul></div>
       </div>
       <div class="tp-img"><img src="zdj8.jpg" alt="Kwiaty na okazje"></div>
     </div>
@@ -737,16 +444,7 @@ footer{background:var(--slate);padding:56px 24px 36px;display:flex;justify-conte
       <div class="tp-text">
         <h3>Kwiaty <em>dla Firm</em></h3>
         <p>Doskonale wiemy jak ważną rolę w pracy odgrywają rośliny. Oferujemy kwiaty do biur, recepcji, restauracji, salonów i banków. Zapewniamy cotygodniową dostawę i stałą pielęgnację roślin doniczkowych.</p>
-        <div class="svc-list">
-          <h4>Wykonujemy między innymi</h4>
-          <ul>
-            <li>Kwiatowa oprawa eventów</li><li>Kosze VIP</li>
-            <li>Serwis kwiatowy (dostawa gratis)</li><li>Aranżacje biur i recepcji</li>
-            <li>Imprezy firmowe</li><li>Aranżacje witryn sklepowych</li>
-            <li>Stoiska targowe</li><li>Bukiety reprezentacyjne</li>
-            <li>Pokazy mody i wystawiennictwo</li>
-          </ul>
-        </div>
+        <div class="svc-list"><h4>Wykonujemy między innymi</h4><ul><li>Kwiatowa oprawa eventów</li><li>Kosze VIP</li><li>Serwis kwiatowy (dostawa gratis)</li><li>Aranżacje biur i recepcji</li><li>Imprezy firmowe</li><li>Aranżacje witryn sklepowych</li><li>Stoiska targowe</li><li>Bukiety reprezentacyjne</li><li>Pokazy mody i wystawiennictwo</li></ul></div>
       </div>
       <div class="tp-img"><img src="zdj12.jpg" alt="Kwiaty dla firm"></div>
     </div>
@@ -754,15 +452,7 @@ footer{background:var(--slate);padding:56px 24px 36px;display:flex;justify-conte
       <div class="tp-text">
         <h3>Architektura <em>Krajobrazu</em></h3>
         <p>Dobrze zaaranżowany ogród, taras czy balkon stanowi idealne miejsce na wypoczynek i spotkania. Nasze projekty uwzględniają najnowsze trendy — gwarantujemy wyjątkową estetykę i perfekcyjne wykonanie.</p>
-        <div class="svc-list">
-          <h4>Wykonujemy między innymi</h4>
-          <ul>
-            <li>Aranżacje ogrodów</li><li>Aranżacje tarasów</li>
-            <li>Aranżacje balkonów</li><li>Nasadzenia sezonowe</li>
-            <li>Ogrody prywatne</li><li>Tereny publiczne</li>
-            <li>Projekty restauracyjne</li><li>Pielęgnacja zieleni</li>
-          </ul>
-        </div>
+        <div class="svc-list"><h4>Wykonujemy między innymi</h4><ul><li>Aranżacje ogrodów</li><li>Aranżacje tarasów</li><li>Aranżacje balkonów</li><li>Nasadzenia sezonowe</li><li>Ogrody prywatne</li><li>Tereny publiczne</li><li>Projekty restauracyjne</li><li>Pielęgnacja zieleni</li></ul></div>
       </div>
       <div class="tp-img"><img src="zdj11.jpg" alt="Architektura krajobrazu"></div>
     </div>
@@ -773,7 +463,7 @@ footer{background:var(--slate);padding:56px 24px 36px;display:flex;justify-conte
   <div class="gallery-head observe-me">
     <div class="wrap" style="max-width:860px">
       <span class="eyebrow"><span class="eyebrow-inner">Portfolio</span></span>
-      <h2 style="font-family:'Cormorant Garamond',serif;font-style:italic;font-weight:300;font-size:clamp(2.4rem,4vw,3.8rem);color:var(--text-dark)">
+      <h2 style="font-family:'Playfair Display',serif;font-style:italic;font-weight:300;font-size:clamp(2.4rem,4vw,4rem);color:var(--text-dark)">
         <span class="split-line"><span class="split-line-inner" style="transition-delay:.1s">Każda historia</span></span>
         <span class="split-line"><span class="split-line-inner" style="transition-delay:.22s"><em>zasługuje na piękno</em></span></span>
       </h2>
@@ -798,12 +488,63 @@ footer{background:var(--slate);padding:56px 24px 36px;display:flex;justify-conte
   </div>
 </section>
 
-<section class="contact-section" id="kontakt">
-  <div class="contact-img observe-me">
-    <div class="img-reveal">
-      <img src="zdj9.jpg" alt="Angello Studio kontakt">
+<section class="booking-section" id="rezerwacja">
+  <div class="booking-inner observe-me">
+    <div class="booking-text">
+      <span class="eyebrow"><span class="eyebrow-inner">Rezerwacja</span></span>
+      <h2>
+        <span class="split-line"><span class="split-line-inner" style="transition-delay:.08s">Zarezerwuj</span></span>
+        <span class="split-line"><span class="split-line-inner" style="transition-delay:.18s"><em>swój termin</em></span></span>
+      </h2>
+      <p class="fade-up d2">Bezpłatna konsultacja to pierwszy krok do Twojego wymarzonego dnia. Spotkamy się w naszym studio w Zabrzu lub porozmawiamy przez telefon — jak wolisz.</p>
+      <ul class="booking-benefits fade-up d3">
+        <li>Bezpłatna konsultacja bez zobowiązań</li>
+        <li>Indywidualny projekt dekoracji dopasowany do Twojej wizji</li>
+        <li>Kompleksowa obsługa od projektu po realizację</li>
+        <li>Współpraca z najlepszymi fotografami i restauratorami w regionie</li>
+        <li>Gwarancja unikalności — nie powtarzamy dekoracji</li>
+      </ul>
+      <div class="booking-note fade-up d4">
+        <p><strong>Uwaga:</strong> Przyjmujemy ograniczoną liczbę zleceń tygodniowo, by zapewnić każdej Parze Młodej pełne zaangażowanie naszego zespołu. Zalecamy rezerwację z minimum 6-miesięcznym wyprzedzeniem.</p>
+      </div>
+    </div>
+    <div class="booking-form-wrap fade-up d2">
+      <p class="form-title">Napisz do nas</p>
+      <p class="form-subtitle">Odpowiadamy w ciągu 24 godzin</p>
+      <div id="bookingForm">
+        <div class="form-row">
+          <div class="form-group"><label for="fname">Imię</label><input type="text" id="fname" placeholder="Anna"></div>
+          <div class="form-group"><label for="lname">Nazwisko</label><input type="text" id="lname" placeholder="Kowalska"></div>
+        </div>
+        <div class="form-group"><label for="email">Adres e-mail</label><input type="email" id="email" placeholder="anna@example.com"></div>
+        <div class="form-group"><label for="phone">Telefon</label><input type="tel" id="phone" placeholder="+48 000 000 000"></div>
+        <div class="form-row">
+          <div class="form-group"><label for="date">Planowana data ślubu</label><input type="date" id="date"></div>
+          <div class="form-group"><label for="service">Rodzaj usługi</label>
+            <select id="service"><option value="" disabled selected>Wybierz...</option><option>Florystyka ślubna</option><option>I Komunia Święta</option><option>Dekoracje eventowe</option><option>Kwiaty dla firm</option><option>Architektura krajobrazu</option><option>Inny</option></select>
+          </div>
+        </div>
+        <div class="form-group"><label for="guests">Przybliżona liczba gości</label>
+          <select id="guests"><option value="" disabled selected>Wybierz przedział...</option><option>Do 50 osób</option><option>50 – 100 osób</option><option>100 – 200 osób</option><option>Powyżej 200 osób</option></select>
+        </div>
+        <div class="form-group"><label for="message">Twoja wizja i dodatkowe informacje</label><textarea id="message" placeholder="Opisz swoje oczekiwania, preferowaną kolorystykę, styl dekoracji lub miejsce uroczystości..."></textarea></div>
+        <div class="form-check">
+          <input type="checkbox" id="consent">
+          <label for="consent">Wyrażam zgodę na przetwarzanie moich danych osobowych w celu odpowiedzi na zapytanie, zgodnie z Polityką Prywatności Angello Studio.</label>
+        </div>
+        <button class="form-submit" id="formSubmit" type="button"><span>Wyślij zapytanie →</span></button>
+      </div>
+      <div class="form-success" id="formSuccess">
+        <div class="check-icon">✦</div>
+        <h4>Dziękujemy za wiadomość!</h4>
+        <p>Skontaktujemy się z Tobą w ciągu 24 godzin.<br>Do zobaczenia w Angello Studio.</p>
+      </div>
     </div>
   </div>
+</section>
+
+<section class="contact-section" id="kontakt">
+  <div class="contact-img observe-me"><div class="img-reveal"><img src="zdj9.jpg" alt="Angello Studio kontakt"></div></div>
   <div class="contact-body observe-me">
     <span class="eyebrow"><span class="eyebrow-inner">Kontakt</span></span>
     <h2>
@@ -812,28 +553,13 @@ footer{background:var(--slate);padding:56px 24px 36px;display:flex;justify-conte
     </h2>
     <p class="fade-up d2">Oferujemy bezpłatne i niezobowiązujące konsultacje. Prosimy o wcześniejszą rezerwację telefoniczną. Działamy na terenie całego kraju.</p>
     <div class="cinfo">
-      <div class="cinfo-row" style="transition-delay:.1s">
-        <div class="cinfo-icon">✦</div>
-        <div><span class="cinfo-lbl">Florist Master</span><div class="cinfo-val">Angelika Ordon · Mistrz Florystyki</div></div>
-      </div>
-      <div class="cinfo-row" style="transition-delay:.2s">
-        <div class="cinfo-icon">☏</div>
-        <div><span class="cinfo-lbl">Telefon</span><div class="cinfo-val"><a href="tel:+48793032332">+48 793 032 332</a></div></div>
-      </div>
-      <div class="cinfo-row" style="transition-delay:.3s">
-        <div class="cinfo-icon">✉</div>
-        <div><span class="cinfo-lbl">Email</span><div class="cinfo-val"><a href="mailto:biuro@angello.com.pl">biuro@angello.com.pl</a></div></div>
-      </div>
-      <div class="cinfo-row" style="transition-delay:.4s">
-        <div class="cinfo-icon">◎</div>
-        <div><span class="cinfo-lbl">Studio</span><div class="cinfo-val">ul. M. Curie Skłodowskiej 10a · 41-800 Zabrze<br>obok Śląskiego Centrum Chorób Serca</div></div>
-      </div>
-      <div class="cinfo-row" style="transition-delay:.5s">
-        <div class="cinfo-icon">◷</div>
-        <div><span class="cinfo-lbl">Godziny</span><div class="cinfo-val">Pon–Pt: 7:00–18:00 · Sob: 8:00–18:00</div></div>
-      </div>
+      <div class="cinfo-row" style="transition-delay:.1s"><div class="cinfo-icon">✦</div><div><span class="cinfo-lbl">Florist Master</span><div class="cinfo-val">Angelika Ordon · Mistrz Florystyki</div></div></div>
+      <div class="cinfo-row" style="transition-delay:.2s"><div class="cinfo-icon">☏</div><div><span class="cinfo-lbl">Telefon</span><div class="cinfo-val"><a href="tel:+48793032332">+48 793 032 332</a></div></div></div>
+      <div class="cinfo-row" style="transition-delay:.3s"><div class="cinfo-icon">✉</div><div><span class="cinfo-lbl">Email</span><div class="cinfo-val"><a href="mailto:biuro@angello.com.pl">biuro@angello.com.pl</a></div></div></div>
+      <div class="cinfo-row" style="transition-delay:.4s"><div class="cinfo-icon">◎</div><div><span class="cinfo-lbl">Studio</span><div class="cinfo-val">ul. M. Curie Skłodowskiej 10a · 41-800 Zabrze<br>obok Śląskiego Centrum Chorób Serca</div></div></div>
+      <div class="cinfo-row" style="transition-delay:.5s"><div class="cinfo-icon">◷</div><div><span class="cinfo-lbl">Godziny</span><div class="cinfo-val">Pon–Pt: 7:00–18:00 · Sob: 8:00–18:00</div></div></div>
     </div>
-    <div class="fade-up d4"><a href="tel:+48793032332" class="btn-enquire"><span>Zadzwoń teraz →</span></a></div>
+    <div class="fade-up d4"><a href="tel:+48793032332" class="btn-dark"><span>Zadzwoń teraz →</span></a></div>
   </div>
 </section>
 
@@ -845,179 +571,51 @@ footer{background:var(--slate);padding:56px 24px 36px;display:flex;justify-conte
     </div>
     <div class="footer-col">
       <h4>Nawigacja</h4>
-      <ul>
-        <li><a href="#o-nas">O nas</a></li>
-        <li><a href="#uslugi">Usługi</a></li>
-        <li><a href="#galeria">Galeria</a></li>
-        <li><a href="#kontakt">Kontakt & Konsultacje</a></li>
-      </ul>
+      <ul><li><a href="#o-nas">O nas</a></li><li><a href="#uslugi">Usługi</a></li><li><a href="#galeria">Galeria</a></li><li><a href="#rezerwacja">Rezerwacja</a></li><li><a href="#kontakt">Kontakt</a></li></ul>
     </div>
     <div class="footer-col">
       <h4>Usługi</h4>
-      <ul>
-        <li><a href="#uslugi">Florystyka ślubna</a></li>
-        <li><a href="#uslugi">I Komunia Święta</a></li>
-        <li><a href="#uslugi">Kwiaty na każdą okazję</a></li>
-        <li><a href="#uslugi">Dla Firm</a></li>
-        <li><a href="#uslugi">Architektura krajobrazu</a></li>
-      </ul>
+      <ul><li><a href="#uslugi">Florystyka ślubna</a></li><li><a href="#uslugi">I Komunia Święta</a></li><li><a href="#uslugi">Kwiaty na każdą okazję</a></li><li><a href="#uslugi">Dla Firm</a></li><li><a href="#uslugi">Architektura krajobrazu</a></li></ul>
     </div>
     <div class="footer-bottom">
       <p>© 2026 Angello Studio Dekoracji · Zabrze · Stowarzyszenie Florystów Polskich · Nr konta: 24 2490 0005 0000 4500 9569 5393</p>
-      <div class="awards">
-        <div class="award">Kwiaciarnia Roku</div>
-        <div class="award">Mistrz Ślubno-Weselny</div>
-      </div>
+      <div class="awards"><div class="award">Kwiaciarnia Roku</div><div class="award">Mistrz Ślubno-Weselny</div></div>
     </div>
   </div>
 </footer>
 
 <script>
 (function(){
-
-const ease = 'cubic-bezier(0.16,1,0.3,1)';
-
-window.addEventListener('load', () => {
-  document.querySelector('.hero-content').classList.add('hero-loaded');
+window.addEventListener('load',()=>{document.querySelector('.hero-content').classList.add('hero-loaded')});
+const heroBg=document.getElementById('heroBg');
+let ticking=false;
+window.addEventListener('scroll',()=>{if(!ticking){requestAnimationFrame(()=>{const y=window.scrollY;if(heroBg&&y<window.innerHeight)heroBg.style.transform=`translateY(${y*.38}px)`;ticking=false});ticking=true}});
+const nav=document.getElementById('nav');let lastScroll=0;
+window.addEventListener('scroll',()=>{const y=window.scrollY;nav.classList.toggle('scrolled',y>40);if(y>lastScroll&&y>120)nav.classList.add('hide');else nav.classList.remove('hide');lastScroll=y});
+const ham=document.getElementById('ham'),mob=document.getElementById('mobMenu');
+ham.addEventListener('click',()=>{const o=mob.classList.toggle('open');ham.classList.toggle('open',o);document.body.style.overflow=o?'hidden':''});
+document.querySelectorAll('.ml').forEach(l=>l.addEventListener('click',()=>{mob.classList.remove('open');ham.classList.remove('open');document.body.style.overflow=''}));
+const indicator=document.getElementById('tabIndicator');
+function moveIndicator(btn){if(!indicator||!btn)return;const nR=btn.closest('.tabs-nav').getBoundingClientRect(),bR=btn.getBoundingClientRect();indicator.style.left=(bR.left-nR.left)+'px';indicator.style.width=bR.width+'px'}
+document.querySelectorAll('.tab-btn').forEach(btn=>{btn.addEventListener('click',()=>{document.querySelectorAll('.tab-btn').forEach(b=>b.classList.remove('active'));document.querySelectorAll('.tab-panel').forEach(p=>{p.classList.remove('active');p.style.display='none'});btn.classList.add('active');moveIndicator(btn);const panel=document.getElementById('tab-'+btn.dataset.tab);panel.style.display='';panel.classList.add('active');animateList(panel)})});
+setTimeout(()=>{moveIndicator(document.querySelector('.tab-btn.active'));animateList(document.querySelector('.tab-panel.active'))},200);
+window.addEventListener('resize',()=>moveIndicator(document.querySelector('.tab-btn.active')));
+function animateList(panel){if(!panel)return;const items=panel.querySelectorAll('.svc-list ul li');items.forEach(li=>li.classList.remove('li-visible'));items.forEach((li,i)=>setTimeout(()=>li.classList.add('li-visible'),i*40+100))}
+const obsMain=new IntersectionObserver(e=>{e.forEach(x=>{if(x.isIntersecting){x.target.classList.add('in-view');obsMain.unobserve(x.target)}})},{threshold:0.1});
+document.querySelectorAll('.observe-me').forEach(el=>obsMain.observe(el));
+const obsSolo=new IntersectionObserver(e=>{e.forEach(x=>{if(x.isIntersecting){x.target.classList.add('in-view');obsSolo.unobserve(x.target)}})},{threshold:0.2});
+document.querySelectorAll('.observe-me-solo').forEach(el=>obsSolo.observe(el));
+const obsCards=new IntersectionObserver(e=>{e.forEach(x=>{if(x.isIntersecting){x.target.classList.add('in-view-card');obsCards.unobserve(x.target)}})},{threshold:0.12});
+document.querySelectorAll('.card').forEach(c=>obsCards.observe(c));
+const obsMosaic=new IntersectionObserver(e=>{e.forEach(x=>{if(x.isIntersecting){document.querySelectorAll('.mi').forEach((m,i)=>setTimeout(()=>m.classList.add('mi-visible'),i*90));obsMosaic.unobserve(x.target)}})},{threshold:0.05});
+const mosaicEl=document.querySelector('.mosaic');if(mosaicEl)obsMosaic.observe(mosaicEl);
+const obsContact=new IntersectionObserver(e=>{e.forEach(x=>{if(x.isIntersecting){x.target.querySelectorAll('.cinfo-row').forEach(r=>{const d=parseFloat(r.style.transitionDelay||'0')*1000;setTimeout(()=>r.classList.add('ci-visible'),d)});obsContact.unobserve(x.target)}})},{threshold:0.1});
+const cb=document.querySelector('.contact-body');if(cb)obsContact.observe(cb);
+document.getElementById('formSubmit').addEventListener('click',()=>{
+  const f=document.getElementById('fname').value.trim(),em=document.getElementById('email').value.trim(),c=document.getElementById('consent').checked;
+  if(!f||!em||!c){const miss=[];if(!f)miss.push('imię');if(!em)miss.push('e-mail');if(!c)miss.push('zgodę na przetwarzanie danych');alert('Prosimy uzupełnić: '+miss.join(', ')+'.');return}
+  document.getElementById('bookingForm').style.display='none';document.getElementById('formSuccess').style.display='block'
 });
-
-const heroBg = document.getElementById('heroBg');
-let ticking = false;
-window.addEventListener('scroll', () => {
-  if (!ticking) {
-    requestAnimationFrame(() => {
-      const scrollY = window.scrollY;
-      if (heroBg && scrollY < window.innerHeight) {
-        heroBg.style.transform = `translateY(${scrollY * 0.38}px)`;
-      }
-      ticking = false;
-    });
-    ticking = true;
-  }
-});
-
-const nav = document.getElementById('nav');
-let lastScroll = 0;
-window.addEventListener('scroll', () => {
-  const y = window.scrollY;
-  nav.classList.toggle('scrolled', y > 40);
-  if (y > lastScroll && y > 120) nav.classList.add('hide');
-  else nav.classList.remove('hide');
-  lastScroll = y;
-});
-
-const ham = document.getElementById('ham');
-const mob = document.getElementById('mobMenu');
-ham.addEventListener('click', () => {
-  const o = mob.classList.toggle('open');
-  ham.classList.toggle('open', o);
-  document.body.style.overflow = o ? 'hidden' : '';
-});
-document.querySelectorAll('.ml').forEach(l => l.addEventListener('click', () => {
-  mob.classList.remove('open'); ham.classList.remove('open'); document.body.style.overflow = '';
-}));
-
-const indicator = document.getElementById('tabIndicator');
-function moveIndicator(btn) {
-  if (!indicator || !btn) return;
-  const nav = btn.closest('.tabs-nav');
-  const navRect = nav.getBoundingClientRect();
-  const btnRect = btn.getBoundingClientRect();
-  indicator.style.left = (btnRect.left - navRect.left) + 'px';
-  indicator.style.width = btnRect.width + 'px';
-}
-
-document.querySelectorAll('.tab-btn').forEach(btn => {
-  btn.addEventListener('click', () => {
-    document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
-    document.querySelectorAll('.tab-panel').forEach(p => { p.classList.remove('active'); p.style.display='none'; });
-    btn.classList.add('active');
-    moveIndicator(btn);
-    const panel = document.getElementById('tab-' + btn.dataset.tab);
-    panel.style.display = '';
-    panel.classList.add('active');
-    
-    animateListItems(panel);
-  });
-});
-
-setTimeout(() => {
-  moveIndicator(document.querySelector('.tab-btn.active'));
-  animateListItems(document.querySelector('.tab-panel.active'));
-}, 200);
-
-window.addEventListener('resize', () => {
-  moveIndicator(document.querySelector('.tab-btn.active'));
-});
-
-function animateListItems(panel) {
-  if (!panel) return;
-  const items = panel.querySelectorAll('.svc-list ul li');
-  items.forEach(li => li.classList.remove('li-visible'));
-  items.forEach((li, i) => {
-    setTimeout(() => li.classList.add('li-visible'), i * 40 + 100);
-  });
-}
-
-const obsMain = new IntersectionObserver(entries => {
-  entries.forEach(e => {
-    if (e.isIntersecting) {
-      e.target.classList.add('in-view');
-      obsMain.unobserve(e.target);
-    }
-  });
-}, { threshold: 0.12 });
-
-document.querySelectorAll('.observe-me').forEach(el => obsMain.observe(el));
-
-const obsSolo = new IntersectionObserver(entries => {
-  entries.forEach(e => {
-    if (e.isIntersecting) {
-      e.target.classList.add('in-view');
-      obsSolo.unobserve(e.target);
-    }
-  });
-}, { threshold: 0.2 });
-document.querySelectorAll('.observe-me-solo').forEach(el => obsSolo.observe(el));
-
-const obsCards = new IntersectionObserver(entries => {
-  entries.forEach(e => {
-    if (e.isIntersecting) {
-      e.target.classList.add('in-view-card');
-      obsCards.unobserve(e.target);
-    }
-  });
-}, { threshold: 0.15 });
-document.querySelectorAll('.card').forEach(c => obsCards.observe(c));
-
-const obsMosaic = new IntersectionObserver(entries => {
-  entries.forEach(e => {
-    if (e.isIntersecting) {
-      const items = document.querySelectorAll('.mi');
-      items.forEach((item, i) => {
-        setTimeout(() => item.classList.add('mi-visible'), i * 90);
-      });
-      obsMosaic.unobserve(e.target);
-    }
-  });
-}, { threshold: 0.05 });
-const mosaicEl = document.querySelector('.mosaic');
-if (mosaicEl) obsMosaic.observe(mosaicEl);
-
-const obsContact = new IntersectionObserver(entries => {
-  entries.forEach(e => {
-    if (e.isIntersecting) {
-      e.target.querySelectorAll('.cinfo-row').forEach(row => {
-        const delay = parseFloat(row.style.transitionDelay || '0') * 1000;
-        setTimeout(() => row.classList.add('ci-visible'), delay);
-      });
-      obsContact.unobserve(e.target);
-    }
-  });
-}, { threshold: 0.1 });
-const contactBody = document.querySelector('.contact-body');
-if (contactBody) obsContact.observe(contactBody);
-
 })();
 </script>
 </body>
