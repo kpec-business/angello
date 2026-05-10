@@ -370,31 +370,147 @@ footer{background:var(--slate);padding:60px 24px 36px;display:flex;justify-conte
   </div>
 </section>
 
-<section class="cards-section" id="realizacje">
+<style>
+.dekoracje-section{background:#1C1610;padding:110px 24px;overflow:hidden}
+.dekoracje-head{text-align:center;margin-bottom:64px}
+.dekoracje-eyebrow{display:block;font-size:.6rem;letter-spacing:.38em;text-transform:uppercase;color:rgba(169,143,122,.65);margin-bottom:14px;overflow:hidden}
+.dekoracje-eyebrow-inner{display:block;transform:translateY(110%);transition:transform .7s var(--ease)}
+.in-view .dekoracje-eyebrow-inner{transform:translateY(0)}
+.dekoracje-title{font-family:'Playfair Display',serif;font-style:italic;font-weight:300;font-size:clamp(2.4rem,4.5vw,4rem);color:#F3EEE7;line-height:1.15;margin-bottom:16px}
+.dekoracje-rule{width:52px;height:1px;background:#A98F7A;margin:0 auto 18px;transform-origin:left;transform:scaleX(0);transition:transform .9s var(--ease)}
+.in-view .dekoracje-rule{transform:scaleX(1)}
+.dekoracje-subtitle{font-family:'Libre Baskerville',serif;font-size:.66rem;letter-spacing:.38em;text-transform:uppercase;color:rgba(243,238,231,.28);margin-bottom:0}
+.dek-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:2px;max-width:1200px;margin:0 auto}
+.dek-card{position:relative;overflow:hidden;cursor:pointer;transform:translateY(40px);opacity:0;transition:transform .85s var(--ease),opacity .85s ease}
+.dek-card.dek-visible{transform:translateY(0);opacity:1}
+.dek-card-inner{position:relative;overflow:hidden;aspect-ratio:3/4}
+.dek-card-inner img{width:100%;height:100%;object-fit:cover;display:block;transition:transform .9s var(--ease),filter .5s ease}
+.dek-card:hover .dek-card-inner img{transform:scale(1.07);filter:brightness(.72)}
+.dek-card-overlay{position:absolute;inset:0;background:linear-gradient(to top,rgba(28,22,16,.92) 0%,rgba(28,22,16,.35) 45%,transparent 100%);opacity:.7;transition:opacity .5s ease}
+.dek-card:hover .dek-card-overlay{opacity:1}
+.dek-card-body{position:absolute;bottom:0;left:0;right:0;padding:24px 22px;transform:translateY(8px);transition:transform .45s var(--ease)}
+.dek-card:hover .dek-card-body{transform:translateY(0)}
+.dek-card-tag{display:inline-block;font-size:.53rem;letter-spacing:.22em;text-transform:uppercase;color:rgba(169,143,122,.8);border:1px solid rgba(169,143,122,.3);padding:4px 10px;margin-bottom:8px;opacity:0;transform:translateY(6px);transition:opacity .4s .05s ease,transform .4s .05s var(--ease)}
+.dek-card:hover .dek-card-tag{opacity:1;transform:translateY(0)}
+.dek-card-name{font-family:'Libre Baskerville',serif;font-size:.88rem;font-weight:400;color:#F3EEE7;letter-spacing:.06em;text-transform:uppercase;line-height:1.3;margin-bottom:6px}
+.dek-card-desc{font-size:.76rem;color:rgba(243,238,231,.5);font-weight:300;line-height:1.7;opacity:0;transform:translateY(6px);transition:opacity .4s .08s ease,transform .4s .08s var(--ease);max-height:0;overflow:hidden}
+.dek-card:hover .dek-card-desc{opacity:1;transform:translateY(0);max-height:60px}
+.dek-card-arrow{display:inline-flex;align-items:center;gap:8px;margin-top:10px;font-size:.58rem;letter-spacing:.2em;text-transform:uppercase;color:#A98F7A;opacity:0;transform:translateX(-8px);transition:opacity .35s .12s ease,transform .35s .12s var(--ease)}
+.dek-card:hover .dek-card-arrow{opacity:1;transform:translateX(0)}
+.dek-bottom{text-align:center;margin-top:52px}
+.dek-note{font-size:.76rem;color:rgba(243,238,231,.24);font-weight:300;letter-spacing:.08em;margin-bottom:24px}
+.dek-note strong{color:rgba(169,143,122,.6);font-weight:400}
+@media(max-width:960px){
+  .dek-grid{grid-template-columns:repeat(2,1fr)}
+  .dekoracje-section{padding:72px 24px}
+}
+@media(max-width:540px){
+  .dek-grid{grid-template-columns:1fr}
+}
+</style>
+
+<section class="dekoracje-section" id="katalog">
   <div class="wrap">
-    <div class="cards-head observe-me">
-      <span class="eyebrow"><span class="eyebrow-inner">Realizacje</span></span>
-      <p class="cards-script"><span class="split-line"><span class="split-line-inner" style="transition-delay:.1s">Nasze dekoracje</span></span></p>
-      <div class="cards-rule line-draw" style="transition-delay:.4s"></div>
-      <p class="cards-subtitle fade-up d3">Wybrane projekty Angello Studio</p>
-      <p class="cards-body fade-up d3">Pracujemy niemal w każdym zakątku Polski — od morza po góry, a nawet głęboko pod ziemią w kopalni Guido w Zabrzu.</p>
+    <div class="dekoracje-head observe-me">
+      <span class="dekoracje-eyebrow"><span class="dekoracje-eyebrow-inner">Wyposażenie & Dekoracje</span></span>
+      <p class="dekoracje-title">
+        <span class="split-line"><span class="split-line-inner" style="transition-delay:.1s;color:#F3EEE7">Nasz katalog</span></span>
+        <span class="split-line"><span class="split-line-inner" style="transition-delay:.22s;color:#F3EEE7"><em>dekoracji</em></span></span>
+      </p>
+      <div class="dekoracje-rule"></div>
+      <p class="dekoracje-subtitle fade-up d3">14 rodzajów dekoracji &middot; Nieograniczone konfiguracje</p>
     </div>
-    <div class="cards-grid">
-      <div class="card" style="transition-delay:.05s">
-        <div class="card-img"><img src="zdj4.JPG" alt="Wesela i śluby"></div>
-        <div class="card-body"><h3>Wesela & Śluby</h3><p>Kompleksowe dekoracje sal weselnych, stołu Pary Młodej, ceremonii i plenerów.</p><a href="#uslugi" class="card-link">Dowiedz się więcej <span class="arr">→</span></a></div>
+    <div class="dek-grid">
+      <div class="dek-card" style="transition-delay:.04s">
+        <div class="dek-card-inner">
+          <img src="i1.JPG" alt="Świecznik ośmioramienny — Angello Studio">
+          <div class="dek-card-overlay"></div>
+        </div>
+        <div class="dek-card-body">
+          <span class="dek-card-tag">Dekoracja stołu</span>
+          <p class="dek-card-name">Świecznik<br>Ośmioramienny</p>
+          <p class="dek-card-desc">Złote świeczniki z kryształowymi kloszami i kwiatami — doskonałe jako centerpiece na stole.</p>
+          <span class="dek-card-arrow">Zapytaj o ten element ›</span>
+        </div>
       </div>
-      <div class="card" style="transition-delay:.18s">
-        <div class="card-img"><img src="zdj5.JPG" alt="Ceremonie plenerowe"></div>
-        <div class="card-body"><h3>Ceremonie Plenerowe</h3><p>Magiczne altanki, łuki kwiatowe i dekoracje przestrzeni zewnętrznych tworzące niezapomnianą atmosferę.</p><a href="#uslugi" class="card-link">Dowiedz się więcej <span class="arr">→</span></a></div>
+      <div class="dek-card" style="transition-delay:.12s">
+        <div class="dek-card-inner">
+          <img src="i2.JPG" alt="Żyrafa rozkład stołów — Angello Studio">
+          <div class="dek-card-overlay"></div>
+        </div>
+        <div class="dek-card-body">
+          <span class="dek-card-tag">Winietarz</span>
+          <p class="dek-card-name">Żyrafa —<br>Rozkład Stołów</p>
+          <p class="dek-card-desc">Wyjątkowy, zapamiętywany winietarz z planem sali. Biała rzeźba w złotym kręgu z kwiatami.</p>
+          <span class="dek-card-arrow">Zapytaj o ten element ›</span>
+        </div>
       </div>
-      <div class="card" style="transition-delay:.31s">
-        <div class="card-img"><img src="zdj6.jpg" alt="Dekoracje kościołów"></div>
-        <div class="card-body"><h3>Dekoracje Kościołów</h3><p>Wyjątkowa oprawa liturgiczna z dbałością o sakralny charakter miejsca.</p><a href="#uslugi" class="card-link">Dowiedz się więcej <span class="arr">→</span></a></div>
+      <div class="dek-card" style="transition-delay:.20s">
+        <div class="dek-card-inner">
+          <img src="i3.JPG" alt="Meble do strefy chillout — Angello Studio">
+          <div class="dek-card-overlay"></div>
+        </div>
+        <div class="dek-card-body">
+          <span class="dek-card-tag">Strefa odpoczynku</span>
+          <p class="dek-card-name">Meble —<br>Strefa Chillout</p>
+          <p class="dek-card-desc">Biała sofa i fotele z złotymi akcentami, otoczone kwiatowymi kompozycjami i świecami.</p>
+          <span class="dek-card-arrow">Zapytaj o ten element ›</span>
+        </div>
       </div>
+      <div class="dek-card" style="transition-delay:.28s">
+        <div class="dek-card-inner">
+          <img src="i4.JPG" alt="Karuzele kryształowe — Angello Studio">
+          <div class="dek-card-overlay"></div>
+        </div>
+        <div class="dek-card-body">
+          <span class="dek-card-tag">Centerpiece</span>
+          <p class="dek-card-name">Karuzele<br>Kryształowe</p>
+          <p class="dek-card-desc">Wielopoziomowe złoto-kryształowe podstawy zwieńczone kwiatową koroną w kolorze pary.</p>
+          <span class="dek-card-arrow">Zapytaj o ten element ›</span>
+        </div>
+      </div>
+      <div class="dek-card" style="transition-delay:.36s">
+        <div class="dek-card-inner">
+          <img src="i5.JPG" alt="Altany do zaślubin — Angello Studio">
+          <div class="dek-card-overlay"></div>
+        </div>
+        <div class="dek-card-body">
+          <span class="dek-card-tag">Ceremonia plenerowa</span>
+          <p class="dek-card-name">Altany do<br>Zaślubin</p>
+          <p class="dek-card-desc">Złote altanki obsypane białymi różami — idealne tło do ceremonii plenerowej i sesji zdjęciowej.</p>
+          <span class="dek-card-arrow">Zapytaj o ten element ›</span>
+        </div>
+      </div>
+      <div class="dek-card" style="transition-delay:.44s">
+        <div class="dek-card-inner">
+          <img src="i6.JPG" alt="Lustra na stoły — Angello Studio">
+          <div class="dek-card-overlay"></div>
+        </div>
+        <div class="dek-card-body">
+          <span class="dek-card-tag">Nakrycie stołu</span>
+          <p class="dek-card-name">Lustra na Stoły<br>ø 180 cm</p>
+          <p class="dek-card-desc">Okrągłe lustra o średnicy 180 cm — spektakularne tło odbijające świece i kwiaty.</p>
+          <span class="dek-card-arrow">Zapytaj o ten element ›</span>
+        </div>
+      </div>
+    </div>
+    <div class="dek-bottom fade-up d4">
+      <p class="dek-note">Każdy element dostępny w ramach kompleksowej dekoracji wesela.<br><strong>Nie powtarzamy żadnej konfiguracji.</strong></p>
+      <a href="#rezerwacja" class="btn-warm"><span>Zapytaj o dostępność →</span></a>
     </div>
   </div>
 </section>
+
+<script>
+(function(){
+  var obsDek=new IntersectionObserver(function(entries){
+    entries.forEach(function(x){
+      if(x.isIntersecting){x.target.classList.add('dek-visible');obsDek.unobserve(x.target);}
+    });
+  },{threshold:0.1});
+  document.querySelectorAll('.dek-card').forEach(function(c){obsDek.observe(c);});
+})();
+</script>
 
 <section class="tabs-section" id="uslugi">
   <div class="wrap">
