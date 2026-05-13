@@ -1,0 +1,340 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Oferta — Angello Studio Dekoracji</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant:ital,wght@0,300;0,400;0,600;1,300;1,400;1,600&family=Jost:ital,wght@0,300;0,400;0,500;1,300&family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+<style>
+.offer-intro{background:var(--blush-mid);padding:88px 24px 80px;text-align:center}
+.offer-intro h1{font-family:'Cormorant',serif;font-style:italic;font-weight:300;font-size:clamp(3rem,6vw,6rem);color:var(--text-dark);line-height:1;margin-bottom:18px}
+.offer-intro-rule{width:56px;height:1px;background:var(--gold);margin:0 auto 22px}
+.offer-intro p{font-family:'Jost',sans-serif;font-size:.9rem;color:var(--text-mid);font-weight:300;line-height:2.05;max-width:580px;margin:0 auto}
+
+.services-grid-section{background:var(--off-white);padding:96px 24px 120px}
+.services-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:3px;max-width:1200px;margin:48px auto 0}
+.svc-card{position:relative;overflow:hidden;background:var(--blush)}
+.svc-card-img{overflow:hidden;aspect-ratio:3/2}
+.svc-card-img img{width:100%;height:100%;object-fit:cover;display:block;transition:transform .85s var(--ease)}
+.svc-card:hover .svc-card-img img{transform:scale(1.07)}
+.svc-card-body{padding:32px 32px 36px}
+.svc-card-num{font-family:'Cormorant',serif;font-size:3.2rem;font-weight:300;color:rgba(169,143,122,.2);line-height:1;margin-bottom:10px;display:block}
+.svc-card-title{font-family:'Cormorant',serif;font-style:italic;font-weight:300;font-size:1.7rem;color:var(--text-dark);line-height:1.15;margin-bottom:14px}
+.svc-card-desc{font-family:'Jost',sans-serif;font-size:.82rem;color:var(--text-mid);font-weight:300;line-height:1.9;margin-bottom:22px}
+.svc-card-list{list-style:none;display:flex;flex-direction:column;gap:7px;margin-bottom:28px}
+.svc-card-list li{font-family:'Jost',sans-serif;font-size:.78rem;color:var(--text-mid);font-weight:300;padding-left:16px;position:relative;line-height:1.65}
+.svc-card-list li::before{content:'—';position:absolute;left:0;color:var(--gold);font-size:.6rem;top:3px}
+.svc-card-link{font-family:'Jost',sans-serif;font-size:.58rem;letter-spacing:.22em;text-transform:uppercase;color:var(--gold);text-decoration:none;display:inline-flex;align-items:center;gap:8px;transition:gap .3s var(--ease)}
+.svc-card:hover .svc-card-link{gap:14px}
+
+.decor-section{background:#1C1610;padding:120px 24px;overflow:hidden}
+.decor-section-inner{max-width:1200px;margin:0 auto}
+.decor-title{font-family:'Cormorant',serif;font-style:italic;font-weight:300;font-size:clamp(2.6rem,4.5vw,4.8rem);color:#F3EEE7;line-height:1.1;text-align:center;margin-bottom:12px}
+.decor-subtitle{font-family:'Jost',sans-serif;font-size:.6rem;letter-spacing:.42em;text-transform:uppercase;color:rgba(243,238,231,.26);text-align:center;margin-bottom:60px}
+.decor-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:2px}
+.decor-item{display:flex;align-items:flex-start;gap:24px;padding:36px 36px;background:rgba(243,238,231,.03);border:1px solid rgba(243,238,231,.06);transition:background .4s,border-color .4s}
+.decor-item:hover{background:rgba(243,238,231,.06);border-color:rgba(243,238,231,.14)}
+.decor-item-num{font-family:'Cormorant',serif;font-size:2.2rem;font-weight:300;color:rgba(169,143,122,.3);line-height:1;flex-shrink:0;width:44px}
+.decor-item-content{}
+.decor-item-title{font-family:'Cormorant',serif;font-weight:400;font-size:1.1rem;color:#F3EEE7;letter-spacing:.06em;text-transform:uppercase;margin-bottom:8px}
+.decor-item-text{font-family:'Jost',sans-serif;font-size:.8rem;color:rgba(243,238,231,.4);font-weight:300;line-height:1.85}
+
+.pricing-section{background:var(--blush);padding:120px 24px}
+.pricing-inner{max-width:900px;margin:0 auto}
+.pricing-section h2{font-family:'Cormorant',serif;font-style:italic;font-weight:300;font-size:clamp(2.4rem,4vw,4.2rem);color:var(--text-dark);line-height:1.1;text-align:center;margin-bottom:12px}
+.pricing-rule{width:52px;height:1px;background:var(--gold);margin:20px auto 56px}
+.pricing-note{background:var(--off-white);border:1px solid var(--border-gold);padding:40px 44px;margin-bottom:36px}
+.pricing-note h3{font-family:'Cormorant',serif;font-style:italic;font-weight:300;font-size:1.6rem;color:var(--text-dark);margin-bottom:14px}
+.pricing-note p{font-family:'Jost',sans-serif;font-size:.86rem;color:var(--text-mid);font-weight:300;line-height:2.05}
+.pricing-points{list-style:none;display:flex;flex-direction:column;gap:0}
+.pricing-points li{display:flex;justify-content:space-between;align-items:center;padding:18px 0;border-bottom:1px solid var(--border-gold)}
+.pricing-points li:last-child{border-bottom:none}
+.pp-label{font-family:'Jost',sans-serif;font-size:.84rem;color:var(--text-dark);font-weight:300}
+.pp-value{font-family:'Cormorant',serif;font-style:italic;font-size:1rem;color:var(--gold)}
+
+.why-section{background:var(--off-white);padding:120px 24px}
+.why-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:2px;max-width:1200px;margin:52px auto 0}
+.why-item{padding:48px 32px;background:var(--blush);text-align:center;transition:background .35s}
+.why-item:hover{background:var(--blush-mid)}
+.why-icon{font-size:1.8rem;color:var(--gold);margin-bottom:20px;display:block}
+.why-title{font-family:'Cormorant',serif;font-weight:400;font-size:1.1rem;color:var(--text-dark);letter-spacing:.06em;text-transform:uppercase;margin-bottom:12px}
+.why-text{font-family:'Jost',sans-serif;font-size:.8rem;color:var(--text-mid);font-weight:300;line-height:1.88}
+
+@media(max-width:960px){
+  .services-grid{grid-template-columns:1fr 1fr}
+  .decor-grid{grid-template-columns:1fr}
+  .why-grid{grid-template-columns:1fr 1fr}
+  .offer-intro,.services-grid-section,.decor-section,.pricing-section,.why-section{padding-top:72px;padding-bottom:72px}
+}
+@media(max-width:600px){
+  .services-grid{grid-template-columns:1fr}
+  .why-grid{grid-template-columns:1fr}
+  .pricing-note{padding:28px 24px}
+}
+@media(max-width:480px){
+  .offer-intro{padding:60px 20px 52px}
+  .offer-intro h1{font-size:clamp(2.4rem,10vw,3.2rem)}
+  .svc-card-body{padding:24px 20px}
+  .svc-card-title{font-size:1.45rem}
+  .decor-section{padding:72px 20px}
+  .decor-grid{grid-template-columns:1fr}
+  .decor-item{padding:28px 20px;gap:16px}
+  .pricing-section{padding:72px 20px}
+  .pricing-note{padding:24px 20px}
+  .why-section{padding:72px 20px}
+  .why-item{padding:36px 20px}
+}
+</style>
+</head>
+<body>
+
+<nav id="nav">
+  <div class="nav-inner">
+    <div class="nav-left">
+      <ul class="nav-links">
+        <li><a href="index.html">Strona główna</a></li>
+        <li><a href="galeria.html">Galeria</a></li>
+      </ul>
+    </div>
+    <a href="index.html" class="nav-logo">Angello<span>Studio Dekoracji · Zabrze</span></a>
+    <div class="nav-right">
+      <ul class="nav-links">
+        <li><a href="wesela.html">Śluby & Wesela</a></li>
+        <li><a href="oferta.html" class="active">Oferta</a></li>
+      </ul>
+      <a href="kontakt.html" class="nav-cta">Kontakt</a>
+      <button class="ham" id="ham" aria-label="Menu"><span></span><span></span><span></span></button>
+    </div>
+  </div>
+</nav>
+
+<div class="mob-menu" id="mobMenu">
+  <ul>
+    <li><a href="index.html" class="ml">Strona główna</a></li>
+    <li><a href="galeria.html" class="ml">Galeria</a></li>
+    <li><a href="wesela.html" class="ml">Śluby & Wesela</a></li>
+    <li><a href="oferta.html" class="ml">Oferta</a></li>
+    <li><a href="kontakt.html" class="ml">Kontakt</a></li>
+  </ul>
+  <div class="mob-footer">+48 793 032 332 · Zabrze</div>
+</div>
+
+<div style="height:72px"></div>
+
+<div class="offer-intro observe-me">
+  <span class="eyebrow"><span class="eyebrow-inner">Pełna oferta</span></span>
+  <h1><em>Co oferujemy</em></h1>
+  <div class="offer-intro-rule"></div>
+  <p>25 lat doświadczenia, pasja do piękna i bezkompromisowa jakość — w pięciu kategoriach usług, które pokrywają każdą życiową chwilę wartą udekorowania.</p>
+</div>
+
+<section class="services-grid-section">
+  <div class="wrap">
+    <div class="observe-me" style="text-align:center">
+      <span class="eyebrow"><span class="eyebrow-inner">Nasze usługi</span></span>
+      <p style="font-family:'Cormorant',serif;font-style:italic;font-weight:300;font-size:clamp(2.4rem,4vw,4.2rem);color:var(--text-dark);line-height:1.1">
+        <span class="split-line"><span class="split-line-inner" style="transition-delay:.08s">Pięć dziedzin,</span></span>
+        <span class="split-line"><span class="split-line-inner" style="transition-delay:.18s"><em>jedna pasja</em></span></span>
+      </p>
+    </div>
+    <div class="services-grid">
+      <div class="svc-card fade-up d1">
+        <div class="svc-card-img"><img src="zdj4.JPG" alt="Florystyka ślubna"></div>
+        <div class="svc-card-body">
+          <span class="svc-card-num">01</span>
+          <p class="svc-card-title">Florystyka <em>Ślubna</em></p>
+          <p class="svc-card-desc">Kompleksowa obsługa florystyczna wesel — od wiązanki po dekorację sali. Każde wesele jest dla nas unikalne.</p>
+          <ul class="svc-card-list"><li>Wiązanki i bukieciki</li><li>Dekoracje sal i kościołów</li><li>Altany, ścianki, łuki</li><li>Biżuteria floralna</li></ul>
+          <a href="wesela.html" class="svc-card-link">Dowiedz się więcej →</a>
+        </div>
+      </div>
+      <div class="svc-card fade-up d2">
+        <div class="svc-card-img"><img src="zdj9.jpg" alt="I Komunia Święta"></div>
+        <div class="svc-card-body">
+          <span class="svc-card-num">02</span>
+          <p class="svc-card-title">I Komunia <em>Święta</em></p>
+          <p class="svc-card-desc">Delikatne, eleganckie dekoracje na jeden z najważniejszych dni w życiu dziecka i rodziny.</p>
+          <ul class="svc-card-list"><li>Wianki komunijne</li><li>Dekoracje świec i kościołów</li><li>Dekoracje sal przyjęć</li><li>Podziękowania dla rodziców</li></ul>
+          <a href="kontakt.html" class="svc-card-link">Zapytaj o termin →</a>
+        </div>
+      </div>
+      <div class="svc-card fade-up d3">
+        <div class="svc-card-img"><img src="zdj8.jpg" alt="Kwiaty na każdą okazję"></div>
+        <div class="svc-card-body">
+          <span class="svc-card-num">03</span>
+          <p class="svc-card-title">Kwiaty na <em>każdą okazję</em></p>
+          <p class="svc-card-desc">Bukiety, kompozycje i aranżacje na urodziny, zaręczyny, rocznice i każdy inny ważny moment.</p>
+          <ul class="svc-card-list"><li>Bukiety okolicznościowe</li><li>Kompozycje w naczyniu</li><li>Dekoracje świąteczne</li><li>Dekoracje nagrobne</li></ul>
+          <a href="kontakt.html" class="svc-card-link">Zamów kompozycję →</a>
+        </div>
+      </div>
+      <div class="svc-card fade-up d2">
+        <div class="svc-card-img"><img src="zdj12.jpg" alt="Kwiaty dla firm"></div>
+        <div class="svc-card-body">
+          <span class="svc-card-num">04</span>
+          <p class="svc-card-title">Kwiaty <em>dla Firm</em></p>
+          <p class="svc-card-desc">Stały serwis kwiatowy, dekoracje eventowe i aranżacje przestrzeni biurowych. Cotygodniowa dostawa gratis.</p>
+          <ul class="svc-card-list"><li>Serwis kwiatowy dla biur</li><li>Dekoracje imprez firmowych</li><li>Kosze VIP i upominki</li><li>Stoiska targowe</li></ul>
+          <a href="kontakt.html" class="svc-card-link">Zapytaj o ofertę →</a>
+        </div>
+      </div>
+      <div class="svc-card fade-up d3">
+        <div class="svc-card-img"><img src="zdj11.jpg" alt="Architektura krajobrazu"></div>
+        <div class="svc-card-body">
+          <span class="svc-card-num">05</span>
+          <p class="svc-card-title">Architektura <em>Krajobrazu</em></p>
+          <p class="svc-card-desc">Projekty i realizacje ogrodów, tarasów i balkonów — zarówno prywatnych, jak i komercyjnych.</p>
+          <ul class="svc-card-list"><li>Aranżacje ogrodów</li><li>Tarasy i balkony</li><li>Nasadzenia sezonowe</li><li>Pielęgnacja zieleni</li></ul>
+          <a href="kontakt.html" class="svc-card-link">Zapytaj o projekt →</a>
+        </div>
+      </div>
+      <div class="svc-card fade-up d4" style="background:var(--slate);display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:52px 36px;min-height:300px">
+        <span style="font-size:2rem;color:var(--gold);margin-bottom:24px">✦</span>
+        <p style="font-family:'Cormorant',serif;font-style:italic;font-weight:300;font-size:1.7rem;color:var(--off-white);line-height:1.2;margin-bottom:18px">Nie znajdziesz<br>swojej okazji?</p>
+        <p style="font-family:'Jost',sans-serif;font-size:.8rem;color:rgba(243,238,231,.44);font-weight:300;line-height:1.88;margin-bottom:28px">Zadzwoń lub napisz — wspólnie znajdziemy rozwiązanie dla każdej uroczystości.</p>
+        <a href="kontakt.html" class="btn-warm"><span>Skontaktuj się →</span></a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="decor-section">
+  <div class="decor-section-inner">
+    <div class="observe-me">
+      <span class="eyebrow" style="color:rgba(169,143,122,.55);text-align:center;display:block"><span class="eyebrow-inner">Wyposażenie</span></span>
+      <p class="decor-title">
+        <span class="split-line"><span class="split-line-inner" style="transition-delay:.08s;color:#F3EEE7">14 rodzajów</span></span>
+        <span class="split-line"><span class="split-line-inner" style="transition-delay:.18s;color:#F3EEE7"><em>dekoracji</em></span></span>
+      </p>
+      <p class="decor-subtitle fade-up d3">Każdy element dostępny w nieograniczonych konfiguracjach</p>
+    </div>
+    <div class="decor-grid">
+      <div class="decor-item fade-up d1"><div class="decor-item-num">01</div><div class="decor-item-content"><div class="decor-item-title">Świecznik Ośmioramienny</div><p class="decor-item-text">Złote świeczniki z kryształowymi kloszami — spektakularny centerpiece na stoły weselne.</p></div></div>
+      <div class="decor-item fade-up d2"><div class="decor-item-num">02</div><div class="decor-item-content"><div class="decor-item-title">Żyrafa — Winietarz</div><p class="decor-item-text">Biała rzeźba żyrafy w złotym kręgu z kwiatami jako rozkład stołów.</p></div></div>
+      <div class="decor-item fade-up d1"><div class="decor-item-num">03</div><div class="decor-item-content"><div class="decor-item-title">Strefa Chillout</div><p class="decor-item-text">Biała sofa i fotele ze złotymi akcentami, otoczone kwiatowymi kompozycjami i świecami.</p></div></div>
+      <div class="decor-item fade-up d2"><div class="decor-item-num">04</div><div class="decor-item-content"><div class="decor-item-title">Karuzele Kryształowe</div><p class="decor-item-text">Wielopoziomowe złoto-kryształowe podstawy zwieńczone koroną kwiatową.</p></div></div>
+      <div class="decor-item fade-up d1"><div class="decor-item-num">05</div><div class="decor-item-content"><div class="decor-item-title">Altany do Zaślubin</div><p class="decor-item-text">Złote altanki obsypane kwiatami — idealne tło do ceremonii i sesji zdjęciowej.</p></div></div>
+      <div class="decor-item fade-up d2"><div class="decor-item-num">06</div><div class="decor-item-content"><div class="decor-item-title">Lustra na Stoły ø 180 cm</div><p class="decor-item-text">Okrągłe lustra — spektakularne tło odbijające świece i kwiaty na stołach.</p></div></div>
+      <div class="decor-item fade-up d1"><div class="decor-item-num">07</div><div class="decor-item-content"><div class="decor-item-title">Podesty i Podwyższenia</div><p class="decor-item-text">Złote i białe podesty do aranżacji przestrzeni ceremonii i sali weselnej.</p></div></div>
+      <div class="decor-item fade-up d2"><div class="decor-item-num">08</div><div class="decor-item-content"><div class="decor-item-title">Łuki Kwiatowe</div><p class="decor-item-text">Efektowne łuki floralne do ceremonii ślubnych i plenerowych zaślubin.</p></div></div>
+    </div>
+    <div style="text-align:center;margin-top:56px" class="fade-up d4">
+      <p style="font-family:'Jost',sans-serif;font-size:.76rem;color:rgba(243,238,231,.22);font-weight:300;margin-bottom:24px">Nie powtarzamy żadnej konfiguracji · Każda realizacja unikalna</p>
+      <a href="kontakt.html" class="btn-warm"><span>Zapytaj o dostępność →</span></a>
+    </div>
+  </div>
+</section>
+
+<section class="pricing-section">
+  <div class="pricing-inner">
+    <div class="observe-me">
+      <span class="eyebrow" style="text-align:center;display:block"><span class="eyebrow-inner">Wycena</span></span>
+      <h2>
+        <span class="split-line"><span class="split-line-inner" style="transition-delay:.08s">Jak wygląda</span></span>
+        <span class="split-line"><span class="split-line-inner" style="transition-delay:.18s"><em>wycena?</em></span></span>
+      </h2>
+      <div class="pricing-rule line-draw" style="transition-delay:.35s"></div>
+    </div>
+    <div class="pricing-note fade-up d2">
+      <h3>Indywidualna wycena dla każdego zlecenia</h3>
+      <p>Nie stosujemy cenników z góry — każda dekoracja jest inna i wyceniana indywidualnie. Na cenę wpływa zakres prac, rodzaj i ilość kwiatów, liczba elementów dekoracyjnych oraz odległość od Zabrza. Pierwsza konsultacja jest bezpłatna i niezobowiązująca.</p>
+    </div>
+    <ul class="pricing-points fade-up d3">
+      <li><span class="pp-label">Konsultacja wstępna</span><span class="pp-value">bezpłatna</span></li>
+      <li><span class="pp-label">Projekt dekoracji</span><span class="pp-value">w cenie usługi</span></li>
+      <li><span class="pp-label">Wiązanka ślubna</span><span class="pp-value">od 350 zł</span></li>
+      <li><span class="pp-label">Kompletna dekoracja wesela</span><span class="pp-value">wycena indywidualna</span></li>
+      <li><span class="pp-label">Serwis kwiatowy dla firm</span><span class="pp-value">od 180 zł/mies.</span></li>
+      <li><span class="pp-label">Kompozycja okolicznościowa</span><span class="pp-value">od 80 zł</span></li>
+    </ul>
+  </div>
+</section>
+
+<section class="why-section">
+  <div class="wrap">
+    <div class="observe-me" style="text-align:center">
+      <span class="eyebrow"><span class="eyebrow-inner">Dlaczego my</span></span>
+      <p style="font-family:'Cormorant',serif;font-style:italic;font-weight:300;font-size:clamp(2.4rem,4vw,4.2rem);color:var(--text-dark);line-height:1.1">
+        <span class="split-line"><span class="split-line-inner" style="transition-delay:.08s">Co nas</span></span>
+        <span class="split-line"><span class="split-line-inner" style="transition-delay:.18s"><em>wyróżnia?</em></span></span>
+      </p>
+    </div>
+    <div class="why-grid">
+      <div class="why-item fade-up d1">
+        <span class="why-icon">✦</span>
+        <div class="why-title">25 lat doświadczenia</div>
+        <p class="why-text">Niemal ćwierćwiecze tworzenia wyjątkowych dekoracji. Wiemy co działa i jak sprawić, żeby każdy detal był doskonały.</p>
+      </div>
+      <div class="why-item fade-up d2">
+        <span class="why-icon">◆</span>
+        <div class="why-title">Unikalność</div>
+        <p class="why-text">Nigdy nie powtarzamy dekoracji. Każde zlecenie to autorski projekt stworzony specjalnie dla Ciebie.</p>
+      </div>
+      <div class="why-item fade-up d3">
+        <span class="why-icon">◎</span>
+        <div class="why-title">Ograniczona liczba zleceń</div>
+        <p class="why-text">Celowo przyjmujemy tylko kilka zleceń tygodniowo — by każdemu poświęcić pełne zaangażowanie i uwagę.</p>
+      </div>
+      <div class="why-item fade-up d4">
+        <span class="why-icon">☏</span>
+        <div class="why-title">Zawsze dostępni</div>
+        <p class="why-text">Od pierwszej rozmowy po dzień uroczystości — jesteśmy do Twojej dyspozycji i odpowiadamy w ciągu 24 godzin.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="cta-banner">
+  <div class="wrap observe-me">
+    <span class="cta-eyebrow"><span class="cta-eyebrow-inner">Terminy 2025 & 2026</span></span>
+    <p class="cta-title">
+      <span class="split-line"><span class="split-line-inner" style="transition-delay:.08s">Gotowy na</span></span>
+      <span class="split-line"><span class="split-line-inner" style="transition-delay:.18s"><em>wyjątkowe dekoracje?</em></span></span>
+    </p>
+    <p class="cta-body fade-up d3">Zarezerwuj bezpłatną konsultację i razem stworzymy dekoracje, które zachwycą Twoich gości.</p>
+    <div class="cta-btns fade-up d4">
+      <a href="kontakt.html" class="btn-warm"><span>Zarezerwuj termin →</span></a>
+      <a href="galeria.html" class="btn-ghost">Zobacz realizacje</a>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="footer-inner">
+    <div class="footer-brand">
+      <a href="index.html" class="footer-logo">Angello<small>Studio Dekoracji</small></a>
+      <p>Studio Dekoracji w Zabrzu. Kwiatami wyrażamy to, czego słowa nie potrafią powiedzieć. Od niemal 25 lat z pasją i bezkompromisową jakością.</p>
+    </div>
+    <div class="footer-col">
+      <h4>Nawigacja</h4>
+      <ul><li><a href="index.html">Strona główna</a></li><li><a href="galeria.html">Galeria</a></li><li><a href="wesela.html">Śluby & Wesela</a></li><li><a href="oferta.html">Oferta</a></li><li><a href="kontakt.html">Kontakt</a></li></ul>
+    </div>
+    <div class="footer-col">
+      <h4>Usługi</h4>
+      <ul><li><a href="wesela.html">Florystyka ślubna</a></li><li><a href="oferta.html">I Komunia Święta</a></li><li><a href="oferta.html">Kwiaty na okazje</a></li><li><a href="oferta.html">Dla Firm</a></li><li><a href="oferta.html">Architektura krajobrazu</a></li></ul>
+    </div>
+    <div class="footer-bottom">
+      <p>© 2026 Angello Studio Dekoracji · Zabrze · Stowarzyszenie Florystów Polskich</p>
+      <div class="awards"><div class="award">Kwiaciarnia Roku</div><div class="award">Mistrz Ślubno-Weselny</div></div>
+    </div>
+  </div>
+</footer>
+
+<script>
+(function(){
+var nav=document.getElementById('nav');var lastScroll=0;
+window.addEventListener('scroll',function(){var y=window.scrollY;nav.classList.toggle('scrolled',y>40);if(y>lastScroll&&y>120)nav.classList.add('hide');else nav.classList.remove('hide');lastScroll=y});
+var ham=document.getElementById('ham'),mob=document.getElementById('mobMenu');
+ham.addEventListener('click',function(){var o=mob.classList.toggle('open');ham.classList.toggle('open',o);document.body.style.overflow=o?'hidden':''});
+document.querySelectorAll('.ml').forEach(function(l){l.addEventListener('click',function(){mob.classList.remove('open');ham.classList.remove('open');document.body.style.overflow=''})});
+var obsMain=new IntersectionObserver(function(e){e.forEach(function(x){if(x.isIntersecting){x.target.classList.add('in-view');obsMain.unobserve(x.target)}})},{threshold:0.07});
+document.querySelectorAll('.observe-me').forEach(function(el){obsMain.observe(el)});
+var obsFade=new IntersectionObserver(function(e){e.forEach(function(x){if(x.isIntersecting){x.target.classList.add('in-view');obsFade.unobserve(x.target)}})},{threshold:0.07});
+document.querySelectorAll('.fade-up').forEach(function(el){if(!el.closest('.observe-me'))obsFade.observe(el)});
+})();
+</script>
+</body>
+</html>

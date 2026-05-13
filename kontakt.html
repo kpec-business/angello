@@ -1,0 +1,366 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Kontakt — Angello Studio Dekoracji</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant:ital,wght@0,300;0,400;0,600;1,300;1,400;1,600&family=Jost:ital,wght@0,300;0,400;0,500;1,300&family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+<style>
+.contact-hero{height:52vh;min-height:360px;position:relative;display:flex;align-items:flex-end;justify-content:center;padding-bottom:72px;overflow:hidden;background:var(--slate)}
+.contact-hero-bg{position:absolute;inset:0;background-size:cover;background-position:center;opacity:.35}
+.contact-hero-overlay{position:absolute;inset:0;background:linear-gradient(to bottom,rgba(58,49,44,.3),rgba(58,49,44,.78))}
+.contact-hero-content{position:relative;z-index:2;text-align:center}
+.contact-hero-content span{font-family:'Jost',sans-serif;font-size:.57rem;letter-spacing:.46em;text-transform:uppercase;color:rgba(243,238,231,.4);display:block;margin-bottom:16px}
+.contact-hero-content h1{font-family:'Cormorant',serif;font-style:italic;font-weight:300;font-size:clamp(3.2rem,7vw,6.4rem);color:#F3EEE7;line-height:1}
+
+.contact-main{background:var(--off-white);padding:96px 24px 120px}
+.contact-main-inner{max-width:1100px;margin:0 auto;display:grid;grid-template-columns:1fr 1.1fr;gap:80px;align-items:start}
+
+.contact-info h2{font-family:'Cormorant',serif;font-style:italic;font-weight:300;font-size:clamp(2rem,3vw,3.2rem);color:var(--text-dark);line-height:1.12;margin-bottom:12px}
+.contact-info>p{font-family:'Jost',sans-serif;font-size:.88rem;color:var(--text-mid);font-weight:300;line-height:2.05;margin-bottom:44px}
+
+.cinfo{display:flex;flex-direction:column;gap:0;margin-bottom:48px}
+.cinfo-row{display:flex;gap:20px;align-items:flex-start;padding:20px 0;border-bottom:1px solid var(--border-gold)}
+.cinfo-row:first-child{border-top:1px solid var(--border-gold)}
+.cinfo-icon-wrap{width:44px;height:44px;border:1px solid var(--border-gold);display:flex;align-items:center;justify-content:center;flex-shrink:0;color:var(--gold);font-size:.9rem;transition:background .35s,border-color .35s,color .35s}
+.cinfo-row:hover .cinfo-icon-wrap{background:var(--gold);border-color:var(--gold);color:var(--off-white)}
+.cinfo-text{}
+.cinfo-lbl{font-family:'Jost',sans-serif;display:block;font-size:.54rem;letter-spacing:.3em;text-transform:uppercase;color:var(--text-light);margin-bottom:5px}
+.cinfo-val{font-family:'Jost',sans-serif;font-size:.88rem;color:var(--text-dark);font-weight:300;line-height:1.75}
+.cinfo-val a{color:var(--text-dark);text-decoration:none;transition:color .3s}
+.cinfo-val a:hover{color:var(--gold)}
+
+.hours-block{background:var(--blush);padding:32px 36px;margin-bottom:36px}
+.hours-block h3{font-family:'Cormorant',serif;font-weight:400;font-size:1rem;letter-spacing:.1em;text-transform:uppercase;color:var(--text-dark);margin-bottom:20px}
+.hours-table{display:flex;flex-direction:column;gap:10px}
+.hours-row{display:flex;justify-content:space-between;align-items:center}
+.hours-day{font-family:'Jost',sans-serif;font-size:.8rem;color:var(--text-mid);font-weight:300}
+.hours-time{font-family:'Cormorant',serif;font-style:italic;font-size:.95rem;color:var(--text-dark)}
+.hours-closed{font-family:'Jost',sans-serif;font-size:.78rem;color:rgba(138,116,97,.5);font-weight:300}
+
+.social-links{display:flex;gap:12px}
+.social-link{width:42px;height:42px;border:1px solid var(--border-gold);display:flex;align-items:center;justify-content:center;font-family:'Jost',sans-serif;font-size:.62rem;font-weight:400;color:var(--text-mid);text-decoration:none;letter-spacing:.06em;transition:background .3s,border-color .3s,color .3s}
+.social-link:hover{background:var(--slate);border-color:var(--slate);color:var(--off-white)}
+
+.contact-form-wrap{background:var(--blush);padding:52px 48px}
+.form-title{font-family:'Cormorant',serif;font-style:italic;font-weight:300;font-size:2.2rem;color:var(--text-dark);margin-bottom:6px;line-height:1.1}
+.form-subtitle{font-family:'Jost',sans-serif;font-size:.64rem;letter-spacing:.3em;text-transform:uppercase;color:var(--text-light);margin-bottom:36px}
+.form-success{display:none;text-align:center;padding:52px 0}
+.form-success-icon{width:64px;height:64px;border:1px solid var(--border-gold);border-radius:50%;display:flex;align-items:center;justify-content:center;margin:0 auto 22px;font-size:1.6rem;color:var(--gold)}
+.form-success h4{font-family:'Cormorant',serif;font-style:italic;font-weight:300;font-size:2rem;color:var(--text-dark);margin-bottom:12px}
+.form-success p{font-family:'Jost',sans-serif;font-size:.86rem;color:var(--text-mid);font-weight:300;line-height:1.9}
+
+.map-section{background:var(--slate);padding:0}
+.map-inner{max-width:1280px;margin:0 auto;display:grid;grid-template-columns:1fr 2fr}
+.map-info{padding:72px 60px;display:flex;flex-direction:column;justify-content:center}
+.map-info h3{font-family:'Cormorant',serif;font-style:italic;font-weight:300;font-size:2.2rem;color:var(--off-white);line-height:1.15;margin-bottom:24px}
+.map-info p{font-family:'Jost',sans-serif;font-size:.84rem;color:rgba(243,238,231,.46);font-weight:300;line-height:1.95;margin-bottom:8px}
+.map-info .address{font-family:'Jost',sans-serif;font-size:.88rem;color:rgba(243,238,231,.72);font-weight:300;line-height:1.8;margin-bottom:32px}
+.map-placeholder{background:rgba(243,238,231,.04);min-height:400px;display:flex;align-items:center;justify-content:center;position:relative;overflow:hidden}
+.map-placeholder-img{width:100%;height:100%;object-fit:cover;opacity:.3;position:absolute;inset:0}
+.map-placeholder-content{position:relative;z-index:1;text-align:center}
+.map-placeholder-content p{font-family:'Jost',sans-serif;font-size:.64rem;letter-spacing:.28em;text-transform:uppercase;color:rgba(243,238,231,.36);margin-bottom:16px}
+.map-placeholder-content a{font-family:'Jost',sans-serif;font-size:.6rem;letter-spacing:.22em;text-transform:uppercase;color:rgba(169,143,122,.7);text-decoration:none;border:1px solid rgba(169,143,122,.3);padding:10px 22px;transition:background .3s,border-color .3s,color .3s}
+.map-placeholder-content a:hover{background:rgba(169,143,122,.15);border-color:var(--gold);color:var(--gold)}
+
+.badge-section{background:var(--blush-mid);padding:80px 24px;text-align:center}
+.badge-grid{display:flex;justify-content:center;flex-wrap:wrap;gap:0;max-width:900px;margin:40px auto 0}
+.badge{padding:36px 48px;display:flex;flex-direction:column;align-items:center;gap:12px;border-right:1px solid var(--border-gold)}
+.badge:last-child{border-right:none}
+.badge-num{font-family:'Cormorant',serif;font-style:italic;font-weight:300;font-size:3.2rem;color:var(--text-dark);line-height:1}
+.badge-label{font-family:'Jost',sans-serif;font-size:.58rem;letter-spacing:.26em;text-transform:uppercase;color:var(--text-light)}
+
+@media(max-width:960px){
+  .contact-main-inner{grid-template-columns:1fr;gap:52px}
+  .contact-main{padding:72px 24px}
+  .map-inner{grid-template-columns:1fr}
+  .map-info{padding:52px 24px}
+  .contact-form-wrap{padding:36px 24px}
+  .badge-grid{flex-direction:column;align-items:center}
+  .badge{border-right:none;border-bottom:1px solid var(--border-gold);width:100%;padding:28px 24px}
+  .badge:last-child{border-bottom:none}
+}
+@media(max-width:480px){
+  .contact-hero{height:44vh;min-height:280px;padding-bottom:48px}
+  .contact-hero-content h1{font-size:clamp(2.2rem,10vw,3.5rem)}
+  .contact-main{padding:52px 20px 72px}
+  .hours-block{padding:24px 20px}
+  .contact-form-wrap{padding:28px 20px}
+  .form-title{font-size:1.8rem}
+  .badge{padding:22px 16px}
+  .map-info{padding:44px 20px}
+  .map-section{padding:0}
+  .cinfo-row{gap:14px}
+}
+</style>
+</head>
+<body>
+
+<nav id="nav">
+  <div class="nav-inner">
+    <div class="nav-left">
+      <ul class="nav-links">
+        <li><a href="index.html">Strona główna</a></li>
+        <li><a href="galeria.html">Galeria</a></li>
+      </ul>
+    </div>
+    <a href="index.html" class="nav-logo">Angello<span>Studio Dekoracji · Zabrze</span></a>
+    <div class="nav-right">
+      <ul class="nav-links">
+        <li><a href="wesela.html">Śluby & Wesela</a></li>
+        <li><a href="oferta.html">Oferta</a></li>
+      </ul>
+      <a href="kontakt.html" class="nav-cta active" style="border-color:rgba(243,238,231,.6);color:var(--off-white)">Kontakt</a>
+      <button class="ham" id="ham" aria-label="Menu"><span></span><span></span><span></span></button>
+    </div>
+  </div>
+</nav>
+
+<div class="mob-menu" id="mobMenu">
+  <ul>
+    <li><a href="index.html" class="ml">Strona główna</a></li>
+    <li><a href="galeria.html" class="ml">Galeria</a></li>
+    <li><a href="wesela.html" class="ml">Śluby & Wesela</a></li>
+    <li><a href="oferta.html" class="ml">Oferta</a></li>
+    <li><a href="kontakt.html" class="ml">Kontakt</a></li>
+  </ul>
+  <div class="mob-footer">+48 793 032 332 · Zabrze</div>
+</div>
+
+<div class="contact-hero">
+  <div class="contact-hero-bg" style="background-image:url('zdj1.JPG')"></div>
+  <div class="contact-hero-overlay"></div>
+  <div class="contact-hero-content">
+    <span>Angello Studio Dekoracji</span>
+    <h1>Porozmawiajmy<br><em>o Twoim dniu</em></h1>
+  </div>
+</div>
+
+<section class="contact-main">
+  <div class="contact-main-inner">
+    <div class="contact-info observe-me">
+      <span class="eyebrow"><span class="eyebrow-inner">Dane kontaktowe</span></span>
+      <h2>
+        <span class="split-line"><span class="split-line-inner" style="transition-delay:.06s">Jesteśmy do</span></span>
+        <span class="split-line"><span class="split-line-inner" style="transition-delay:.16s"><em>Twojej dyspozycji</em></span></span>
+      </h2>
+      <p class="fade-up d2">Oferujemy bezpłatne i niezobowiązujące konsultacje — telefonicznie lub w naszym studio w Zabrzu. Odpowiadamy na każde zapytanie w ciągu 24 godzin.</p>
+
+      <div class="cinfo">
+        <div class="cinfo-row">
+          <div class="cinfo-icon-wrap">✦</div>
+          <div class="cinfo-text">
+            <span class="cinfo-lbl">Florist Master</span>
+            <div class="cinfo-val">Angelika Ordon<br>Mistrz Florystyki Polskiej</div>
+          </div>
+        </div>
+        <div class="cinfo-row">
+          <div class="cinfo-icon-wrap">☏</div>
+          <div class="cinfo-text">
+            <span class="cinfo-lbl">Telefon</span>
+            <div class="cinfo-val"><a href="tel:+48793032332">+48 793 032 332</a></div>
+          </div>
+        </div>
+        <div class="cinfo-row">
+          <div class="cinfo-icon-wrap">✉</div>
+          <div class="cinfo-text">
+            <span class="cinfo-lbl">Email</span>
+            <div class="cinfo-val"><a href="mailto:biuro@angello.com.pl">biuro@angello.com.pl</a></div>
+          </div>
+        </div>
+        <div class="cinfo-row">
+          <div class="cinfo-icon-wrap">◎</div>
+          <div class="cinfo-text">
+            <span class="cinfo-lbl">Studio</span>
+            <div class="cinfo-val">ul. M. Curie Skłodowskiej 10a<br>41-800 Zabrze<br><span style="font-size:.78rem;color:var(--text-light)">obok Śląskiego Centrum Chorób Serca</span></div>
+          </div>
+        </div>
+        <div class="cinfo-row">
+          <div class="cinfo-icon-wrap">◷</div>
+          <div class="cinfo-text">
+            <span class="cinfo-lbl">Zasięg działania</span>
+            <div class="cinfo-val">Cała Polska</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="hours-block fade-up d3">
+        <h3>Godziny otwarcia</h3>
+        <div class="hours-table">
+          <div class="hours-row"><span class="hours-day">Poniedziałek – Piątek</span><span class="hours-time">7:00 – 18:00</span></div>
+          <div class="hours-row"><span class="hours-day">Sobota</span><span class="hours-time">8:00 – 18:00</span></div>
+          <div class="hours-row"><span class="hours-day">Niedziela</span><span class="hours-closed">zamknięte</span></div>
+        </div>
+      </div>
+
+      <div class="social-links fade-up d4">
+        <a href="#" class="social-link">FB</a>
+        <a href="#" class="social-link">IG</a>
+        <a href="#" class="social-link">YT</a>
+      </div>
+    </div>
+
+    <div class="contact-form-wrap fade-up d2">
+      <p class="form-title">Napisz do nas</p>
+      <p class="form-subtitle">Odpowiadamy w ciągu 24 godzin</p>
+      <div id="contactForm">
+        <div class="form-row">
+          <div class="form-group"><label for="fname">Imię</label><input type="text" id="fname" placeholder="Anna"></div>
+          <div class="form-group"><label for="lname">Nazwisko</label><input type="text" id="lname" placeholder="Kowalska"></div>
+        </div>
+        <div class="form-group"><label for="email">Adres e-mail</label><input type="email" id="email" placeholder="anna@example.com"></div>
+        <div class="form-group"><label for="phone">Telefon</label><input type="tel" id="phone" placeholder="+48 000 000 000"></div>
+        <div class="form-row">
+          <div class="form-group"><label for="date">Planowana data</label><input type="date" id="date"></div>
+          <div class="form-group"><label for="service">Rodzaj usługi</label>
+            <select id="service">
+              <option value="" disabled selected>Wybierz...</option>
+              <option>Florystyka ślubna</option>
+              <option>I Komunia Święta</option>
+              <option>Dekoracje eventowe</option>
+              <option>Kwiaty dla firm</option>
+              <option>Architektura krajobrazu</option>
+              <option>Bukiet okolicznościowy</option>
+              <option>Inne</option>
+            </select>
+          </div>
+        </div>
+        <div class="form-group"><label for="guests">Przybliżona liczba gości</label>
+          <select id="guests">
+            <option value="" disabled selected>Wybierz przedział...</option>
+            <option>Do 50 osób</option>
+            <option>50 – 100 osób</option>
+            <option>100 – 200 osób</option>
+            <option>Powyżej 200 osób</option>
+            <option>Nie dotyczy</option>
+          </select>
+        </div>
+        <div class="form-group"><label for="message">Twoja wizja i dodatkowe informacje</label>
+          <textarea id="message" placeholder="Opisz swoje oczekiwania, preferowaną kolorystykę, styl dekoracji lub miejsce uroczystości..."></textarea>
+        </div>
+        <div class="form-check">
+          <input type="checkbox" id="consent">
+          <label for="consent">Wyrażam zgodę na przetwarzanie moich danych osobowych w celu odpowiedzi na zapytanie, zgodnie z Polityką Prywatności Angello Studio.</label>
+        </div>
+        <button class="form-submit" id="formSubmit" type="button"><span>Wyślij zapytanie →</span></button>
+      </div>
+      <div class="form-success" id="formSuccess">
+        <div class="form-success-icon">✦</div>
+        <h4>Dziękujemy za wiadomość!</h4>
+        <p>Skontaktujemy się z Tobą w ciągu 24 godzin.<br>Do zobaczenia w Angello Studio.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="map-section">
+  <div class="map-inner">
+    <div class="map-info observe-me">
+      <span class="eyebrow" style="color:rgba(243,238,231,.36)"><span class="eyebrow-inner">Lokalizacja</span></span>
+      <h3>
+        <span class="split-line"><span class="split-line-inner" style="transition-delay:.08s">Znajdź nas</span></span>
+        <span class="split-line"><span class="split-line-inner" style="transition-delay:.18s"><em>w Zabrzu</em></span></span>
+      </h3>
+      <p class="address fade-up d2">ul. M. Curie Skłodowskiej 10a<br>41-800 Zabrze</p>
+      <p class="fade-up d3">Nasze studio znajduje się w samym centrum Zabrza, tuż obok Śląskiego Centrum Chorób Serca. Zapraszamy po wcześniejszym umówieniu się telefonicznym.</p>
+      <div style="margin-top:32px" class="fade-up d4">
+        <a href="tel:+48793032332" class="btn-ghost">Zadzwoń i umów wizytę →</a>
+      </div>
+    </div>
+    <div class="map-placeholder">
+      <img src="zdj2.JPG" alt="Angello Studio Zabrze" class="map-placeholder-img">
+      <div class="map-placeholder-content">
+        <p>ul. M. Curie Skłodowskiej 10a · Zabrze</p>
+        <a href="https://maps.google.com/?q=ul.+Marii+Curie+Sklodowskiej+10a+Zabrze" target="_blank" rel="noopener">Otwórz w Google Maps ↗</a>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="badge-section">
+  <div class="observe-me" style="text-align:center">
+    <span class="eyebrow"><span class="eyebrow-inner">Angello w liczbach</span></span>
+    <p style="font-family:'Cormorant',serif;font-style:italic;font-weight:300;font-size:clamp(2rem,3.5vw,3.4rem);color:var(--text-dark);line-height:1.1">
+      <span class="split-line"><span class="split-line-inner" style="transition-delay:.08s">25 lat pasji</span></span>
+      <span class="split-line"><span class="split-line-inner" style="transition-delay:.18s"><em>i piękna</em></span></span>
+    </p>
+  </div>
+  <div class="badge-grid">
+    <div class="badge fade-up d1">
+      <span class="badge-num">25+</span>
+      <span class="badge-label">lat doświadczenia</span>
+    </div>
+    <div class="badge fade-up d2">
+      <span class="badge-num">2000+</span>
+      <span class="badge-label">zrealizowanych wesel</span>
+    </div>
+    <div class="badge fade-up d3">
+      <span class="badge-num">14</span>
+      <span class="badge-label">rodzajów dekoracji</span>
+    </div>
+    <div class="badge fade-up d4">
+      <span class="badge-num">∞</span>
+      <span class="badge-label">konfiguracji</span>
+    </div>
+  </div>
+</div>
+
+<footer>
+  <div class="footer-inner">
+    <div class="footer-brand">
+      <a href="index.html" class="footer-logo">Angello<small>Studio Dekoracji</small></a>
+      <p>Studio Dekoracji w Zabrzu. Kwiatami wyrażamy to, czego słowa nie potrafią powiedzieć. Od niemal 25 lat z pasją i bezkompromisową jakością.</p>
+    </div>
+    <div class="footer-col">
+      <h4>Nawigacja</h4>
+      <ul><li><a href="index.html">Strona główna</a></li><li><a href="galeria.html">Galeria</a></li><li><a href="wesela.html">Śluby & Wesela</a></li><li><a href="oferta.html">Oferta</a></li><li><a href="kontakt.html">Kontakt</a></li></ul>
+    </div>
+    <div class="footer-col">
+      <h4>Kontakt</h4>
+      <ul>
+        <li><a href="tel:+48793032332">+48 793 032 332</a></li>
+        <li><a href="mailto:biuro@angello.com.pl">biuro@angello.com.pl</a></li>
+        <li><a href="#">ul. M. Curie Skłodowskiej 10a</a></li>
+        <li><a href="#">41-800 Zabrze</a></li>
+      </ul>
+    </div>
+    <div class="footer-bottom">
+      <p>© 2026 Angello Studio Dekoracji · Zabrze · Stowarzyszenie Florystów Polskich · Nr konta: 24 2490 0005 0000 4500 9569 5393</p>
+      <div class="awards"><div class="award">Kwiaciarnia Roku</div><div class="award">Mistrz Ślubno-Weselny</div></div>
+    </div>
+  </div>
+</footer>
+
+<script>
+(function(){
+var nav=document.getElementById('nav');var lastScroll=0;
+window.addEventListener('scroll',function(){var y=window.scrollY;nav.classList.toggle('scrolled',y>40);if(y>lastScroll&&y>120)nav.classList.add('hide');else nav.classList.remove('hide');lastScroll=y});
+var ham=document.getElementById('ham'),mob=document.getElementById('mobMenu');
+ham.addEventListener('click',function(){var o=mob.classList.toggle('open');ham.classList.toggle('open',o);document.body.style.overflow=o?'hidden':''});
+document.querySelectorAll('.ml').forEach(function(l){l.addEventListener('click',function(){mob.classList.remove('open');ham.classList.remove('open');document.body.style.overflow=''})});
+var obsMain=new IntersectionObserver(function(e){e.forEach(function(x){if(x.isIntersecting){x.target.classList.add('in-view');obsMain.unobserve(x.target)}})},{threshold:0.07});
+document.querySelectorAll('.observe-me').forEach(function(el){obsMain.observe(el)});
+var obsFade=new IntersectionObserver(function(e){e.forEach(function(x){if(x.isIntersecting){x.target.classList.add('in-view');obsFade.unobserve(x.target)}})},{threshold:0.07});
+document.querySelectorAll('.fade-up').forEach(function(el){if(!el.closest('.observe-me'))obsFade.observe(el)});
+document.getElementById('formSubmit').addEventListener('click',function(){
+  var f=document.getElementById('fname').value.trim();
+  var em=document.getElementById('email').value.trim();
+  var c=document.getElementById('consent').checked;
+  if(!f||!em||!c){
+    var miss=[];
+    if(!f)miss.push('imię');
+    if(!em)miss.push('e-mail');
+    if(!c)miss.push('zgodę na przetwarzanie danych');
+    alert('Prosimy uzupełnić: '+miss.join(', ')+'.');
+    return;
+  }
+  document.getElementById('contactForm').style.display='none';
+  document.getElementById('formSuccess').style.display='block';
+});
+})();
+</script>
+</body>
+</html>
