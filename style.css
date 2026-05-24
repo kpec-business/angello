@@ -49,9 +49,9 @@ nav.scrolled{box-shadow:0 2px 40px rgba(58,49,44,.32)}
 .ticker{background:var(--slate);overflow:hidden;white-space:nowrap;padding:13px 0;border-top:1px solid rgba(243,238,231,.06)}
 .ticker-track{display:inline-flex;animation:ticker 38s linear infinite}
 .ticker-track:hover{animation-play-state:paused}
-.ticker-track span{font-family:'Cormorant',serif;font-style:italic;font-size:.96rem;color:rgba(243,238,231,.32);letter-spacing:.1em;padding:0 36px;transition:color .3s}
+.ticker-track span{font-family:'Cormorant',serif;font-style:italic;font-size:.96rem;color:var(--gold);letter-spacing:.1em;padding:0 36px;transition:color .3s}
 .ticker-track span:not(.sep):hover{color:var(--blush-mid)}
-.ticker-track .sep{color:rgba(243,238,231,.14);font-style:normal;padding:0 6px}
+.ticker-track .sep{color:rgba(169,143,122,.38);font-style:normal;padding:0 6px}
 @keyframes ticker{to{transform:translateX(-50%)}}
 
 .hero{position:relative;height:100vh;min-height:600px;display:flex;align-items:center;justify-content:center;overflow:hidden}

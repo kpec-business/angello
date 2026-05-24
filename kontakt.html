@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Kontakt — Angello Studio Dekoracji</title>
+<title>Kontakt — Angello Biuro-Showroom Dekoracji</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Cormorant:ital,wght@0,300;0,400;0,600;1,300;1,400;1,600&family=Jost:ital,wght@0,300;0,400;0,500;1,300&family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
@@ -13,7 +13,7 @@
 .contact-hero-bg{position:absolute;inset:0;background-size:cover;background-position:center;opacity:.35}
 .contact-hero-overlay{position:absolute;inset:0;background:linear-gradient(to bottom,rgba(58,49,44,.3),rgba(58,49,44,.78))}
 .contact-hero-content{position:relative;z-index:2;text-align:center}
-.contact-hero-content span{font-family:'Jost',sans-serif;font-size:.57rem;letter-spacing:.46em;text-transform:uppercase;color:rgba(243,238,231,.4);display:block;margin-bottom:16px}
+.contact-hero-content span{font-family:'Jost',sans-serif;font-size:.57rem;letter-spacing:.46em;text-transform:uppercase;color:var(--gold);display:block;margin-bottom:16px}
 .contact-hero-content h1{font-family:'Cormorant',serif;font-style:italic;font-weight:300;font-size:clamp(3.2rem,7vw,6.4rem);color:#F3EEE7;line-height:1}
 
 .contact-main{background:var(--off-white);padding:96px 24px 120px}
@@ -33,13 +33,9 @@
 .cinfo-val a{color:var(--text-dark);text-decoration:none;transition:color .3s}
 .cinfo-val a:hover{color:var(--gold)}
 
-.hours-block{background:var(--blush);padding:32px 36px;margin-bottom:36px}
-.hours-block h3{font-family:'Cormorant',serif;font-weight:400;font-size:1rem;letter-spacing:.1em;text-transform:uppercase;color:var(--text-dark);margin-bottom:20px}
-.hours-table{display:flex;flex-direction:column;gap:10px}
-.hours-row{display:flex;justify-content:space-between;align-items:center}
-.hours-day{font-family:'Jost',sans-serif;font-size:.8rem;color:var(--text-mid);font-weight:300}
-.hours-time{font-family:'Cormorant',serif;font-style:italic;font-size:.95rem;color:var(--text-dark)}
-.hours-closed{font-family:'Jost',sans-serif;font-size:.78rem;color:rgba(138,116,97,.5);font-weight:300}
+.specialist-block{background:var(--blush);padding:28px 32px;margin-bottom:36px;border-left:2px solid var(--gold)}
+.specialist-block p{font-family:'Jost',sans-serif;font-size:.84rem;color:var(--text-mid);font-weight:300;line-height:1.9}
+.specialist-block strong{font-family:'Cormorant',serif;font-style:italic;font-size:1.05rem;color:var(--text-dark);font-weight:300;display:block;margin-bottom:6px}
 
 .social-links{display:flex;gap:12px}
 .social-link{width:42px;height:42px;border:1px solid var(--border-gold);display:flex;align-items:center;justify-content:center;font-family:'Jost',sans-serif;font-size:.62rem;font-weight:400;color:var(--text-mid);text-decoration:none;letter-spacing:.06em;transition:background .3s,border-color .3s,color .3s}
@@ -67,10 +63,10 @@
 .map-placeholder-content a:hover{background:rgba(169,143,122,.15);border-color:var(--gold);color:var(--gold)}
 
 .badge-section{background:var(--blush-mid);padding:80px 24px;text-align:center}
-.badge-grid{display:flex;justify-content:center;flex-wrap:wrap;gap:0;max-width:900px;margin:40px auto 0}
-.badge{padding:36px 48px;display:flex;flex-direction:column;align-items:center;gap:12px;border-right:1px solid var(--border-gold)}
+.badge-grid{display:flex;justify-content:center;flex-wrap:wrap;gap:0;max-width:700px;margin:40px auto 0}
+.badge{padding:36px 52px;display:flex;flex-direction:column;align-items:center;gap:12px;border-right:1px solid var(--border-gold)}
 .badge:last-child{border-right:none}
-.badge-num{font-family:'Cormorant',serif;font-style:italic;font-weight:300;font-size:3.2rem;color:var(--text-dark);line-height:1}
+.badge-num{font-family:'Cormorant',serif;font-style:italic;font-weight:300;font-size:3.4rem;color:var(--text-dark);line-height:1}
 .badge-label{font-family:'Jost',sans-serif;font-size:.58rem;letter-spacing:.26em;text-transform:uppercase;color:var(--text-light)}
 
 @media(max-width:960px){
@@ -87,13 +83,13 @@
   .contact-hero{height:44vh;min-height:280px;padding-bottom:48px}
   .contact-hero-content h1{font-size:clamp(2.2rem,10vw,3.5rem)}
   .contact-main{padding:52px 20px 72px}
-  .hours-block{padding:24px 20px}
   .contact-form-wrap{padding:28px 20px}
   .form-title{font-size:1.8rem}
   .badge{padding:22px 16px}
   .map-info{padding:44px 20px}
   .map-section{padding:0}
   .cinfo-row{gap:14px}
+  .specialist-block{padding:22px 20px}
 }
 </style>
 </head>
@@ -107,7 +103,7 @@
         <li><a href="galeria.html">Galeria</a></li>
       </ul>
     </div>
-    <a href="index.html" class="nav-logo">Angello<span>Studio Dekoracji · Zabrze</span></a>
+    <a href="index.html" class="nav-logo">Angello<span>Biuro-Showroom · Katowice</span></a>
     <div class="nav-right">
       <ul class="nav-links">
         <li><a href="wesela.html">Śluby & Wesela</a></li>
@@ -127,14 +123,14 @@
     <li><a href="oferta.html" class="ml">Oferta</a></li>
     <li><a href="kontakt.html" class="ml">Kontakt</a></li>
   </ul>
-  <div class="mob-footer">+48 793 032 332 · Zabrze</div>
+  <div class="mob-footer">+48 793 032 332 · Katowice</div>
 </div>
 
 <div class="contact-hero">
   <div class="contact-hero-bg" style="background-image:url('zdj1.JPG')"></div>
   <div class="contact-hero-overlay"></div>
   <div class="contact-hero-content">
-    <span>Angello Studio Dekoracji</span>
+    <span>Angello Biuro-Showroom · Katowice</span>
     <h1>Porozmawiajmy<br><em>o Twoim dniu</em></h1>
   </div>
 </div>
@@ -147,13 +143,13 @@
         <span class="split-line"><span class="split-line-inner" style="transition-delay:.06s">Jesteśmy do</span></span>
         <span class="split-line"><span class="split-line-inner" style="transition-delay:.16s"><em>Twojej dyspozycji</em></span></span>
       </h2>
-      <p class="fade-up d2">Oferujemy bezpłatne i niezobowiązujące konsultacje, telefonicznie lub w naszym studio w Zabrzu. Odpowiadamy na każde zapytanie w ciągu 24 godzin.</p>
+      <p class="fade-up d2">Oferujemy bezpłatne i niezobowiązujące konsultacje — telefonicznie lub w naszym biurze-showroom w Katowicach. Odpowiadamy na każde zapytanie w ciągu 24 godzin.</p>
 
       <div class="cinfo">
         <div class="cinfo-row">
           <div class="cinfo-icon-wrap">✦</div>
           <div class="cinfo-text">
-            <span class="cinfo-lbl">Florist Master</span>
+            <span class="cinfo-lbl">Dyplomowany Specjalista Florystyki Ślubnej</span>
             <div class="cinfo-val">Angelika Ordon<br>Mistrz Florystyki Polskiej</div>
           </div>
         </div>
@@ -174,26 +170,22 @@
         <div class="cinfo-row">
           <div class="cinfo-icon-wrap">◎</div>
           <div class="cinfo-text">
-            <span class="cinfo-lbl">Studio</span>
-            <div class="cinfo-val">ul. M. Curie Skłodowskiej 10a<br>41-800 Zabrze<br><span style="font-size:.78rem;color:var(--text-light)">obok Śląskiego Centrum Chorób Serca</span></div>
+            <span class="cinfo-lbl">Biuro-Showroom</span>
+            <div class="cinfo-val">Olimpijska 9a/197<br>Katowice</div>
           </div>
         </div>
         <div class="cinfo-row">
           <div class="cinfo-icon-wrap">◷</div>
           <div class="cinfo-text">
             <span class="cinfo-lbl">Zasięg działania</span>
-            <div class="cinfo-val">Cała Polska</div>
+            <div class="cinfo-val">Cała Polska · Śluby zagraniczne</div>
           </div>
         </div>
       </div>
 
-      <div class="hours-block fade-up d3">
-        <h3>Godziny otwarcia</h3>
-        <div class="hours-table">
-          <div class="hours-row"><span class="hours-day">Poniedziałek – Piątek</span><span class="hours-time">7:00 – 18:00</span></div>
-          <div class="hours-row"><span class="hours-day">Sobota</span><span class="hours-time">8:00 – 18:00</span></div>
-          <div class="hours-row"><span class="hours-day">Niedziela</span><span class="hours-closed">zamknięte</span></div>
-        </div>
+      <div class="specialist-block fade-up d3">
+        <strong>Dyplomowany Specjalista Florystyki Ślubnej</strong>
+        <p>Angelika Ordon to certyfikowany specjalista z 25-letnim doświadczeniem, zrzeszony w Stowarzyszeniu Florystów Polskich. Każda para otrzymuje od nas pełne zaangażowanie i autorski projekt dekoracji.</p>
       </div>
 
       <div class="social-links fade-up d4">
@@ -218,12 +210,12 @@
           <div class="form-group"><label for="service">Rodzaj usługi</label>
             <select id="service">
               <option value="" disabled selected>Wybierz...</option>
-              <option>Florystyka ślubna</option>
-              <option>I Komunia Święta</option>
-              <option>Dekoracje eventowe</option>
-              <option>Kwiaty dla firm</option>
-              <option>Architektura krajobrazu</option>
-              <option>Bukiet okolicznościowy</option>
+              <option>Dekoracje sal weselnych</option>
+              <option>Dekoracje kościołów</option>
+              <option>Ślub w plenerze</option>
+              <option>Bukiety ślubne</option>
+              <option>Ślub zagraniczny</option>
+              <option>Kompleksowa obsługa</option>
               <option>Inne</option>
             </select>
           </div>
@@ -243,14 +235,14 @@
         </div>
         <div class="form-check">
           <input type="checkbox" id="consent">
-          <label for="consent">Wyrażam zgodę na przetwarzanie moich danych osobowych w celu odpowiedzi na zapytanie, zgodnie z Polityką Prywatności Angello Studio.</label>
+          <label for="consent">Wyrażam zgodę na przetwarzanie moich danych osobowych w celu odpowiedzi na zapytanie, zgodnie z Polityką Prywatności Angello.</label>
         </div>
         <button class="form-submit" id="formSubmit" type="button"><span>Wyślij zapytanie →</span></button>
       </div>
       <div class="form-success" id="formSuccess">
         <div class="form-success-icon">✦</div>
         <h4>Dziękujemy za wiadomość!</h4>
-        <p>Skontaktujemy się z Tobą w ciągu 24 godzin.<br>Do zobaczenia w Angello Studio.</p>
+        <p>Skontaktujemy się z Tobą w ciągu 24 godzin.<br>Do zobaczenia w Angello Biuro-Showroom.</p>
       </div>
     </div>
   </div>
@@ -262,19 +254,19 @@
       <span class="eyebrow" style="color:rgba(243,238,231,.36)"><span class="eyebrow-inner">Lokalizacja</span></span>
       <h3>
         <span class="split-line"><span class="split-line-inner" style="transition-delay:.08s">Znajdź nas</span></span>
-        <span class="split-line"><span class="split-line-inner" style="transition-delay:.18s"><em>w Zabrzu</em></span></span>
+        <span class="split-line"><span class="split-line-inner" style="transition-delay:.18s"><em>w Katowicach</em></span></span>
       </h3>
-      <p class="address fade-up d2">ul. M. Curie Skłodowskiej 10a<br>41-800 Zabrze</p>
-      <p class="fade-up d3">Nasze studio znajduje się w samym centrum Zabrza, tuż obok Śląskiego Centrum Chorób Serca. Zapraszamy po wcześniejszym umówieniu się telefonicznym.</p>
+      <p class="address fade-up d2">Olimpijska 9a/197<br>Katowice</p>
+      <p class="fade-up d3">Nasze biuro-showroom mieści się w Katowicach. Zapraszamy po wcześniejszym umówieniu się telefonicznym lub mailowym.</p>
       <div style="margin-top:32px" class="fade-up d4">
         <a href="tel:+48793032332" class="btn-ghost">Zadzwoń i umów wizytę →</a>
       </div>
     </div>
     <div class="map-placeholder">
-      <img src="zdj2.JPG" alt="Angello Studio Zabrze" class="map-placeholder-img">
+      <img src="zdj2.JPG" alt="Angello Biuro-Showroom Katowice" class="map-placeholder-img">
       <div class="map-placeholder-content">
-        <p>ul. M. Curie Skłodowskiej 10a · Zabrze</p>
-        <a href="https://maps.google.com/?q=ul.+Marii+Curie+Sklodowskiej+10a+Zabrze" target="_blank" rel="noopener">Otwórz w Google Maps ↗</a>
+        <p>Olimpijska 9a/197 · Katowice</p>
+        <a href="https://maps.google.com/?q=Olimpijska+9a+Katowice" target="_blank" rel="noopener">Otwórz w Google Maps ↗</a>
       </div>
     </div>
   </div>
@@ -290,20 +282,12 @@
   </div>
   <div class="badge-grid">
     <div class="badge fade-up d1">
-      <span class="badge-num">25+</span>
-      <span class="badge-label">lat doświadczenia</span>
+      <span class="badge-num">5000+</span>
+      <span class="badge-label">zrealizowanych ślubów</span>
     </div>
     <div class="badge fade-up d2">
-      <span class="badge-num">2000+</span>
-      <span class="badge-label">zrealizowanych wesel</span>
-    </div>
-    <div class="badge fade-up d3">
-      <span class="badge-num">14</span>
-      <span class="badge-label">rodzajów dekoracji</span>
-    </div>
-    <div class="badge fade-up d4">
-      <span class="badge-num">∞</span>
-      <span class="badge-label">konfiguracji</span>
+      <span class="badge-num">12</span>
+      <span class="badge-label">partnerskich sal</span>
     </div>
   </div>
 </div>
@@ -311,8 +295,8 @@
 <footer>
   <div class="footer-inner">
     <div class="footer-brand">
-      <a href="index.html" class="footer-logo">Angello<small>Studio Dekoracji</small></a>
-      <p>Studio Dekoracji w Zabrzu. Kwiatami wyrażamy to, czego słowa nie potrafią powiedzieć. Od niemal 25 lat z pasją i bezkompromisową jakością.</p>
+      <a href="index.html" class="footer-logo">Angello<small>Biuro-Showroom Dekoracji</small></a>
+      <p>Biuro-Showroom w Katowicach. Dyplomowany Specjalista Florystyki Ślubnej — Angelika Ordon. Od niemal 25 lat z pasją i bezkompromisową jakością.</p>
     </div>
     <div class="footer-col">
       <h4>Nawigacja</h4>
@@ -323,13 +307,13 @@
       <ul>
         <li><a href="tel:+48793032332">+48 793 032 332</a></li>
         <li><a href="mailto:biuro@angello.com.pl">biuro@angello.com.pl</a></li>
-        <li><a href="#">ul. M. Curie Skłodowskiej 10a</a></li>
-        <li><a href="#">41-800 Zabrze</a></li>
+        <li><a href="#">Olimpijska 9a/197</a></li>
+        <li><a href="#">Katowice</a></li>
       </ul>
     </div>
     <div class="footer-bottom">
-      <p>© 2026 Angello Studio Dekoracji · Zabrze · Stowarzyszenie Florystów Polskich · Nr konta: 24 2490 0005 0000 4500 9569 5393</p>
-      <div class="awards"><div class="award">Kwiaciarnia Roku</div><div class="award">Mistrz Ślubno-Weselny</div></div>
+      <p>© 2026 Angello Biuro-Showroom Dekoracji · Olimpijska 9a/197, Katowice · Stowarzyszenie Florystów Polskich · Nr konta: 24 2490 0005 0000 4500 9569 5393</p>
+      <div class="awards"><div class="award">Mistrz Ślubno-Weselny</div><div class="award">Dyplomowany Specjalista Florystyki</div></div>
     </div>
   </div>
 </footer>
