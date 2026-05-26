@@ -3,93 +3,151 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Śluby & Wesela — Angello Florystyka Ślubna</title>
+<title>Angello — Florystyka Ślubna · Katowice</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Cormorant:ital,wght@0,300;0,400;0,600;1,300;1,400;1,600&family=Jost:ital,wght@0,300;0,400;0,500;1,300&family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="style.css">
 <style>
-.intro-split{display:grid;grid-template-columns:1fr 1fr;min-height:90vh}
-.intro-img{position:relative;overflow:hidden}
-.intro-img img{width:100%;height:100%;object-fit:cover;display:block;transition:transform 1.4s var(--ease)}
-.intro-img:hover img{transform:scale(1.04)}
-.intro-text{background:var(--blush);display:flex;flex-direction:column;justify-content:center;padding:96px 80px 96px 72px}
-.intro-text h2{font-family:'Cormorant',serif;font-style:italic;font-weight:300;font-size:clamp(2.8rem,4vw,4.8rem);color:var(--text-dark);line-height:1.05;margin-bottom:28px}
-.intro-text p{font-family:'Jost',sans-serif;font-size:.88rem;line-height:2.1;color:var(--text-mid);font-weight:300;margin-bottom:16px}
+.hero-slides{position:absolute;inset:0;will-change:transform}
+.hero-slide{position:absolute;inset:0;background-size:cover;background-position:center;opacity:0;transition:opacity 1.6s ease}
+.hero-slide.active{opacity:1}
+.hero-dots{position:absolute;bottom:44px;right:56px;display:flex;gap:10px;z-index:10;align-items:center}
+.hero-dot{width:6px;height:6px;background:rgba(243,238,231,.28);border:none;border-radius:3px;cursor:pointer;padding:0;transition:background .35s,width .45s var(--ease)}
+.hero-dot.active{background:var(--gold);width:26px}
+.hero-specialist{font-family:'Jost',sans-serif;font-size:.54rem;letter-spacing:.4em;text-transform:uppercase;color:var(--gold);margin-bottom:14px;display:block;opacity:0;transform:translateY(12px);transition:opacity .9s .7s ease,transform .9s .7s var(--ease)}
+.hero-loaded .hero-specialist{opacity:1;transform:translateY(0)}
 
-.process-section{background:var(--off-white);padding:120px 24px;overflow:hidden}
-.process-section h2{font-family:'Cormorant',serif;font-style:italic;font-weight:300;font-size:clamp(2.4rem,4vw,4.2rem);color:var(--text-dark);line-height:1.1;margin-bottom:12px;text-align:center}
-.process-rule{width:56px;height:1px;background:var(--gold);margin:20px auto 60px}
-.process-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:2px;max-width:1200px;margin:0 auto}
-.process-step{background:var(--blush);padding:48px 36px;position:relative;overflow:hidden}
-.process-step::before{content:'';position:absolute;top:0;left:0;right:0;height:2px;background:var(--gold);transform:scaleX(0);transform-origin:left;transition:transform .55s var(--ease)}
-.process-step:hover::before{transform:scaleX(1)}
-.step-num{font-family:'Cormorant',serif;font-size:4.5rem;font-weight:300;color:rgba(169,143,122,.18);line-height:1;margin-bottom:20px;display:block}
-.step-title{font-family:'Cormorant',serif;font-weight:400;font-size:1.3rem;color:var(--text-dark);letter-spacing:.06em;margin-bottom:14px}
-.step-body{font-family:'Jost',sans-serif;font-size:.82rem;color:var(--text-mid);font-weight:300;line-height:1.88}
+.categories-section{padding:0}
+.cat-section-head{text-align:center;padding:100px 24px 68px;background:var(--off-white)}
+.cat-grid{display:grid;grid-template-columns:repeat(3,1fr);grid-template-rows:repeat(2,min(48vh,420px))}
+.cat-tile{position:relative;overflow:hidden;display:block;text-decoration:none;background-size:cover;background-position:center}
+.cat-tile-overlay{position:absolute;inset:0;background:rgba(28,22,16,.46);transition:background .55s var(--ease)}
+.cat-tile:hover .cat-tile-overlay{background:rgba(28,22,16,.76)}
+.cat-tile-content{position:absolute;bottom:0;left:0;right:0;padding:30px 28px}
+.cat-tile-num{font-family:'Cormorant',serif;font-size:1.9rem;font-weight:300;color:rgba(169,143,122,.28);line-height:1;display:block;margin-bottom:6px}
+.cat-tile-title{font-family:'Cormorant',serif;font-style:italic;font-weight:300;font-size:clamp(1.3rem,1.8vw,1.9rem);color:#F3EEE7;line-height:1.1;margin-bottom:0;transition:margin-bottom .4s var(--ease)}
+.cat-tile:hover .cat-tile-title{margin-bottom:10px}
+.cat-tile-desc{font-family:'Jost',sans-serif;font-size:.76rem;color:rgba(243,238,231,.7);font-weight:300;line-height:1.82;max-height:0;overflow:hidden;opacity:0;transition:max-height .55s var(--ease),opacity .4s .05s ease}
+.cat-tile:hover .cat-tile-desc{max-height:88px;opacity:1}
+.cat-tile-btn{font-family:'Jost',sans-serif;font-size:.52rem;letter-spacing:.22em;text-transform:uppercase;color:var(--gold);display:inline-flex;align-items:center;gap:8px;margin-top:12px;opacity:0;transform:translateX(-8px);transition:opacity .35s .1s ease,transform .35s .1s var(--ease)}
+.cat-tile:hover .cat-tile-btn{opacity:1;transform:translateX(0)}
 
-.packages-section{background:var(--slate);padding:120px 24px;overflow:hidden}
-.packages-section .section-title{color:var(--off-white);text-align:center}
-.packages-section .section-rule{margin:20px auto 60px}
-.packages-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:2px;max-width:1100px;margin:0 auto}
-.pkg{background:rgba(243,238,231,.04);border:1px solid rgba(243,238,231,.08);padding:52px 40px;position:relative;transition:background .4s,border-color .4s}
-.pkg:hover{background:rgba(243,238,231,.07);border-color:rgba(243,238,231,.18)}
-.pkg.featured{background:rgba(169,143,122,.12);border-color:rgba(169,143,122,.3)}
-.pkg.featured:hover{background:rgba(169,143,122,.18)}
-.pkg-badge{font-family:'Jost',sans-serif;font-size:.52rem;letter-spacing:.28em;text-transform:uppercase;color:var(--gold);display:block;margin-bottom:18px}
-.pkg-name{font-family:'Cormorant',serif;font-style:italic;font-weight:300;font-size:2rem;color:var(--off-white);line-height:1.1;margin-bottom:10px}
-.pkg-rule{width:36px;height:1px;background:var(--gold);margin:18px 0}
-.pkg-desc{font-family:'Jost',sans-serif;font-size:.82rem;color:rgba(243,238,231,.48);font-weight:300;line-height:1.9;margin-bottom:28px}
-.pkg-list{list-style:none;display:flex;flex-direction:column;gap:10px;margin-bottom:36px}
-.pkg-list li{font-family:'Jost',sans-serif;font-size:.8rem;color:rgba(243,238,231,.56);font-weight:300;padding-left:18px;position:relative;line-height:1.7}
-.pkg-list li::before{content:'◆';position:absolute;left:0;color:var(--gold);font-size:.38rem;top:6px}
+.tabs-section{padding:120px 24px;background:var(--blush);overflow:hidden}
+.tabs-header{text-align:center;margin-bottom:68px}
+.tabs-header h2{font-family:'Cormorant',serif;font-style:italic;font-weight:300;font-size:clamp(2.6rem,4.2vw,4.4rem);color:var(--text-dark);line-height:1.1}
+.tabs-header p{font-family:'Jost',sans-serif;font-size:.86rem;color:var(--text-light);font-weight:300;margin-top:16px;line-height:2}
+.tabs-nav{display:flex;justify-content:center;flex-wrap:wrap;border-bottom:1px solid rgba(138,116,97,.18);margin-bottom:60px;position:relative}
+.tab-btn{padding:16px 20px;font-family:'Jost',sans-serif;font-size:.58rem;letter-spacing:.2em;text-transform:uppercase;font-weight:400;color:var(--text-mid);background:none;border:none;cursor:pointer;position:relative;transition:color .3s;white-space:nowrap}
+.tab-indicator{position:absolute;bottom:-1px;height:1px;background:var(--slate);transition:left .4s var(--ease),width .4s var(--ease);pointer-events:none}
+.tab-btn.active{color:var(--text-dark)}
+.tab-btn:hover{color:var(--slate)}
+.tab-panel{display:none;animation:tabIn .55s var(--ease) both}
+@keyframes tabIn{from{opacity:0;transform:translateY(20px)}to{opacity:1;transform:translateY(0)}}
+.tab-panel.active{display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:start}
+.tp-text h3{font-family:'Cormorant',serif;font-style:italic;font-weight:300;font-size:2.4rem;color:var(--text-dark);margin-bottom:20px;line-height:1.15}
+.tp-text p{font-family:'Jost',sans-serif;font-size:.86rem;line-height:2.08;color:var(--text-mid);font-weight:300;margin-bottom:14px}
+.svc-list{margin-top:24px}
+.svc-list h4{font-family:'Jost',sans-serif;font-size:.56rem;letter-spacing:.34em;text-transform:uppercase;color:var(--text-light);margin-bottom:14px}
+.svc-list ul{list-style:none;display:grid;grid-template-columns:1fr 1fr;gap:6px 20px}
+.svc-list ul li{font-family:'Jost',sans-serif;font-size:.82rem;color:var(--text-mid);font-weight:300;padding-left:14px;position:relative;line-height:1.7;opacity:0;transform:translateX(-8px);transition:opacity .5s ease,transform .5s var(--ease)}
+.svc-list ul li.li-visible{opacity:1;transform:translateX(0)}
+.svc-list ul li::before{content:'—';position:absolute;left:0;color:var(--gold);font-size:.6rem;top:4px}
+.tp-img{overflow:hidden;position:relative}
+.tp-img img{width:100%;aspect-ratio:3/4;object-fit:cover;display:block;transition:transform .85s var(--ease)}
+.tp-img:hover img{transform:scale(1.04)}
 
-.gallery-strip{background:var(--off-white);padding:0}
-.strip-grid{display:grid;grid-template-columns:repeat(5,1fr);gap:4px}
-.strip-item{overflow:hidden;aspect-ratio:3/4;position:relative}
-.strip-item img{width:100%;height:100%;object-fit:cover;display:block;transition:transform .8s var(--ease)}
-.strip-item:hover img{transform:scale(1.07)}
-.strip-overlay{position:absolute;inset:0;background:rgba(58,49,44,0);transition:background .4s}
-.strip-item:hover .strip-overlay{background:rgba(58,49,44,.28)}
+.gallery-section{padding:0 0 120px;background:var(--off-white)}
+.gallery-head{padding:120px 24px 72px;text-align:center}
+.gallery-head h2{font-family:'Cormorant',serif;font-style:italic;font-weight:300;font-size:clamp(2.6rem,4.2vw,4.4rem);color:var(--text-dark);line-height:1.1;margin-bottom:12px}
+.gallery-head p{font-family:'Jost',sans-serif;font-size:.84rem;color:var(--text-light);font-weight:300;margin-top:14px}
+.mosaic{display:grid;grid-template-columns:repeat(12,1fr);grid-template-rows:min(52vw,620px) min(26vw,310px);gap:5px;padding:0 5px}
+.mi{overflow:hidden;position:relative}
+.mi .mi-img{width:100%;height:100%;display:block;clip-path:inset(0 0 100% 0);transition:clip-path 1.05s var(--ease)}
+.mi.mi-visible .mi-img{clip-path:inset(0 0 0% 0)}
+.mi .mi-img img{width:100%;height:100%;object-fit:cover;display:block;transform:scale(1.1);transition:transform 1.35s var(--ease)}
+.mi.mi-visible .mi-img img{transform:scale(1)}
+.mi:hover .mi-img img{transform:scale(1.06)!important}
+.mi-lbl{position:absolute;bottom:0;left:0;right:0;padding:22px;background:linear-gradient(transparent,rgba(58,49,44,.7));font-family:'Jost',sans-serif;font-size:.54rem;letter-spacing:.22em;text-transform:uppercase;color:rgba(243,238,231,.84);opacity:0;transform:translateY(8px);transition:opacity .4s,transform .4s}
+.mi:hover .mi-lbl{opacity:1;transform:translateY(0)}
+.mi1{grid-column:1/6;grid-row:1}
+.mi2{grid-column:6/9;grid-row:1}
+.mi3{grid-column:9/13;grid-row:1}
+.mi4{grid-column:1/5;grid-row:2}
+.mi5{grid-column:5/9;grid-row:2}
+.mi6{grid-column:9/13;grid-row:2}
+.gallery-cta{text-align:center;margin-top:52px}
 
-.faq-section{background:var(--blush);padding:120px 24px}
-.faq-inner{max-width:820px;margin:0 auto}
-.faq-section h2{font-family:'Cormorant',serif;font-style:italic;font-weight:300;font-size:clamp(2.2rem,3.5vw,3.8rem);color:var(--text-dark);line-height:1.1;margin-bottom:12px;text-align:center}
-.faq-rule{width:52px;height:1px;background:var(--gold);margin:20px auto 56px}
-.faq-item{border-bottom:1px solid var(--border-gold);overflow:hidden}
-.faq-q{width:100%;background:none;border:none;text-align:left;padding:22px 0;cursor:pointer;display:flex;justify-content:space-between;align-items:center;gap:16px}
-.faq-q span{font-family:'Jost',sans-serif;font-size:.9rem;color:var(--text-dark);font-weight:400;line-height:1.5}
-.faq-icon{width:20px;height:20px;flex-shrink:0;position:relative;transition:transform .4s var(--ease)}
-.faq-icon::before,.faq-icon::after{content:'';position:absolute;background:var(--gold);transition:transform .4s var(--ease),opacity .4s}
-.faq-icon::before{width:12px;height:1px;top:50%;left:4px;transform:translateY(-50%)}
-.faq-icon::after{width:1px;height:12px;top:4px;left:50%;transform:translateX(-50%)}
-.faq-item.open .faq-icon{transform:rotate(45deg)}
-.faq-a{max-height:0;overflow:hidden;transition:max-height .5s var(--ease)}
-.faq-a p{font-family:'Jost',sans-serif;font-size:.86rem;color:var(--text-mid);font-weight:300;line-height:2.05;padding-bottom:22px}
-.faq-item.open .faq-a{max-height:200px}
+.reviews-section{background:var(--blush-mid);padding:120px 24px;overflow:hidden}
+.reviews-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:3px;max-width:1200px;margin:64px auto 0}
+.review-card{background:var(--blush);padding:44px 36px;display:flex;flex-direction:column}
+.review-stars{font-size:1.05rem;color:var(--gold);letter-spacing:.14em;margin-bottom:24px;line-height:1}
+.review-text{font-family:'Jost',sans-serif;font-size:.86rem;color:var(--text-mid);font-weight:300;line-height:2.05;flex:1;margin-bottom:26px}
+.review-rule{width:36px;height:1px;background:var(--border-gold);margin-bottom:16px}
+.review-name{font-family:'Cormorant',serif;font-style:italic;font-weight:300;font-size:1.15rem;color:var(--text-dark);display:block;margin-bottom:4px}
+.review-date{font-family:'Jost',sans-serif;font-size:.54rem;letter-spacing:.24em;text-transform:uppercase;color:var(--text-light);display:block}
+.reviews-cta{text-align:center;margin-top:56px}
+
+.booking-section{background:var(--off-white);padding:120px 24px;overflow:hidden}
+.booking-inner{max-width:1100px;margin:0 auto;display:grid;grid-template-columns:1fr 1fr;gap:88px;align-items:start}
+.booking-text h2{font-family:'Cormorant',serif;font-style:italic;font-weight:300;font-size:clamp(2.4rem,3.8vw,3.8rem);color:var(--text-dark);line-height:1.1;margin-bottom:22px}
+.booking-text>p{font-family:'Jost',sans-serif;font-size:.88rem;line-height:2.08;color:var(--text-mid);font-weight:300;margin-bottom:36px}
+.booking-benefits{list-style:none;display:flex;flex-direction:column;gap:16px;margin-bottom:40px}
+.booking-benefits li{display:flex;align-items:flex-start;gap:16px;font-family:'Jost',sans-serif;font-size:.84rem;color:var(--text-mid);font-weight:300;line-height:1.75}
+.booking-benefits li::before{content:'';display:block;width:5px;height:5px;border-radius:50%;background:var(--gold);margin-top:9px;flex-shrink:0}
+.booking-note{padding:22px 24px;border-left:2px solid var(--gold);background:var(--blush)}
+.booking-note p{font-family:'Jost',sans-serif;font-size:.8rem;color:var(--text-mid);font-weight:300;line-height:1.88}
+.booking-note strong{color:var(--text-dark);font-weight:400}
+.booking-form-wrap{background:var(--blush);padding:48px 44px}
+.form-title{font-family:'Cormorant',serif;font-style:italic;font-weight:300;font-size:1.9rem;color:var(--text-dark);margin-bottom:6px;line-height:1.15}
+.form-subtitle{font-family:'Jost',sans-serif;font-size:.68rem;letter-spacing:.28em;text-transform:uppercase;color:var(--text-light);margin-bottom:34px}
+.form-success{display:none;text-align:center;padding:44px 0}
+.form-success .check-icon{width:56px;height:56px;border:1px solid var(--border-gold);border-radius:50%;display:flex;align-items:center;justify-content:center;margin:0 auto 20px;font-size:1.4rem;color:var(--gold)}
+.form-success h4{font-family:'Cormorant',serif;font-style:italic;font-weight:300;font-size:1.7rem;color:var(--text-dark);margin-bottom:10px}
+.form-success p{font-family:'Jost',sans-serif;font-size:.84rem;color:var(--text-mid);font-weight:300;line-height:1.88}
+
+.contact-section{display:grid;grid-template-columns:1fr 1fr;min-height:74vh}
+.contact-img{overflow:hidden;position:relative}
+.contact-img .img-reveal{width:100%;height:100%}
+.contact-img .img-reveal img{width:100%;height:100%;object-fit:cover;display:block}
+.contact-body{background:var(--blush);display:flex;flex-direction:column;justify-content:center;padding:76px 84px 76px 72px}
+.contact-body h2{font-family:'Cormorant',serif;font-style:italic;font-weight:300;font-size:clamp(2.2rem,3.2vw,3.6rem);color:var(--text-dark);line-height:1.15;margin-bottom:12px}
+.contact-body>p{font-family:'Jost',sans-serif;font-size:.84rem;color:var(--text-mid);font-weight:300;line-height:2.05;margin-bottom:42px}
+.cinfo{display:flex;flex-direction:column;gap:22px;margin-bottom:40px}
+.cinfo-row{display:flex;gap:16px;align-items:flex-start;opacity:0;transform:translateX(-16px);transition:opacity .7s ease,transform .7s var(--ease)}
+.cinfo-row.ci-visible{opacity:1;transform:translateX(0)}
+.cinfo-icon{width:38px;height:38px;border:1px solid var(--border-gold);display:flex;align-items:center;justify-content:center;flex-shrink:0;font-size:.85rem;color:var(--gold);transition:background .35s,border-color .35s,color .35s}
+.cinfo-row:hover .cinfo-icon{background:var(--gold);border-color:var(--gold);color:var(--off-white)}
+.cinfo-lbl{font-family:'Jost',sans-serif;display:block;font-size:.54rem;letter-spacing:.28em;text-transform:uppercase;color:var(--text-light);margin-bottom:4px}
+.cinfo-val{font-family:'Jost',sans-serif;font-size:.84rem;color:var(--text-dark);font-weight:300;line-height:1.72}
+.cinfo-val a{color:var(--text-dark);text-decoration:none;transition:color .3s}
+.cinfo-val a:hover{color:var(--gold)}
 
 @media(max-width:960px){
-  .intro-split{grid-template-columns:1fr}
-  .intro-img{aspect-ratio:4/3}
-  .intro-text{padding:56px 24px}
-  .process-section,.packages-section,.faq-section{padding:76px 24px}
-  .process-grid{grid-template-columns:1fr 1fr}
-  .packages-grid{grid-template-columns:1fr}
-  .strip-grid{grid-template-columns:repeat(3,1fr)}
+  .contact-section{grid-template-columns:1fr}
+  .contact-img{aspect-ratio:4/3}
+  .contact-body{padding:56px 24px}
+  .tabs-section,.gallery-section,.booking-section,.reviews-section{padding:76px 24px}
+  .gallery-head{padding:76px 24px 52px}
+  .tab-panel.active{grid-template-columns:1fr;gap:36px}
+  .booking-inner{grid-template-columns:1fr;gap:52px}
+  .booking-form-wrap{padding:34px 24px}
+  .cat-grid{grid-template-columns:1fr 1fr;grid-template-rows:repeat(3,min(42vh,340px))}
+  .mosaic{grid-template-columns:repeat(6,1fr);grid-template-rows:repeat(3,48vw)}
+  .mi1{grid-column:1/4;grid-row:1}.mi2{grid-column:4/7;grid-row:1}
+  .mi3{grid-column:1/4;grid-row:2}.mi4{grid-column:4/7;grid-row:2}
+  .mi5{grid-column:1/4;grid-row:3}.mi6{grid-column:4/7;grid-row:3}
+  .reviews-grid{grid-template-columns:1fr 1fr}
 }
-@media(max-width:600px){
-  .process-grid{grid-template-columns:1fr}
-  .strip-grid{grid-template-columns:repeat(2,1fr)}
-}
-@media(max-width:480px){
-  .pkg{padding:36px 22px}
-  .process-step{padding:36px 22px}
-  .step-num{font-size:3.2rem}
-  .strip-grid{grid-template-columns:1fr 1fr}
-  .faq-section{padding:60px 20px}
-  .packages-section{padding:60px 20px}
-  .process-section{padding:60px 20px}
-  .hero-script{font-size:clamp(2rem,9vw,3rem)}
+@media(max-width:540px){
+  .svc-list ul{grid-template-columns:1fr}
+  .tabs-nav{justify-content:flex-start;overflow-x:auto;padding-bottom:1px}
+  .tab-btn{flex-shrink:0;padding:12px 12px;font-size:.54rem}
+  .cat-grid{grid-template-columns:1fr;grid-template-rows:repeat(6,56vw)}
+  .reviews-grid{grid-template-columns:1fr}
+  .review-card{padding:32px 24px}
+  .booking-form-wrap{padding:28px 20px}
+  .hero-dots{right:20px;bottom:28px}
 }
 </style>
 </head>
@@ -99,14 +157,14 @@
   <div class="nav-inner">
     <div class="nav-left">
       <ul class="nav-links">
-        <li><a href="index.html">Strona główna</a></li>
+        <li><a href="index.html" class="active">Strona główna</a></li>
         <li><a href="galeria.html">Galeria</a></li>
       </ul>
     </div>
     <a href="index.html" class="nav-logo">Angello<span>Florystyka Ślubna · Katowice</span></a>
     <div class="nav-right">
       <ul class="nav-links">
-        <li><a href="wesela.html" class="active">Śluby & Wesela</a></li>
+        <li><a href="wesela.html">Śluby & Wesela</a></li>
         <li><a href="oferta.html">Oferta</a></li>
       </ul>
       <a href="kontakt.html" class="nav-cta">Kontakt</a>
@@ -126,151 +184,267 @@
   <div class="mob-footer">+48 793 032 332 · Katowice</div>
 </div>
 
-<section class="hero">
-  <div class="hero-bg" style="background-image:url('zdj33.jpeg')"></div>
+<section class="hero" id="hero">
+  <div class="hero-slides" id="heroSlides">
+    <div class="hero-slide active" style="background-image:url('zdj39.jpeg')"></div>
+    <div class="hero-slide" style="background-image:url('zdj40.jpeg')"></div>
+    <div class="hero-slide" style="background-image:url('zdj36.jpeg')"></div>
+  </div>
   <div class="hero-overlay"></div>
   <div class="hero-content">
-    <p class="hero-script"><span class="hero-script-inner">Florystyka ślubna<br><em>jakiej jeszcze nie widziałaś</em></span></p>
+    <span class="hero-specialist">Dyplomowany Specjalista Florystyki Ślubnej</span>
+    <p class="hero-script"><span class="hero-script-inner">Zacznij planować swój wymarzony dzień<br>z naszymi dekoracjami kwiatowymi</span></p>
     <div class="hero-rule"></div>
-    <p class="hero-sub">Śluby & Wesela · Od 25 lat na Śląsku i w całej Polsce</p>
+    <p class="hero-sub">Florystyka Ślubna · Katowice · Śląsk</p>
     <div class="hero-btns">
       <a href="kontakt.html" class="btn-primary">Zarezerwuj termin</a>
-      <a href="galeria.html" class="btn-ghost">Nasze realizacje</a>
+      <a href="oferta.html" class="btn-ghost">Nasze usługi</a>
     </div>
+  </div>
+  <div class="hero-dots" id="heroDots">
+    <button class="hero-dot active"></button>
+    <button class="hero-dot"></button>
+    <button class="hero-dot"></button>
   </div>
   <div class="hero-scroll"><div class="scroll-line"></div><span class="scroll-txt">Scroll</span></div>
 </section>
 
 <div class="ticker">
   <div class="ticker-track">
-    <span>Wiązanki Ślubne</span><span class="sep">◆</span><span>Dekoracje Kościołów</span><span class="sep">◆</span><span>Altany do Zaślubin</span><span class="sep">◆</span><span>Dekoracje Sal</span><span class="sep">◆</span><span>Ceremonia Plenerowa</span><span class="sep">◆</span><span>Biżuteria Floralna</span><span class="sep">◆</span><span>Centerpiece</span><span class="sep">◆</span><span>Konsultacje Ślubne</span><span class="sep">◆</span><span>Wiązanki Ślubne</span><span class="sep">◆</span><span>Dekoracje Kościołów</span><span class="sep">◆</span><span>Altany do Zaślubin</span><span class="sep">◆</span><span>Dekoracje Sal</span><span class="sep">◆</span><span>Ceremonia Plenerowa</span><span class="sep">◆</span><span>Biżuteria Floralna</span><span class="sep">◆</span><span>Centerpiece</span><span class="sep">◆</span><span>Konsultacje Ślubne</span><span class="sep">◆</span>
+    <span>Altany do Zaślubin</span><span class="sep"><img src="i2.png" alt=""></span><span>Świecznik Ośmioramienny</span><span class="sep"><img src="i6.png" alt=""></span><span>Karuzele Kryształowe</span><span class="sep"><img src="i4.png" alt=""></span><span>Lustra ø 180 cm</span><span class="sep"><img src="i1.png" alt=""></span><span>Meble Weselne</span><span class="sep"><img src="i3.png" alt=""></span><span>Winietarz Żyrafa</span><span class="sep"><img src="i5.jpg" alt=""></span><span>Altany do Zaślubin</span><span class="sep"><img src="i2.png" alt=""></span><span>Świecznik Ośmioramienny</span><span class="sep"><img src="i6.png" alt=""></span><span>Karuzele Kryształowe</span><span class="sep"><img src="i4.png" alt=""></span><span>Lustra ø 180 cm</span><span class="sep"><img src="i1.png" alt=""></span><span>Meble Weselne</span><span class="sep"><img src="i3.png" alt=""></span><span>Winietarz Żyrafa</span><span class="sep"><img src="i5.jpg" alt=""></span>
   </div>
 </div>
 
-<section class="intro-split">
-  <div class="intro-img observe-me"><img src="zdj39.jpeg" alt="Florystyka ślubna Angello"></div>
-  <div class="intro-text observe-me">
-    <span class="eyebrow"><span class="eyebrow-inner">Nasza specjalność</span></span>
-    <h2>
-      <span class="split-line"><span class="split-line-inner" style="transition-delay:.06s">Każde wesele</span></span>
-      <span class="split-line"><span class="split-line-inner" style="transition-delay:.16s">to unikalne</span></span>
-      <span class="split-line"><span class="split-line-inner" style="transition-delay:.26s"><em>dzieło sztuki</em></span></span>
-    </h2>
-    <p class="fade-up d2">Florystyka ślubna to główny profil naszej działalności od ponad 25 lat. Każda Para Młoda otrzymuje od nas pełne zaangażowanie i indywidualne podejście — od pierwszej konsultacji po montaż w dniu ślubu.</p>
-    <p class="fade-up d3">Wykonujemy autorskie wiązanki dopasowane do koloru sukni, stylu wesela i charakteru miejsca. Pracujemy z motywem przewodnim, który spaja całą dekorację w jedną spójną opowieść.</p>
-    <p class="fade-up d4">Współpracujemy z najlepszymi fotografami, restauratorami i salonami ślubnymi w regionie. Działamy na terenie całej Polski.</p>
-    <div class="about-tags fade-up d5" style="display:flex;gap:10px;flex-wrap:wrap;margin-top:34px">
-      <div class="tag">Wiązanki ślubne</div>
-      <div class="tag">Dekoracje sal</div>
-      <div class="tag">Plener</div>
-      <div class="tag">Kościół & USC</div>
+<section class="cta-banner">
+  <div class="wrap observe-me">
+    <span class="cta-eyebrow"><span class="cta-eyebrow-inner">Terminy na 2025 i 2026</span></span>
+    <p class="cta-title">
+      <span class="split-line"><span class="split-line-inner" style="transition-delay:.08s">Twój wyjątkowy dzień</span></span>
+      <span class="split-line"><span class="split-line-inner" style="transition-delay:.18s"><em>zasługuje na najlepsze dekoracje</em></span></span>
+    </p>
+    <p class="cta-body fade-up d3">Wolnych terminów ubywa. Zarezerwuj bezpłatną konsultację już dziś — razem stworzymy dekoracje, które zachwycą Twoich gości.</p>
+    <div class="cta-btns fade-up d4">
+      <a href="kontakt.html" class="btn-warm"><span>Zarezerwuj termin →</span></a>
+      <a href="tel:+48793032332" class="btn-outline-dark">Zadzwoń teraz</a>
     </div>
   </div>
 </section>
 
-<section class="process-section">
+<section class="categories-section" id="kategorie">
+  <div class="cat-section-head observe-me">
+    <span class="eyebrow"><span class="eyebrow-inner">Specjalizacje</span></span>
+    <p style="font-family:'Cormorant',serif;font-style:italic;font-weight:300;font-size:clamp(2.6rem,4.2vw,4.6rem);color:var(--text-dark);line-height:1.1;margin-bottom:14px">
+      <span class="split-line"><span class="split-line-inner" style="transition-delay:.08s">Wszystko,</span></span>
+      <span class="split-line"><span class="split-line-inner" style="transition-delay:.2s"><em>czego potrzebuje Wasz ślub</em></span></span>
+    </p>
+    <p class="fade-up d3" style="font-family:'Jost',sans-serif;font-size:.88rem;color:var(--text-mid);font-weight:300;line-height:2;max-width:560px;margin:0 auto">Każda para, każda ceremonia, każde miejsce — tworzymy dekoracje dopasowane do Waszej historii.</p>
+  </div>
+  <div class="cat-grid">
+    <a class="cat-tile" href="o-nas.html" style="background-image:url('zdj33.jpeg')">
+      <div class="cat-tile-overlay"></div>
+      <div class="cat-tile-content">
+        <span class="cat-tile-num">01</span>
+        <h3 class="cat-tile-title">O nas</h3>
+        <p class="cat-tile-desc">Poznaj Angelikę Ordon — Dyplomowanego Specjalistę Florystyki Ślubnej z 25-letnim doświadczeniem i pasją do piękna.</p>
+        <span class="cat-tile-btn">Zobacz więcej →</span>
+      </div>
+    </a>
+    <a class="cat-tile" href="dekoracje-sal.html" style="background-image:url('zdj40.jpeg')">
+      <div class="cat-tile-overlay"></div>
+      <div class="cat-tile-content">
+        <span class="cat-tile-num">02</span>
+        <h3 class="cat-tile-title">Dekoracje sal</h3>
+        <p class="cat-tile-desc">Kompleksowe dekoracje sal weselnych i namiotów weselnych — od stołu głównego po ostatni stolik. Każda realizacja niepowtarzalna.</p>
+        <span class="cat-tile-btn">Zobacz więcej →</span>
+      </div>
+    </a>
+    <a class="cat-tile" href="dekoracje-kosciolow.html" style="background-image:url('zdj37.jpg')">
+      <div class="cat-tile-overlay"></div>
+      <div class="cat-tile-content">
+        <span class="cat-tile-num">03</span>
+        <h3 class="cat-tile-title">Dekoracje kościołów</h3>
+        <p class="cat-tile-desc">Wyjątkowa oprawa florystyczna kościoła lub sali USC — kompozycje przy ołtarzu, bukiety ławkowe, drogi kwiatowe.</p>
+        <span class="cat-tile-btn">Zobacz więcej →</span>
+      </div>
+    </a>
+    <a class="cat-tile" href="slub-w-plenerze.html" style="background-image:url('zdj30.jpeg')">
+      <div class="cat-tile-overlay"></div>
+      <div class="cat-tile-content">
+        <span class="cat-tile-num">04</span>
+        <h3 class="cat-tile-title">Ślub w plenerze</h3>
+        <p class="cat-tile-desc">Altany obsypane kwiatami, łuki floralne i naturalne kompozycje harmonijnie wpisane w plenerową przestrzeń.</p>
+        <span class="cat-tile-btn">Zobacz więcej →</span>
+      </div>
+    </a>
+    <a class="cat-tile" href="bukiety-slubne.html" style="background-image:url('zdj42.jpeg')">
+      <div class="cat-tile-overlay"></div>
+      <div class="cat-tile-content">
+        <span class="cat-tile-num">05</span>
+        <h3 class="cat-tile-title">Bukiety ślubne</h3>
+        <p class="cat-tile-desc">Autorskie wiązanki tworzone z uwzględnieniem koloru sukni i charakteru Panny Młodej — każdy bukiet to dzieło sztuki.</p>
+        <span class="cat-tile-btn">Zobacz więcej →</span>
+      </div>
+    </a>
+    <a class="cat-tile" href="sluby-zagraniczne.html" style="background-image:url('zdj36.jpeg')">
+      <div class="cat-tile-overlay"></div>
+      <div class="cat-tile-content">
+        <span class="cat-tile-num">06</span>
+        <h3 class="cat-tile-title">Śluby zagraniczne</h3>
+        <p class="cat-tile-desc">Wyjeżdżamy do Waszych marzeń — Toskania, Santorini, Chorwacja. Piękno florystyki Angello bez granic.</p>
+        <span class="cat-tile-btn">Zobacz więcej →</span>
+      </div>
+    </a>
+  </div>
+</section>
+
+<section class="tabs-section" id="uslugi">
   <div class="wrap">
-    <div class="observe-me" style="text-align:center">
-      <span class="eyebrow"><span class="eyebrow-inner">Jak pracujemy</span></span>
+    <div class="tabs-header observe-me">
+      <span class="eyebrow"><span class="eyebrow-inner">Zakres usług</span></span>
       <h2>
-        <span class="split-line"><span class="split-line-inner" style="transition-delay:.08s">Proces współpracy</span></span>
+        <span class="split-line"><span class="split-line-inner" style="transition-delay:.1s">Każde wydarzenie</span></span>
+        <span class="split-line"><span class="split-line-inner" style="transition-delay:.22s"><em>wyjątkowe</em></span></span>
       </h2>
-      <div class="process-rule line-draw" style="transition-delay:.3s"></div>
+      <p class="fade-up d3">Od dekoracji sal po śluby za granicą — każde zlecenie to autorski projekt stworzony specjalnie dla Was.</p>
     </div>
-    <div class="process-grid">
-      <div class="process-step fade-up d1">
-        <span class="step-num">01</span>
-        <div class="step-title">Konsultacja</div>
-        <p class="step-body">Bezpłatne spotkanie w naszym showroomie lub rozmowa telefoniczna. Poznajemy Twoją wizję, preferencje kolorystyczne i charakter uroczystości.</p>
+    <div class="tabs-nav observe-me-solo">
+      <div class="tab-indicator" id="tabIndicator"></div>
+      <button class="tab-btn active" data-tab="o-nas">O nas</button>
+      <button class="tab-btn" data-tab="dekoracje-sal">Dekoracje sal</button>
+      <button class="tab-btn" data-tab="kosciol">Dekoracje kościołów</button>
+      <button class="tab-btn" data-tab="plener">Ślub w plenerze</button>
+      <button class="tab-btn" data-tab="bukiety">Bukiety ślubne</button>
+      <button class="tab-btn" data-tab="zagraniczne">Śluby zagraniczne</button>
+    </div>
+    <div class="tab-panel active" id="tab-o-nas">
+      <div class="tp-text">
+        <h3>Angello <em>Florystyka Ślubna</em></h3>
+        <p>Angello to studio florystyki ślubnej w Katowicach, prowadzone przez Angelikę Ordon — Dyplomowanego Specjalistę Florystyki Ślubnej z ponad 25-letnim doświadczeniem. Każdą parę traktujemy indywidualnie, tworząc autorskie dekoracje dopasowane do Waszej historii.</p>
+        <p>Współpracujemy z najlepszymi fotografami, restauratorami i salonami ślubnymi w regionie. Działamy na terenie całej Polski i za granicą.</p>
+        <div class="svc-list"><h4>Dlaczego Angello</h4><ul><li>25 lat doświadczenia</li><li>Dyplomowany Specjalista Florystyki</li><li>Każda dekoracja unikalna</li><li>Ograniczona liczba zleceń</li><li>Bezpłatna konsultacja</li><li>Obsługa w całej Polsce</li><li>Śluby zagraniczne</li><li>Partnerstwo z salami</li></ul></div>
       </div>
-      <div class="process-step fade-up d2">
-        <span class="step-num">02</span>
-        <div class="step-title">Projekt</div>
-        <p class="step-body">Przygotowujemy indywidualny projekt dekoracji z motywem przewodnim. Dobieramy kwiaty, kolory i elementy dekoracyjne dopasowane do Twojej wizji.</p>
+      <div class="tp-img"><img src="zdj39.jpeg" alt="Angello Florystyka Ślubna Katowice"></div>
+    </div>
+    <div class="tab-panel" id="tab-dekoracje-sal">
+      <div class="tp-text">
+        <h3>Dekoracje <em>sal weselnych</em></h3>
+        <p>Kompleksowe dekoracje sal weselnych i namiotów weselnych — od stołu głównego po ostatni stolik gości. Świeczniki, centerpiece, lustra, altany, strefy chillout — wszystko w jednym spójnym projekcie z motywem przewodnim.</p>
+        <p>Współpracujemy z Rezydencją, kompleksem Romeo Julia Wenecja Werona oraz Mariną. Znamy specyfikę każdej sali i wiemy, jak wydobyć z niej to, co najpiękniejsze.</p>
+        <div class="svc-list"><h4>Wykonujemy między innymi</h4><ul><li>Dekoracja stołu głównego</li><li>Centerpiece na stoły gości</li><li>Wejście i foyer</li><li>Altana lub łuk kwiatowy</li><li>Lustra na stoły ø 180 cm</li><li>Strefa chillout</li><li>Winietarz Żyrafa</li><li>Świeczniki ośmioramienne</li></ul></div>
       </div>
-      <div class="process-step fade-up d3">
-        <span class="step-num">03</span>
-        <div class="step-title">Realizacja</div>
-        <p class="step-body">W dniu ślubu nasz zespół przyjeżdża punktualnie i z pełnym zaangażowaniem dekoruje wszystkie przestrzenie — od kościoła po salę weselną.</p>
+      <div class="tp-img"><img src="zdj40.jpeg" alt="Dekoracje sal weselnych"></div>
+    </div>
+    <div class="tab-panel" id="tab-kosciol">
+      <div class="tp-text">
+        <h3>Dekoracje <em>kościołów</em></h3>
+        <p>Wyjątkowa oprawa florystyczna kościoła lub sali USC — kompozycje przy ołtarzu, bukiety ławkowe, drogi kwiatowe. Tworzymy atmosferę, która wzruszy każdego z gości i pięknie wyjdzie na zdjęciach.</p>
+        <p>Dekoracje kościelne są dopasowane do motywu przewodniego całego wesela, tworząc spójną opowieść od ceremonii po bankiet.</p>
+        <div class="svc-list"><h4>Wykonujemy między innymi</h4><ul><li>Kompozycje przy ołtarzu</li><li>Bukiety ławkowe</li><li>Wiązki dekoracyjne</li><li>Droga kwiatowa</li><li>Dekoracja wejścia</li><li>Świeczniki przy ołtarzu</li><li>Girlandy kwiatowe</li><li>Dekoracja sali USC</li></ul></div>
       </div>
-      <div class="process-step fade-up d4">
-        <span class="step-num">04</span>
-        <div class="step-title">Wspomnienie</div>
-        <p class="step-body">Po uroczystości chętnie słyszymy Wasze opinie. Wiele Par wróciło do nas przy kolejnych ważnych życiowych chwilach.</p>
+      <div class="tp-img"><img src="zdj37.jpg" alt="Dekoracje kościołów"></div>
+    </div>
+    <div class="tab-panel" id="tab-plener">
+      <div class="tp-text">
+        <h3>Ślub <em>w plenerze</em></h3>
+        <p>Ceremonia zaślubin w naturze — altany obsypane kwiatami, łuki floralne, naturalne kompozycje harmonijnie wpisane w krajobraz. Tworzymy plenerowe dekoracje z troską o każdy detal, niezależnie od miejsca i pory roku.</p>
+        <p>Doświadczenie w dekorowaniu plenerów, parków, winnic, ogrodów i tarasów. Każda realizacja jest dostosowana do warunków i charakteru miejsca.</p>
+        <div class="svc-list"><h4>Wykonujemy między innymi</h4><ul><li>Altany do zaślubin</li><li>Łuki kwiatowe</li><li>Chodnik kwiatowy</li><li>Dekoracje drzew</li><li>Naturalne kompozycje</li><li>Świece i latarnie</li><li>Girlandy świetlne</li><li>Bukiety trawnikowe</li></ul></div>
       </div>
+      <div class="tp-img"><img src="zdj30.jpeg" alt="Ślub w plenerze"></div>
+    </div>
+    <div class="tab-panel" id="tab-bukiety">
+      <div class="tp-text">
+        <h3>Bukiety <em>ślubne</em></h3>
+        <p>Autorskie wiązanki ślubne tworzone z uwzględnieniem koloru sukni, stylu wesela i charakteru Panny Młodej. Każdy bukiet to mini-dzieło sztuki — niepowtarzalny i dopasowany tylko do Ciebie. Używamy wyłącznie kwiatów najwyższej jakości.</p>
+        <p>Tworzymy kompletną florystykę osobistą dla Pary Młodej i całej rodziny — od wiązanki po biżuterię floralną.</p>
+        <div class="svc-list"><h4>Wykonujemy między innymi</h4><ul><li>Wiązanka ślubna</li><li>Butonierka dla Pana Młodego</li><li>Biżuteria floralna</li><li>Wianek do włosów</li><li>Poduszka na obrączki</li><li>Kosz z płatkami</li><li>Przypinki dla rodziców</li><li>Podziękowania floralne</li></ul></div>
+      </div>
+      <div class="tp-img"><img src="zdj42.jpeg" alt="Bukiety ślubne"></div>
+    </div>
+    <div class="tab-panel" id="tab-zagraniczne">
+      <div class="tp-text">
+        <h3>Śluby <em>zagraniczne</em></h3>
+        <p>Wyjeżdżamy do Waszych marzeń — Toskania, Santorini, Chorwacja, Majorka. Piękno florystyki Angello bez granic. Koordynujemy całą oprawę kwiatową, zapewniając spójność z lokalnym charakterem miejsca i klimatem.</p>
+        <p>Śluby zagraniczne to nasza rosnąca specjalizacja. Pracujemy z lokalnymi dostawcami kwiatów, zapewniając świeżość i jakość niezależnie od lokalizacji.</p>
+        <div class="svc-list"><h4>Wykonujemy między innymi</h4><ul><li>Wiązanka i florystyka osobista</li><li>Dekoracja ceremonii</li><li>Dekoracja sali bankietowej</li><li>Koordynacja na miejscu</li><li>Altana lub łuk plenerowy</li><li>Kompozycje stołowe</li><li>Lokalni dostawcy kwiatów</li><li>Transport dekoracji</li></ul></div>
+      </div>
+      <div class="tp-img"><img src="zdj36.jpeg" alt="Śluby zagraniczne"></div>
     </div>
   </div>
 </section>
 
-<div class="gallery-strip">
-  <div class="strip-grid">
-    <div class="strip-item"><img src="zdj40.jpeg" alt="Wesele"><div class="strip-overlay"></div></div>
-    <div class="strip-item"><img src="zdj37.jpg" alt="Wesele"><div class="strip-overlay"></div></div>
-    <div class="strip-item"><img src="zdj30.jpeg" alt="Wesele"><div class="strip-overlay"></div></div>
-    <div class="strip-item"><img src="zdj42.jpeg" alt="Wesele"><div class="strip-overlay"></div></div>
-    <div class="strip-item"><img src="zdj36.jpeg" alt="Wesele"><div class="strip-overlay"></div></div>
+<section class="gallery-section" id="galeria">
+  <div class="gallery-head observe-me">
+    <div class="wrap" style="max-width:880px">
+      <span class="eyebrow"><span class="eyebrow-inner">Portfolio</span></span>
+      <h2>
+        <span class="split-line"><span class="split-line-inner" style="transition-delay:.1s">Każda historia</span></span>
+        <span class="split-line"><span class="split-line-inner" style="transition-delay:.22s"><em>zasługuje na piękno</em></span></span>
+      </h2>
+      <p class="fade-up d3">Wybrane realizacje z naszego portfolio</p>
+    </div>
   </div>
-</div>
+  <div class="mosaic">
+    <div class="mi mi1"><div class="mi-img"><img src="zdj39.jpeg" alt="Realizacja"></div><div class="mi-lbl">Dekoracje Sali</div></div>
+    <div class="mi mi2"><div class="mi-img"><img src="zdj42.jpeg" alt="Realizacja"></div><div class="mi-lbl">Bukiet Ślubny</div></div>
+    <div class="mi mi3"><div class="mi-img"><img src="zdj37.jpg" alt="Realizacja"></div><div class="mi-lbl">Dekoracje Kościoła</div></div>
+    <div class="mi mi4"><div class="mi-img"><img src="zdj36.jpeg" alt="Realizacja"></div><div class="mi-lbl">Ślub w Plenerze</div></div>
+    <div class="mi mi5"><div class="mi-img"><img src="zdj40.jpeg" alt="Realizacja"></div><div class="mi-lbl">Dekoracje Sali · Namiot</div></div>
+    <div class="mi mi6"><div class="mi-img"><img src="zdj33.jpeg" alt="Realizacja"></div><div class="mi-lbl">Ceremonia Plenerowa</div></div>
+  </div>
+  <div class="gallery-cta fade-up"><a href="galeria.html" class="btn-outline-dark">Zobacz całą galerię →</a></div>
+</section>
 
-<section class="packages-section">
+<section class="reviews-section" id="opinie">
   <div class="wrap">
     <div class="observe-me" style="text-align:center">
-      <span class="eyebrow" style="color:rgba(243,238,231,.38)"><span class="eyebrow-inner">Zakres usług</span></span>
-      <p style="font-family:'Cormorant',serif;font-style:italic;font-weight:300;font-size:clamp(2.4rem,4vw,4.4rem);color:var(--off-white);line-height:1.1;margin-bottom:8px">
-        <span class="split-line"><span class="split-line-inner" style="transition-delay:.08s">Co obejmuje</span></span>
-        <span class="split-line"><span class="split-line-inner" style="transition-delay:.18s"><em>kompleksowa obsługa?</em></span></span>
+      <span class="eyebrow"><span class="eyebrow-inner">Opinie</span></span>
+      <p style="font-family:'Cormorant',serif;font-style:italic;font-weight:300;font-size:clamp(2.4rem,3.8vw,4.2rem);color:var(--text-dark);line-height:1.1">
+        <span class="split-line"><span class="split-line-inner" style="transition-delay:.08s">Pary, które</span></span>
+        <span class="split-line"><span class="split-line-inner" style="transition-delay:.18s"><em>nam zaufały</em></span></span>
       </p>
-      <div class="process-rule line-draw" style="transition-delay:.35s"></div>
     </div>
-    <div class="packages-grid">
-      <div class="pkg fade-up d1">
-        <span class="pkg-badge">Para Młoda</span>
-        <p class="pkg-name">Florystyka<br><em>osobista</em></p>
-        <div class="pkg-rule"></div>
-        <p class="pkg-desc">Wszystkie elementy florystyczne dla Pary Młodej i ich rodzin.</p>
-        <ul class="pkg-list">
-          <li>Wiązanka ślubna</li>
-          <li>Butonierka dla Pana Młodego</li>
-          <li>Przypinki dla rodziców i świadków</li>
-          <li>Wianek lub ozdoba do włosów</li>
-          <li>Biżuteria floralna</li>
-          <li>Poduszka na obrączki</li>
-          <li>Kosz z płatkami</li>
-        </ul>
-        <a href="kontakt.html" class="btn-ghost" style="font-size:.58rem">Zapytaj o wycenę →</a>
+    <div class="reviews-grid">
+      <div class="review-card fade-up d1">
+        <div class="review-stars">★★★★★</div>
+        <p class="review-text">Pani Angelika to mistrzyni w swoim fachu, a dodatkowo bije od niej ciepło i pozytywna energia. Dekoracje ślubne, bukiet, wianek były piękniejsze niż sobie wyobrażaliśmy ! Dziękujemy ❤️</p>
+        <div class="review-rule"></div>
+        <span class="review-name">Natalia Bartczak</span>
       </div>
-      <div class="pkg featured fade-up d2">
-        <span class="pkg-badge">Najpopularniejszy</span>
-        <p class="pkg-name">Dekoracja<br><em>kompletna</em></p>
-        <div class="pkg-rule"></div>
-        <p class="pkg-desc">Pełna obsługa florystyczna uroczystości — od kościoła po salę weselną.</p>
-        <ul class="pkg-list">
-          <li>Cała florystyka osobista</li>
-          <li>Dekoracja kościoła lub sali USC</li>
-          <li>Dekoracja wejścia i foyer</li>
-          <li>Centerpiece na stoły</li>
-          <li>Dekoracja stołu głownego</li>
-          <li>Altana lub ścianka do zaślubin</li>
-          <li>Strefa chillout i winietarz</li>
-        </ul>
-        <a href="kontakt.html" class="btn-warm"><span>Zarezerwuj termin →</span></a>
+      <div class="review-card fade-up d2">
+        <div class="review-stars">★★★★★</div>
+        <p class="review-text">Chcielibyśmy podziękować z całego serducha Pani Angelice za przepięknie udekorowaną salę, bukiet oraz wszelki inne dodatki, które zostały wykonane dla Nas w dniu 10.08.2024r. Dodatkowo zaangażowanie i chęć pomocy w tym ważnym momencie w celu dopięcia najmniejszych szczegółów, przerosły nasze najśmielsze oczekiwania! 😍 Z czystym sumieniem polecamy Angello przyszłym zainteresowanym 🫶 Pozdrawiamy Patrycja i Jakub</p>
+        <div class="review-rule"></div>
+        <span class="review-name">Patrycja Synczek-Gonsiorczyk</span>
       </div>
-      <div class="pkg fade-up d3">
-        <span class="pkg-badge">Premium</span>
-        <p class="pkg-name">Obsługa<br><em>VIP</em></p>
-        <div class="pkg-rule"></div>
-        <p class="pkg-desc">Kompleksowa obsługa z nielimitowanymi konsultacjami i doradztwem stylistycznym.</p>
-        <ul class="pkg-list">
-          <li>Wszystko z pakietu kompletnego</li>
-          <li>Nielimitowane konsultacje</li>
-          <li>Doradztwo stylistyczne</li>
-          <li>Próbna kompozycja przed ślubem</li>
-          <li>Współpraca z fotografem</li>
-          <li>Koordynacja na miejscu</li>
-          <li>Dekoracja samochodu</li>
-        </ul>
-        <a href="kontakt.html" class="btn-ghost" style="font-size:.58rem">Zapytaj o wycenę →</a>
+      <div class="review-card fade-up d3">
+        <div class="review-stars">★★★★★</div>
+        <p class="review-text">Pani Angelika to cudowna kobieta. Pełna pomysłów, z wyobraźnią, prawdziwa artystka. Zrobiła nam cudowną zimową aranżację wesela. Bukiet ślubny był tak wyjątkowy, że trudno taki sobie wyśnić. Komunikacja bardzo dobra, sympatyczna rozmowa, na luzie, jakby się było dobrymi znajomymi. Wszystko na wielki plus. Polecam!</p>
+        <div class="review-rule"></div>
+        <span class="review-name">Paulina Dyrda</span>
       </div>
+      <div class="review-card fade-up d2">
+        <div class="review-stars">★★★★★</div>
+        <p class="review-text">Firma którą mogę polecić z czystym sumieniem każdemu, organizacja wszystkiego na najwyższym poziomie. Ślub w plenerze przygotowany obłędnie a sala oraz tort przepięknie. Natomiast pani Angelika wspaniała, sympatyczna ciągle uśmiechnięta babka z pasją, osoba która doradzi i wesprze przy wyborze kwiatów. Jeśli chodzi o koszta moim zdaniem bardzo niskie, patrząc na to co się dostaje w zamian. Gorąco polecam!!!</p>
+        <div class="review-rule"></div>
+        <span class="review-name">Kamil Rakoczy</span>
+      </div>
+      <div class="review-card fade-up d3">
+        <div class="review-stars">★★★★★</div>
+        <p class="review-text">Dziękuję całemu zespołowi Angello, wasze dekoracje to kwiatowe dzieła sztuki! Widać profesjonalizm i koronkową robotę w każdej kompozycji, od malutkiej butonierki po dekorację stołu. Prawdziwi specjaliści i pasjonaci, wiedzą czego chciałam zanim sama wiedziałam ;-) Współpraca z wami to czysta przyjemność i pewność że dostaniemy więcej niż oczekujemy</p>
+        <div class="review-rule"></div>
+        <span class="review-name">Alicja Gutkowska</span>
+      </div>
+      <div class="review-card fade-up d4">
+        <div class="review-stars">★★★★★</div>
+        <p class="review-text">Bardzo polecam! Dekoracje sali na wesele, bukiety Panny Młodej i świadkowej, butonierki, wszystko przygotowane z sercem i dopieszczone perfekcyjnie! Współpraca z panią Angeliką to czysta przyjemność 😌</p>
+        <div class="review-rule"></div>
+        <span class="review-name">Emilia Oberska</span>
+      </div>
+    </div>
+    <div class="reviews-cta fade-up d4">
+      <p style="font-family:'Jost',sans-serif;font-size:.78rem;color:var(--text-light);font-weight:300;margin-bottom:28px">5000+ szczęśliwych par · Katowice i cała Polska</p>
+      <a href="kontakt.html" class="btn-outline-dark">Zarezerwuj bezpłatną konsultację →</a>
     </div>
   </div>
 </section>
@@ -278,56 +452,79 @@
 <section class="quote-section observe-me">
   <div style="max-width:860px;display:flex;flex-direction:column;align-items:center;width:100%">
     <div class="quote-vert"></div>
-    <blockquote class="fade-up d1">Każda Para Młoda zasługuje na dekoracje, które odzwierciedlają ich historię. Nie ma dla nas dwóch takich samych ślubów.</blockquote>
+    <blockquote class="fade-up d1">Zawsze kierujemy się zasadą, że umiar i styl są definicją znakomitego gustu. Nigdy nie wykonujemy dwóch takich samych dekoracji.</blockquote>
     <p class="quote-author fade-up d2">Angelika Ordon · Dyplomowany Specjalista Florystyki Ślubnej · Angello</p>
   </div>
 </section>
 
-<section class="faq-section">
-  <div class="faq-inner">
-    <div class="observe-me">
-      <span class="eyebrow" style="text-align:center;display:block"><span class="eyebrow-inner">FAQ</span></span>
+<section class="booking-section" id="rezerwacja">
+  <div class="booking-inner observe-me">
+    <div class="booking-text">
+      <span class="eyebrow"><span class="eyebrow-inner">Rezerwacja</span></span>
       <h2>
-        <span class="split-line"><span class="split-line-inner" style="transition-delay:.08s">Często zadawane</span></span>
-        <span class="split-line"><span class="split-line-inner" style="transition-delay:.18s"><em>pytania</em></span></span>
+        <span class="split-line"><span class="split-line-inner" style="transition-delay:.08s">Zarezerwuj</span></span>
+        <span class="split-line"><span class="split-line-inner" style="transition-delay:.18s"><em>swój termin</em></span></span>
       </h2>
-      <div class="faq-rule"></div>
+      <p class="fade-up d2">Bezpłatna konsultacja to pierwszy krok do Twojego wymarzonego dnia. Spotkamy się w naszym showroomie w Katowicach lub porozmawiamy przez telefon — jak wolisz.</p>
+      <ul class="booking-benefits fade-up d3">
+        <li>Bezpłatna konsultacja bez zobowiązań</li>
+        <li>Indywidualny projekt dekoracji dopasowany do Twojej wizji</li>
+        <li>Kompleksowa obsługa od projektu po realizację</li>
+        <li>Współpraca z najlepszymi fotografami i restauratorami w regionie</li>
+        <li>Gwarancja unikalności — nie powtarzamy dekoracji</li>
+      </ul>
+      <div class="booking-note fade-up d4">
+        <p><strong>Uwaga:</strong> Przyjmujemy ograniczoną liczbę zleceń tygodniowo, by zapewnić każdej Parze Młodej pełne zaangażowanie naszego zespołu. Zalecamy rezerwację z minimum 6-miesięcznym wyprzedzeniem.</p>
+      </div>
     </div>
-    <div class="faq-item">
-      <button class="faq-q"><span>Jak wcześnie należy rezerwować termin?</span><div class="faq-icon"></div></button>
-      <div class="faq-a"><p>Zalecamy rezerwację z minimum 6-miesięcznym wyprzedzeniem, a dla popularnych terminów (maj–wrzesień) nawet 12 miesięcy wcześniej. Przyjmujemy ograniczoną liczbę zleceń, by każdemu poświęcić pełne zaangażowanie.</p></div>
-    </div>
-    <div class="faq-item">
-      <button class="faq-q"><span>Czy obsługujecie śluby poza Śląskiem?</span><div class="faq-icon"></div></button>
-      <div class="faq-a"><p>Tak, pracujemy na terenie całej Polski. W przypadku uroczystości poza województwem śląskim doliczamy koszty dojazdu i noclegów, które wyceniamy indywidualnie podczas konsultacji.</p></div>
-    </div>
-    <div class="faq-item">
-      <button class="faq-q"><span>Jak wygląda pierwsza konsultacja?</span><div class="faq-icon"></div></button>
-      <div class="faq-a"><p>Pierwsze spotkanie jest bezpłatne i odbywa się w naszym biurze-showroom w Katowicach lub telefonicznie. Rozmawiamy o Waszej wizji, oglądamy inspiracje, omawiamy kolorystykę i styl. Konsultacja trwa zwykle 60–90 minut.</p></div>
-    </div>
-    <div class="faq-item">
-      <button class="faq-q"><span>Czy możemy zobaczyć dekoracje przed ślubem?</span><div class="faq-icon"></div></button>
-      <div class="faq-a"><p>W ramach pakietu VIP przygotowujemy próbną kompozycję. W pozostałych pakietach możemy zaprezentować próbki kwiatów i elementów dekoracyjnych podczas konsultacji.</p></div>
-    </div>
-    <div class="faq-item">
-      <button class="faq-q"><span>Czy powtarzacie te same dekoracje?</span><div class="faq-icon"></div></button>
-      <div class="faq-a"><p>Absolutnie nie. Każde wesele jest dla nas unikalne i niepowtarzalne. Tworzymy autorskie projekty uwzględniające indywidualny styl, charakter miejsca i życzenia Pary Młodej.</p></div>
+    <div class="booking-form-wrap fade-up d2">
+      <p class="form-title">Napisz do nas</p>
+      <p class="form-subtitle">Odpowiadamy w ciągu 24 godzin</p>
+      <div id="bookingForm">
+        <div class="form-row">
+          <div class="form-group"><label for="fname">Imię</label><input type="text" id="fname" placeholder="Anna"></div>
+          <div class="form-group"><label for="lname">Nazwisko</label><input type="text" id="lname" placeholder="Kowalska"></div>
+        </div>
+        <div class="form-group"><label for="email">Adres e-mail</label><input type="email" id="email" placeholder="anna@example.com"></div>
+        <div class="form-group"><label for="phone">Telefon</label><input type="tel" id="phone" placeholder="+48 000 000 000"></div>
+        <div class="form-row">
+          <div class="form-group"><label for="date">Planowana data</label><input type="date" id="date"></div>
+          <div class="form-group"><label for="service">Rodzaj usługi</label>
+            <select id="service"><option value="" disabled selected>Wybierz...</option><option>Dekoracje sal weselnych</option><option>Dekoracje kościołów</option><option>Ślub w plenerze</option><option>Bukiety ślubne</option><option>Ślub zagraniczny</option><option>Kompleksowa obsługa</option><option>Inne</option></select>
+          </div>
+        </div>
+        <div class="form-group"><label for="message">Twoja wizja</label><textarea id="message" placeholder="Opisz swoje oczekiwania, preferowaną kolorystykę, styl dekoracji, miejsce uroczystości..."></textarea></div>
+        <div class="form-check">
+          <input type="checkbox" id="consent">
+          <label for="consent">Wyrażam zgodę na przetwarzanie moich danych osobowych w celu odpowiedzi na zapytanie, zgodnie z Polityką Prywatności Angello.</label>
+        </div>
+        <button class="form-submit" id="formSubmit" type="button"><span>Wyślij zapytanie →</span></button>
+      </div>
+      <div class="form-success" id="formSuccess">
+        <div class="check-icon">✦</div>
+        <h4>Dziękujemy za wiadomość!</h4>
+        <p>Skontaktujemy się z Tobą w ciągu 24 godzin.<br>Do zobaczenia w Angello.</p>
+      </div>
     </div>
   </div>
 </section>
 
-<section class="cta-banner">
-  <div class="wrap observe-me">
-    <span class="cta-eyebrow"><span class="cta-eyebrow-inner">Terminy 2025 & 2026</span></span>
-    <p class="cta-title">
-      <span class="split-line"><span class="split-line-inner" style="transition-delay:.08s">Zacznij planować</span></span>
-      <span class="split-line"><span class="split-line-inner" style="transition-delay:.18s"><em>swój wymarzony dzień</em></span></span>
-    </p>
-    <p class="cta-body fade-up d3">Wolnych terminów ubywa. Skontaktuj się z nami i zarezerwuj bezpłatną konsultację — pierwsze spotkanie ani do niczego nie zobowiązuje.</p>
-    <div class="cta-btns fade-up d4">
-      <a href="kontakt.html" class="btn-warm"><span>Zarezerwuj termin →</span></a>
-      <a href="galeria.html" class="btn-ghost">Zobacz galerię</a>
+<section class="contact-section" id="kontakt">
+  <div class="contact-img observe-me"><div class="img-reveal"><img src="zdj35.jpeg" alt="Angello Florystyka Ślubna Katowice"></div></div>
+  <div class="contact-body observe-me">
+    <span class="eyebrow"><span class="eyebrow-inner">Kontakt</span></span>
+    <h2>
+      <span class="split-line"><span class="split-line-inner" style="transition-delay:.08s">Porozmawiajmy</span></span>
+      <span class="split-line"><span class="split-line-inner" style="transition-delay:.18s"><em>o Twoim weselu</em></span></span>
+    </h2>
+    <p class="fade-up d2">Oferujemy bezpłatne i niezobowiązujące konsultacje. Działamy na terenie całego kraju i za granicą.</p>
+    <div class="cinfo">
+      <div class="cinfo-row" style="transition-delay:.1s"><div class="cinfo-icon">✦</div><div><span class="cinfo-lbl">Dyplomowany Specjalista</span><div class="cinfo-val">Angelika Ordon · Florystyka Ślubna</div></div></div>
+      <div class="cinfo-row" style="transition-delay:.2s"><div class="cinfo-icon">☏</div><div><span class="cinfo-lbl">Telefon</span><div class="cinfo-val"><a href="tel:+48793032332">+48 793 032 332</a></div></div></div>
+      <div class="cinfo-row" style="transition-delay:.3s"><div class="cinfo-icon">✉</div><div><span class="cinfo-lbl">Email</span><div class="cinfo-val"><a href="mailto:biuro@angello.com.pl">biuro@angello.com.pl</a></div></div></div>
+      <div class="cinfo-row" style="transition-delay:.4s"><div class="cinfo-icon">◎</div><div><span class="cinfo-lbl">Showroom</span><div class="cinfo-val">Olimpijska 9a/197 · Katowice</div></div></div>
     </div>
+    <div class="fade-up d4"><a href="tel:+48793032332" class="btn-dark"><span>Zadzwoń teraz →</span></a></div>
   </div>
 </section>
 
@@ -335,18 +532,18 @@
   <div class="footer-inner">
     <div class="footer-brand">
       <a href="index.html" class="footer-logo">Angello<small>Florystyka Ślubna</small></a>
-      <p>Florystyka ślubna w Katowicach. Kwiatami wyrażamy to, czego słowa nie potrafią powiedzieć. Od ponad 25 lat z pasją i bezkompromisową jakością.</p>
+      <p>Florystyka ślubna w Katowicach. Dyplomowany Specjalista Florystyki Ślubnej — Angelika Ordon. Od ponad 25 lat z pasją i bezkompromisową jakością.</p>
     </div>
     <div class="footer-col">
       <h4>Nawigacja</h4>
       <ul><li><a href="index.html">Strona główna</a></li><li><a href="galeria.html">Galeria</a></li><li><a href="wesela.html">Śluby & Wesela</a></li><li><a href="oferta.html">Oferta</a></li><li><a href="kontakt.html">Kontakt</a></li></ul>
     </div>
     <div class="footer-col">
-      <h4>Usługi ślubne</h4>
-      <ul><li><a href="o-nas.html">O nas</a></li><li><a href="dekoracje-sal.html">Dekoracje sal</a></li><li><a href="dekoracje-kosciolow.html">Dekoracje kościołów</a></li><li><a href="slub-w-plenerze.html">Ślub w plenerze</a></li><li><a href="bukiety-slubne.html">Bukiety ślubne</a></li><li><a href="sluby-zagraniczne.html">Śluby zagraniczne</a></li></ul>
+      <h4>Specjalizacje</h4>
+      <ul><li><a href="dekoracje-sal.html">Dekoracje sal</a></li><li><a href="dekoracje-kosciolow.html">Dekoracje kościołów</a></li><li><a href="slub-w-plenerze.html">Ślub w plenerze</a></li><li><a href="bukiety-slubne.html">Bukiety ślubne</a></li><li><a href="sluby-zagraniczne.html">Śluby zagraniczne</a></li></ul>
     </div>
     <div class="footer-bottom">
-      <p>© 2026 Angello · Katowice · Olimpijska 9a/197 · Stowarzyszenie Florystów Polskich</p>
+      <p>© 2026 Angello · Olimpijska 9a/197, Katowice · Stowarzyszenie Florystów Polskich · Nr konta: 24 2490 0005 0000 4500 9569 5393</p>
       <div class="awards"><div class="award">Mistrz Ślubno-Weselny</div><div class="award">Dyplomowany Specjalista Florystyki</div></div>
     </div>
   </div>
@@ -354,18 +551,50 @@
 
 <script>
 (function(){
-window.addEventListener('load',function(){var h=document.querySelector('.hero-content');if(h)h.classList.add('hero-loaded')});
-var heroBg=document.querySelector('.hero-bg');var ticking=false;
-window.addEventListener('scroll',function(){if(!ticking){requestAnimationFrame(function(){var y=window.scrollY;if(heroBg&&y<window.innerHeight)heroBg.style.transform='translateY('+y*.36+'px)';ticking=false});ticking=true}});
+window.addEventListener('load',function(){document.querySelector('.hero-content').classList.add('hero-loaded')});
+
+var slides=document.querySelectorAll('.hero-slide');
+var dots=document.querySelectorAll('.hero-dot');
+var currentSlide=0;
+var sliderInterval;
+function goToSlide(n){
+  slides[currentSlide].classList.remove('active');
+  dots[currentSlide].classList.remove('active');
+  currentSlide=n;
+  slides[currentSlide].classList.add('active');
+  dots[currentSlide].classList.add('active');
+}
+function nextSlide(){goToSlide((currentSlide+1)%slides.length)}
+dots.forEach(function(dot,i){dot.addEventListener('click',function(){clearInterval(sliderInterval);goToSlide(i);sliderInterval=setInterval(nextSlide,5000)})});
+sliderInterval=setInterval(nextSlide,5000);
+
+var heroSlides=document.getElementById('heroSlides');var ticking=false;
+window.addEventListener('scroll',function(){if(!ticking){requestAnimationFrame(function(){var y=window.scrollY;if(heroSlides&&y<window.innerHeight)heroSlides.style.transform='translateY('+y*.36+'px)';ticking=false});ticking=true}});
+
 var nav=document.getElementById('nav');var lastScroll=0;
 window.addEventListener('scroll',function(){var y=window.scrollY;nav.classList.toggle('scrolled',y>40);if(y>lastScroll&&y>120)nav.classList.add('hide');else nav.classList.remove('hide');lastScroll=y});
 var ham=document.getElementById('ham'),mob=document.getElementById('mobMenu');
 ham.addEventListener('click',function(){var o=mob.classList.toggle('open');ham.classList.toggle('open',o);document.body.style.overflow=o?'hidden':''});
 document.querySelectorAll('.ml').forEach(function(l){l.addEventListener('click',function(){mob.classList.remove('open');ham.classList.remove('open');document.body.style.overflow=''})});
+
+var indicator=document.getElementById('tabIndicator');
+function moveIndicator(btn){if(!indicator||!btn)return;var nR=btn.closest('.tabs-nav').getBoundingClientRect(),bR=btn.getBoundingClientRect();indicator.style.left=(bR.left-nR.left)+'px';indicator.style.width=bR.width+'px'}
+document.querySelectorAll('.tab-btn').forEach(function(btn){btn.addEventListener('click',function(){document.querySelectorAll('.tab-btn').forEach(function(b){b.classList.remove('active')});document.querySelectorAll('.tab-panel').forEach(function(p){p.classList.remove('active');p.style.display='none'});btn.classList.add('active');moveIndicator(btn);var panel=document.getElementById('tab-'+btn.dataset.tab);panel.style.display='';panel.classList.add('active');animateList(panel)})});
+setTimeout(function(){moveIndicator(document.querySelector('.tab-btn.active'));animateList(document.querySelector('.tab-panel.active'))},200);
+window.addEventListener('resize',function(){moveIndicator(document.querySelector('.tab-btn.active'))});
+function animateList(panel){if(!panel)return;var items=panel.querySelectorAll('.svc-list ul li');items.forEach(function(li){li.classList.remove('li-visible')});items.forEach(function(li,i){setTimeout(function(){li.classList.add('li-visible')},i*40+100)})}
+
 var obsMain=new IntersectionObserver(function(e){e.forEach(function(x){if(x.isIntersecting){x.target.classList.add('in-view');obsMain.unobserve(x.target)}})},{threshold:0.08});
 document.querySelectorAll('.observe-me').forEach(function(el){obsMain.observe(el)});
-document.querySelectorAll('.fade-up').forEach(function(el){var parent=el.closest('.observe-me');if(!parent){obsMain.observe(el)}});
-document.querySelectorAll('.faq-q').forEach(function(btn){btn.addEventListener('click',function(){var item=btn.parentElement;var isOpen=item.classList.contains('open');document.querySelectorAll('.faq-item').forEach(function(i){i.classList.remove('open')});if(!isOpen)item.classList.add('open')})});
+var obsSolo=new IntersectionObserver(function(e){e.forEach(function(x){if(x.isIntersecting){x.target.classList.add('in-view');obsSolo.unobserve(x.target)}})},{threshold:0.18});
+document.querySelectorAll('.observe-me-solo').forEach(function(el){obsSolo.observe(el)});
+var obsFade=new IntersectionObserver(function(e){e.forEach(function(x){if(x.isIntersecting){x.target.classList.add('in-view');obsFade.unobserve(x.target)}})},{threshold:0.08});
+document.querySelectorAll('.fade-up').forEach(function(el){if(!el.closest('.observe-me'))obsFade.observe(el)});
+var obsMosaic=new IntersectionObserver(function(e){e.forEach(function(x){if(x.isIntersecting){document.querySelectorAll('.mi').forEach(function(m,i){setTimeout(function(){m.classList.add('mi-visible')},i*90)});obsMosaic.unobserve(x.target)}})},{threshold:0.04});
+var mosaicEl=document.querySelector('.mosaic');if(mosaicEl)obsMosaic.observe(mosaicEl);
+var obsContact=new IntersectionObserver(function(e){e.forEach(function(x){if(x.isIntersecting){x.target.querySelectorAll('.cinfo-row').forEach(function(r){var d=parseFloat(r.style.transitionDelay||'0')*1000;setTimeout(function(){r.classList.add('ci-visible')},d)});obsContact.unobserve(x.target)}})},{threshold:0.08});
+var cb=document.querySelector('.contact-body');if(cb)obsContact.observe(cb);
+document.getElementById('formSubmit').addEventListener('click',function(){var f=document.getElementById('fname').value.trim(),em=document.getElementById('email').value.trim(),c=document.getElementById('consent').checked;if(!f||!em||!c){var miss=[];if(!f)miss.push('imię');if(!em)miss.push('e-mail');if(!c)miss.push('zgodę na przetwarzanie danych');alert('Prosimy uzupełnić: '+miss.join(', ')+'.');return}document.getElementById('bookingForm').style.display='none';document.getElementById('formSuccess').style.display='block'});
 })();
 </script>
 </body>
