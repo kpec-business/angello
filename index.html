@@ -8,6 +8,7 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Cormorant:ital,wght@0,300;0,400;0,600;1,300;1,400;1,600&family=Jost:ital,wght@0,300;0,400;0,500;1,300&family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="style.css">
+<link rel="preload" as="image" href="zdj39.jpeg">
 <style>
 .hero-slides{position:absolute;inset:0;will-change:transform}
 .hero-slide{position:absolute;inset:0;background-size:cover;background-position:center;opacity:0;transition:opacity 1.6s ease}
@@ -149,6 +150,8 @@
   .booking-form-wrap{padding:28px 20px}
   .hero-dots{right:20px;bottom:28px}
 }
+.cat-tile-left{background-position:left center}
+@media(max-width:540px){.cat-tile-left{background-position:center}}
 </style>
 </head>
 <body>
@@ -240,7 +243,7 @@
     <p class="fade-up d3" style="font-family:'Jost',sans-serif;font-size:.88rem;color:var(--text-mid);font-weight:300;line-height:2;max-width:560px;margin:0 auto">Każda para, każda ceremonia, każde miejsce — tworzymy dekoracje dopasowane do Waszej historii.</p>
   </div>
   <div class="cat-grid">
-    <a class="cat-tile" href="o-nas.html" style="background-image:url('zdj33.jpeg')">
+    <a class="cat-tile cat-tile-left" href="o-nas.html" style="background-image:url('o-nas.jpg')">
       <div class="cat-tile-overlay"></div>
       <div class="cat-tile-content">
         <span class="cat-tile-num">01</span>
@@ -323,7 +326,7 @@
         <p>Współpracujemy z najlepszymi fotografami, restauratorami i salonami ślubnymi w regionie. Działamy na terenie całej Polski i za granicą.</p>
         <div class="svc-list"><h4>Dlaczego Angello</h4><ul><li>25 lat doświadczenia</li><li>Dyplomowany Specjalista Florystyki</li><li>Każda dekoracja unikalna</li><li>Ograniczona liczba zleceń</li><li>Bezpłatna konsultacja</li><li>Obsługa w całej Polsce</li><li>Śluby zagraniczne</li><li>Partnerstwo z salami</li></ul></div>
       </div>
-      <div class="tp-img"><img src="zdj39.jpeg" alt="Angello Florystyka Ślubna Katowice"></div>
+      <div class="tp-img"><img src="zdj41.jpeg" alt="Angello Florystyka Ślubna Katowice" decoding="async"></div>
     </div>
     <div class="tab-panel" id="tab-dekoracje-sal">
       <div class="tp-text">
@@ -332,7 +335,7 @@
         <p>Współpracujemy z Rezydencją, kompleksem Romeo Julia Wenecja Werona oraz Mariną. Znamy specyfikę każdej sali i wiemy, jak wydobyć z niej to, co najpiękniejsze.</p>
         <div class="svc-list"><h4>Wykonujemy między innymi</h4><ul><li>Dekoracja stołu głównego</li><li>Centerpiece na stoły gości</li><li>Wejście i foyer</li><li>Altana lub łuk kwiatowy</li><li>Lustra na stoły ø 180 cm</li><li>Strefa chillout</li><li>Winietarz Żyrafa</li><li>Świeczniki ośmioramienne</li></ul></div>
       </div>
-      <div class="tp-img"><img src="zdj40.jpeg" alt="Dekoracje sal weselnych"></div>
+      <div class="tp-img"><img src="zdj40.jpeg" alt="Dekoracje sal weselnych" loading="lazy" decoding="async"></div>
     </div>
     <div class="tab-panel" id="tab-kosciol">
       <div class="tp-text">
@@ -341,7 +344,7 @@
         <p>Dekoracje kościelne są dopasowane do motywu przewodniego całego wesela, tworząc spójną opowieść od ceremonii po bankiet.</p>
         <div class="svc-list"><h4>Wykonujemy między innymi</h4><ul><li>Kompozycje przy ołtarzu</li><li>Bukiety ławkowe</li><li>Wiązki dekoracyjne</li><li>Droga kwiatowa</li><li>Dekoracja wejścia</li><li>Świeczniki przy ołtarzu</li><li>Girlandy kwiatowe</li><li>Dekoracja sali USC</li></ul></div>
       </div>
-      <div class="tp-img"><img src="zdj37.jpg" alt="Dekoracje kościołów"></div>
+      <div class="tp-img"><img src="zdj37.jpg" alt="Dekoracje kościołów" loading="lazy" decoding="async"></div>
     </div>
     <div class="tab-panel" id="tab-plener">
       <div class="tp-text">
@@ -350,7 +353,7 @@
         <p>Doświadczenie w dekorowaniu plenerów, parków, winnic, ogrodów i tarasów. Każda realizacja jest dostosowana do warunków i charakteru miejsca.</p>
         <div class="svc-list"><h4>Wykonujemy między innymi</h4><ul><li>Altany do zaślubin</li><li>Łuki kwiatowe</li><li>Chodnik kwiatowy</li><li>Dekoracje drzew</li><li>Naturalne kompozycje</li><li>Świece i latarnie</li><li>Girlandy świetlne</li><li>Bukiety trawnikowe</li></ul></div>
       </div>
-      <div class="tp-img"><img src="zdj30.jpeg" alt="Ślub w plenerze"></div>
+      <div class="tp-img"><img src="zdj30.jpeg" alt="Ślub w plenerze" loading="lazy" decoding="async"></div>
     </div>
     <div class="tab-panel" id="tab-bukiety">
       <div class="tp-text">
@@ -359,7 +362,7 @@
         <p>Tworzymy kompletną florystykę osobistą dla Pary Młodej i całej rodziny — od wiązanki po biżuterię floralną.</p>
         <div class="svc-list"><h4>Wykonujemy między innymi</h4><ul><li>Wiązanka ślubna</li><li>Butonierka dla Pana Młodego</li><li>Biżuteria floralna</li><li>Wianek do włosów</li><li>Poduszka na obrączki</li><li>Kosz z płatkami</li><li>Przypinki dla rodziców</li><li>Podziękowania floralne</li></ul></div>
       </div>
-      <div class="tp-img"><img src="zdj42.jpeg" alt="Bukiety ślubne"></div>
+      <div class="tp-img"><img src="zdj42.jpeg" alt="Bukiety ślubne" loading="lazy" decoding="async"></div>
     </div>
     <div class="tab-panel" id="tab-zagraniczne">
       <div class="tp-text">
@@ -368,7 +371,7 @@
         <p>Śluby zagraniczne to nasza rosnąca specjalizacja. Pracujemy z lokalnymi dostawcami kwiatów, zapewniając świeżość i jakość niezależnie od lokalizacji.</p>
         <div class="svc-list"><h4>Wykonujemy między innymi</h4><ul><li>Wiązanka i florystyka osobista</li><li>Dekoracja ceremonii</li><li>Dekoracja sali bankietowej</li><li>Koordynacja na miejscu</li><li>Altana lub łuk plenerowy</li><li>Kompozycje stołowe</li><li>Lokalni dostawcy kwiatów</li><li>Transport dekoracji</li></ul></div>
       </div>
-      <div class="tp-img"><img src="zdj36.jpeg" alt="Śluby zagraniczne"></div>
+      <div class="tp-img"><img src="zdj36.jpeg" alt="Śluby zagraniczne" loading="lazy" decoding="async"></div>
     </div>
   </div>
 </section>
@@ -385,12 +388,12 @@
     </div>
   </div>
   <div class="mosaic">
-    <div class="mi mi1"><div class="mi-img"><img src="zdj39.jpeg" alt="Realizacja"></div><div class="mi-lbl">Dekoracje Sali</div></div>
-    <div class="mi mi2"><div class="mi-img"><img src="zdj42.jpeg" alt="Realizacja"></div><div class="mi-lbl">Bukiet Ślubny</div></div>
-    <div class="mi mi3"><div class="mi-img"><img src="zdj37.jpg" alt="Realizacja"></div><div class="mi-lbl">Dekoracje Kościoła</div></div>
-    <div class="mi mi4"><div class="mi-img"><img src="zdj36.jpeg" alt="Realizacja"></div><div class="mi-lbl">Ślub w Plenerze</div></div>
-    <div class="mi mi5"><div class="mi-img"><img src="zdj40.jpeg" alt="Realizacja"></div><div class="mi-lbl">Dekoracje Sali · Namiot</div></div>
-    <div class="mi mi6"><div class="mi-img"><img src="zdj33.jpeg" alt="Realizacja"></div><div class="mi-lbl">Ceremonia Plenerowa</div></div>
+    <div class="mi mi1"><div class="mi-img"><img src="zdj39.jpeg" alt="Realizacja" loading="lazy" decoding="async"></div><div class="mi-lbl">Dekoracje Sali</div></div>
+    <div class="mi mi2"><div class="mi-img"><img src="zdj42.jpeg" alt="Realizacja" loading="lazy" decoding="async"></div><div class="mi-lbl">Bukiet Ślubny</div></div>
+    <div class="mi mi3"><div class="mi-img"><img src="zdj37.jpg" alt="Realizacja" loading="lazy" decoding="async"></div><div class="mi-lbl">Dekoracje Kościoła</div></div>
+    <div class="mi mi4"><div class="mi-img"><img src="zdj36.jpeg" alt="Realizacja" loading="lazy" decoding="async"></div><div class="mi-lbl">Ślub w Plenerze</div></div>
+    <div class="mi mi5"><div class="mi-img"><img src="zdj40.jpeg" alt="Realizacja" loading="lazy" decoding="async"></div><div class="mi-lbl">Dekoracje Sali · Namiot</div></div>
+    <div class="mi mi6"><div class="mi-img"><img src="zdj33.jpeg" alt="Realizacja" loading="lazy" decoding="async"></div><div class="mi-lbl">Ceremonia Plenerowa</div></div>
   </div>
   <div class="gallery-cta fade-up"><a href="galeria.html" class="btn-outline-dark">Zobacz całą galerię →</a></div>
 </section>
@@ -510,7 +513,7 @@
 </section>
 
 <section class="contact-section" id="kontakt">
-  <div class="contact-img observe-me"><div class="img-reveal"><img src="zdj35.jpeg" alt="Angello Florystyka Ślubna Katowice"></div></div>
+  <div class="contact-img observe-me"><div class="img-reveal"><img src="zdj35.jpeg" alt="Angello Florystyka Ślubna Katowice" loading="lazy" decoding="async"></div></div>
   <div class="contact-body observe-me">
     <span class="eyebrow"><span class="eyebrow-inner">Kontakt</span></span>
     <h2>
